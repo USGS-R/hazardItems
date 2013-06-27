@@ -1,6 +1,6 @@
 getLocationString = function(sourceContent,size='medium'){
 	
-	locationNames <- names(locationSynonyms[size])
+	locationNames <- names(locationSynonyms[[size]])
 	useI	<-	vector(length = length(locationNames))
 
 	for (i in 1:length(locationSynonyms[[size]])){
