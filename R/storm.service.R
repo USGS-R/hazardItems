@@ -7,7 +7,7 @@ storm.service = function(serviceEndpoint,attribute){
 	doc <- xmlInternalTreeParse(serviceEndpoint)
 
 	title <- xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
-
+	abstract	<-	xmlValue(getNodeSet(doc,'//descript/abstract')[[1]])
 	dataSrc <-  sapply(getNodeSet(doc,'//dataqual/lineage/srcinfo/srccite/citeinfo/title'),xmlValue)
 	sourceContent <-  paste(dataSrc,collapse='|')
 	
@@ -28,9 +28,21 @@ storm.service = function(serviceEndpoint,attribute){
 	
 	location	<-	getLocationString(overview,size='tiny')
 	tiny.text	<-	paste(c(titleMap[['tiny']][[baseType]],', CAT',stormNum,' storm in ',location),collapse='')
+	
+	full.title	<-	paste(c('The Category ',stormNum,' ',titleMap[['full']][[baseType]],' element of ',title),collapse='')
+	full.text	<-	sub('\n','',paste(c(abstract),collapse=''))
+	
+	linkedPubs	<-	sapply(getNodeSet(doc,'//srcinfo/srccite/citeinfo/onlink'),xmlValue)
+	linkedTitles	<-	sapply(getNodeSet(doc,'//srcinfo/srccite/citeinfo/onlink/preceding-sibling::node()[1]'),xmlValue)	
+	full.publications	<- list()
+	for (i in 1:length(linkedPubs)){
+		full.publications[linkedTitles[i]]	<- linkedPubs[i]
+	}
+	names(full.publications)	<- linkedTitles
+	
 	summaryJSON	<- toJSON(list('summary'=list(
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.summary),
-		'full'=list('title'='XXX','text'='XXX','publications'='XXX'))), method="C" )
+		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications))), method="C" )
 	return(summaryJSON)
 }
