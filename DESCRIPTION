@@ -17,6 +17,7 @@ Collate:
 	'vulnerability.service.R'
 	'historical.service.R'
 	'getSourceString.R'
+	'getLocationString.R'
 Depends:
     R (>= 2.15.0)
 Imports:
