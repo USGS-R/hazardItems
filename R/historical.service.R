@@ -49,10 +49,10 @@ historical.service = function(serviceEndpoint,attribute){
 			link=xmlValue(onlinks[[i]]))
 		full.publications[[i]]	<-	newPub
 	}
-	vectorTry = c(list(a=1),list(a=12),list(a=4))
-	summaryJSON	<- toJSON(list('summary'=list(
+
+	summaryJSON	<- toJSON(list(
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.summary),
-		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications))), method="C" )
+		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications)), method="C" )
 	return(summaryJSON)
 }
