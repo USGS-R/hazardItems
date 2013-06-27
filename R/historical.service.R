@@ -37,7 +37,7 @@ historical.service = function(serviceEndpoint,attribute){
 	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],'for shorelines in',location),collapse=' ')
 	
 	full.title	<-	paste(c('The',titleMap[['full']][[subType]],'element of',datasetTitle),collapse=' ')
-	full.text	<-	sub('\n','',paste(c(purpose[[1]]),collapse='. '))
+	full.text	<-	sub('\\n\\n','',sub('\n','',paste(c(purpose[[1]]),collapse='. ')))
 	
 	linkedPubs	<-	sapply(getNodeSet(doc,'//srcinfo/srccite/citeinfo/onlink'),xmlValue)
 	linkedTitles	<-	sapply(getNodeSet(doc,'//citeinfo/onlink/parent::node()/title[1]') ,xmlValue)	
