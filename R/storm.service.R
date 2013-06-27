@@ -20,10 +20,15 @@ storm.service = function(serviceEndpoint,attribute){
 	                  stormNum,'hurricane'),collapse=' ')
 	sourceString	<-	getSourceString(sourceContent)
 	
-	medium.summary <- paste(c(overview,attrDefinition,processDetail,sourceString),collapse='. ')
+	medium.summary	<-	paste(c(overview,attrDefinition,processDetail,sourceString),collapse='. ')
+	
+	# create medium title for storm item
+	location	<-	getLocationString(overview)
+	medium.title	<-	paste(c(titleMap[baseType],'during a category',stormNum,'storm in',location))
+	
 	summaryJSON	<- toJSON(list('summary'=list(
 		'tiny'=list('text'='xxx'),
-		'medium'=list('title'='XXX','text'=medium.summary),
+		'medium'=list('title'=medium.title,'text'=medium.summary),
 		'full'=list('title'='XXX','text'='XXX','publications'='XXX'))), method="C" )
 	return(summaryJSON)
 }
