@@ -22,6 +22,13 @@ Jordan S. Read
 \code{vulnerability.service}
 }
 
+\examples{
+	serviceEndpoint	<-	'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+	attribute	<-	'PCOL3'
+	summary	<-	storm.service(serviceEndpoint,attribute)
+	print(summary)
+
+}
 
 \keyword{coastal}
 \keyword{hazards}

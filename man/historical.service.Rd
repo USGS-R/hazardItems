@@ -22,6 +22,13 @@ Jordan S. Read
 \code{vulnerability.service}
 }
 
+\examples{
+	serviceEndpoint	<-	'/Users/jread/Documents/R/coastal-hazards/coastal-hazards-wps/target/test-classes/gov/usgs/cida/coastalhazards/jersey/NewJerseyN_shorelines.shp.xml'
+	attribute	<-	'date'
+	summary	<-	historical.service(serviceEndpoint,attribute)
+	print(summary)
+
+}
 
 \keyword{coastal}
 \keyword{hazards}
