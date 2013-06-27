@@ -27,10 +27,17 @@ historical.service = function(serviceEndpoint,attribute){
 	}
 
 	
-	medium.summary <- paste(c(overview,processDetail,sourceString),collapse='. ')
+	medium.summary	<-	paste(c(overview,processDetail,sourceString),collapse='. ')
+	
+	location	<-	getLocationString(overview) # default call is to medium service
+	medium.title	<-	paste(c(titleMap[['medium']][[subType]],'of shorelines in',location),collapse=' ')
+	
+	location	<-	getLocationString(overview,size='tiny')
+	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],'of shorelines in',location),collapse=' ')
+	
 	summaryJSON	<- toJSON(list('summary'=list(
-		'tiny'=list('text'='xxx'),
-		'medium'=list('title'='XXX','text'=medium.summary),
+		'tiny'=list('text'=tiny.text),
+		'medium'=list('title'=medium.title,'text'=medium.summary),
 		'full'=list('title'='XXX','text'='XXX','publications'='XXX'))), method="C" )
 	return(summaryJSON)
 }
