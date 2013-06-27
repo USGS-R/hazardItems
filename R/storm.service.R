@@ -32,11 +32,15 @@ storm.service = function(serviceEndpoint,attribute){
 	full.title	<-	paste(c('The Category ',stormNum,' ',titleMap[['full']][[baseType]],' element of ',title),collapse='')
 	full.text	<-	sub('\n','',paste(c(abstract),collapse=''))
 	
-	linkedPubs	<-	sapply(getNodeSet(doc,'//citeinfo/onlink'),xmlValue)
-	linkedTitles	<-	sapply(getNodeSet(doc,'//citeinfo/onlink/parent::node()/title[1]'),xmlValue)	
+	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
 	full.publications	<- list()
-	for (i in 1:length(linkedPubs)){
-		full.publications[linkedTitles[i]]	<- linkedPubs[i]
+	names	<-	NULL
+	for (i in 1:length(onlinks)){
+		parentNode	<-	getNodeSet(onlinks[[i]],'parent::node()')
+		names	<- c(names,xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]))
+		newPub	<-	list(title=xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]),
+			link=xmlValue(onlinks[[i]]))
+		full.publications[[i]]	<-	newPub
 	}
 	
 	summaryJSON	<- toJSON(list('summary'=list(

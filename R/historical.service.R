@@ -39,13 +39,17 @@ historical.service = function(serviceEndpoint,attribute){
 	full.title	<-	paste(c('The',titleMap[['full']][[subType]],'element of',datasetTitle),collapse=' ')
 	full.text	<-	sub('\\n\\n','',sub('\n','',paste(c(purpose[[1]]),collapse='. ')))
 	
-	linkedPubs	<-	sapply(getNodeSet(doc,'//srcinfo/srccite/citeinfo/onlink'),xmlValue)
-	linkedTitles	<-	sapply(getNodeSet(doc,'//citeinfo/onlink/parent::node()/title[1]') ,xmlValue)	
+	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
 	full.publications	<- list()
-	for (i in 1:length(linkedPubs)){
-		full.publications[linkedTitles[i]]	<- linkedPubs[i]
+	names	<-	NULL
+	for (i in 1:length(onlinks)){
+		parentNode	<-	getNodeSet(onlinks[[i]],'parent::node()')
+		names	<- c(names,xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]))
+		newPub	<-	list(title=xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]),
+			link=xmlValue(onlinks[[i]]))
+		full.publications[[i]]	<-	newPub
 	}
-
+	vectorTry = c(list(a=1),list(a=12),list(a=4))
 	summaryJSON	<- toJSON(list('summary'=list(
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.summary),
