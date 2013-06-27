@@ -33,7 +33,7 @@ historical.service = function(serviceEndpoint,attribute){
 	medium.title	<-	paste(c(titleMap[['medium']][[subType]],'of shorelines in',location),collapse=' ')
 	
 	location	<-	getLocationString(overview,size='tiny')
-	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],'of shorelines in',location),collapse=' ')
+	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],'for shorelines in',location),collapse=' ')
 	
 	summaryJSON	<- toJSON(list('summary'=list(
 		'tiny'=list('text'=tiny.text),
