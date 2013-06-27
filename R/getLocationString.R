@@ -5,12 +5,11 @@ getLocationString = function(sourceContent,size='medium'){
 
 	for (i in 1:length(locationSynonyms[[size]])){
 	  for (k in 1:length(locationSynonyms[[size]][[i]])){
-	    if (grepl(as.character(locationSynonyms[[size]][[i]][k]),sourceContent)){
-			locationString	<-	locationNames[i] 
-			break
+	    if (grepl(as.character(locationSynonyms[[size]][[i]][k]),sourceContent,ignore.case = TRUE)){
+			useI[i]	<-	TRUE
 	    }
 	  }
 	}
-	
+	locationString	<- locationNames[useI]
 	return(locationString)
 }
