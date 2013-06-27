@@ -16,6 +16,7 @@ Collate:
     'storm.service.R'
 	'vulnerability.service.R'
 	'historical.service.R'
+	'getSourceString.R'
 Depends:
     R (>= 2.15.0)
 Imports:
