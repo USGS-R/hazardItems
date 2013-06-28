@@ -1,4 +1,4 @@
-getLocationString = function(sourceContent,size='medium'){
+getLocationString = function(sourceContent,size='medium',singleVal=FALSE){
 	
 	locationNames <- names(locationSynonyms[[size]])
 	useI	<-	vector(length = length(locationNames))
@@ -7,6 +7,7 @@ getLocationString = function(sourceContent,size='medium'){
 	  for (k in 1:length(locationSynonyms[[size]][[i]])){
 	    if (grepl(as.character(locationSynonyms[[size]][[i]][k]),sourceContent,ignore.case = TRUE)){
 			useI[i]	<-	TRUE
+			if (singleVal){return(locationNames[i])}
 	    }
 	  }
 	}
