@@ -1,7 +1,7 @@
 Package: itemSummaryService
 Type: Package
 Title: itemSummaryService
-Version: 0.0.4
+Version: 0.0.6
 Date: 2013-06-25
 Author: Jordan S Read
 Maintainer: Jordan S Read <jread@usgs.gov>
