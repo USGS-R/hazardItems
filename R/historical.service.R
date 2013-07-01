@@ -8,11 +8,11 @@ historical.service = function(serviceEndpoint,attribute){
 	
 	datasetTitle	<-	xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
 	purpose <- strsplit(xmlValue(getNodeSet(doc,'//descript/purpose')[[1]]),'.  ') # purpose in text form
-	sourceContent	<- purpose[[1]][2]
+	#sourceContent	<- purpose[[1]][2]
 	
 	overview	<-	purpose[[1]][1]
 	processDetail	<-	NULL
-	sourceString	<-	getSourceString(sourceContent)
+	sourceString	<-	getSourceString(sourceContent=purpose[[1]][2])
 	
 	if (subType!='date'){ # additional line and details needed
 	  # get process source (could be DSASweb in the future) and version***
