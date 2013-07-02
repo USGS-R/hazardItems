@@ -1,6 +1,6 @@
 
 storm.service = function(serviceEndpoint,attribute){
-	subType	<-	attribute
+	subType	<-	tolower(attribute)
 
 	subTypeDataSrc <- names(sourceSynonyms)
 
