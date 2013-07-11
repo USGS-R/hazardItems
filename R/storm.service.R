@@ -10,19 +10,32 @@ storm.service = function(serviceEndpoint,attribute){
 	abstract	<-	xmlValue(getNodeSet(doc,'//descript/abstract')[[1]])
 	dataSrc <-  sapply(getNodeSet(doc,'//dataqual/lineage/srcinfo/srccite/citeinfo/title'),xmlValue)
 	sourceContent <-  paste(dataSrc,collapse='|')
+	overview <-  paste(c('This datasets includes an element of ', title),collapse='')
 	
 	is.generic	<-	FALSE
-	if (!is.na(as.numeric(substr(subType,nchar(subType),nchar(subType))))){
+	if (!is.na(suppressWarnings(as.numeric(substr(subType,nchar(subType),nchar(subType)))))){
 		is.generic	<-	TRUE
-		stormNum	<- substring(subType,5)
+		stormNum	<-	substring(subType,5)
 		subType	<-		substring(subType,1,4)
 		processDetail <- paste(c('These probabilities apply to a generic representation of a category',
 		                  stormNum,'hurricane'),collapse=' ')
+		tinyDesc	<-	paste(c(' CAT',stormNum,' storm'),collapse='')
+		medDesc	<-	paste(c('during a category',stormNum,'storm in'),collapse=' ')
+		fullDesc	<-	paste(c('The Category ',stormNum,' '),collapse='')
+		locationHld	<-	overview
+		
+	} else {
+		processDetail <- paste(c('Placeholder text YYYYY'),collapse=' ')
+		
+		fullDesc	<-	'The '
+		tinyDesc	<-	paste(c(',',strsplit(title,' ')[[1]][1:2]),collapse=' ')
+		medDesc	<-	paste(c('during',strsplit(title,' ')[[1]][1:2],'in'),collapse=' ')
+		locationHld	<-	sapply(getNodeSet(doc,'/metadata/idinfo/descript/abstract'),xmlValue)
 	}
 
 	
 
-	overview <-  paste(c('This datasets includes an element of ', title),collapse='')
+	
 	attrDefinition  <- attrDefinitions[subType]
 	
 	sourceString	<-	getSourceString(sourceContent)
@@ -30,13 +43,14 @@ storm.service = function(serviceEndpoint,attribute){
 	medium.summary	<-	paste(c(overview,attrDefinition,processDetail,sourceString),collapse='. ')
 	
 	# create medium title for storm item
-	location	<-	getLocationString(overview) # default call is to medium service
-	medium.title	<-	paste(c(titleMap[['medium']][[subType]],'during a category',stormNum,'storm in',location),collapse=' ')
+	location	<-	getLocationString(locationHld) # default call is to medium service
+	medium.title	<-	paste(c(titleMap[['medium']][[subType]],medDesc,location),collapse=' ')
+
 	
-	location	<-	getLocationString(overview,size='tiny')
-	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],', CAT',stormNum,' storm in ',location),collapse='')
+	location	<-	getLocationString(locationHld,size='tiny')
+	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],tinyDesc,' in ',location),collapse='')
 	
-	full.title	<-	paste(c('The Category ',stormNum,' ',titleMap[['full']][[subType]],' element of ',title),collapse='')
+	full.title	<-	paste(c(fullDesc,titleMap[['full']][[subType]],' element of ',title),collapse='')
 	full.text	<-	sub('\n','',paste(c(abstract),collapse=''))
 	
 	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
