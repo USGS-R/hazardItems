@@ -25,7 +25,7 @@ storm.service = function(serviceEndpoint,attribute){
 		locationHld	<-	overview
 		
 	} else {
-		processDetail <- NULL		
+		processDetail <- NULL
 		fullDesc	<-	'The '
 		tinyDesc	<-	paste(c(',',strsplit(title,' ')[[1]][1:2]),collapse=' ')
 		medDesc	<-	paste(c('during',strsplit(title,' ')[[1]][1:2],'in'),collapse=' ')
@@ -67,5 +67,6 @@ storm.service = function(serviceEndpoint,attribute){
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.summary),
 		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications)), method="C" )
+	summaryJSON	<-	sub('NULL. ','',summaryJSON)
 	return(summaryJSON)
 }
