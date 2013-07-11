@@ -12,5 +12,14 @@ getLocationString = function(locationContent,size='medium',singleVal=FALSE){
 	  }
 	}
 	locationString	<- locationNames[useI]
-	return(locationString)
+	lenS	<-	length(locationString)
+	if (lenS==2){
+		locationOut	<-	paste(locationString,collapse=' & ')
+	} 
+	else if (lenS>2){
+		locationOut	<-	paste(c(paste(locationString[1:(lenS-1)],collapse=', '),locationString[lenS]),collapse=' & ')
+	} else {locationOut	<-	locationString}
+	
+
+	return(locationOut)
 }
