@@ -25,8 +25,7 @@ storm.service = function(serviceEndpoint,attribute){
 		locationHld	<-	overview
 		
 	} else {
-		processDetail <- paste(c('Placeholder text YYYYY'),collapse=' ')
-		
+		processDetail <- NULL		
 		fullDesc	<-	'The '
 		tinyDesc	<-	paste(c(',',strsplit(title,' ')[[1]][1:2]),collapse=' ')
 		medDesc	<-	paste(c('during',strsplit(title,' ')[[1]][1:2],'in'),collapse=' ')
