@@ -15,8 +15,8 @@ storm.service = function(serviceEndpoint,attribute){
 	is.generic	<-	FALSE
 	if (!is.na(suppressWarnings(as.numeric(substr(subType,nchar(subType),nchar(subType)))))){
 		is.generic	<-	TRUE
-		stormNum	<-	substring(subType,5)
-		subType	<-		substring(subType,1,4)
+		stormNum	<-	substr(subType,nchar(subType),nchar(subType))
+		subType	<-		substring(subType,1,(nchar(subType)-1))
 		processDetail <- paste(c('These probabilities apply to a generic representation of a category',
 		                  stormNum,'hurricane'),collapse=' ')
 		tinyDesc	<-	paste(c(' CAT',stormNum,' storm'),collapse='')
