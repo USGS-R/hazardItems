@@ -63,10 +63,13 @@ storm.service = function(serviceEndpoint,attribute){
 		full.publications[[i]]	<-	newPub
 	}
 	
+	keywords	<-	getKeywords (doc,subType)
+	
 	summaryJSON	<- toJSON(list(
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.summary),
-		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications)), method="C" )
+		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications),
+		'keywords'=keywords), method="C" )
 	summaryJSON	<-	sub('NULL. ','',summaryJSON)
 	return(summaryJSON)
 }
