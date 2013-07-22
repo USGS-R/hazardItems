@@ -42,11 +42,11 @@ storm.service = function(serviceEndpoint,attribute){
 	medium.summary	<-	paste(c(overview,attrDefinition,processDetail,sourceString),collapse='. ')
 	
 	# create medium title for storm item
-	location	<-	getLocationString(locationHld) # default call is to medium service
+	location	<-	getLocationString(locationHld,singleVal=TRUE) # default call is to medium service
 	medium.title	<-	paste(c(titleMap[['medium']][[subType]],medDesc,location),collapse=' ')
 
 	
-	location	<-	getLocationString(locationHld,size='tiny')
+	location	<-	getLocationString(locationHld,size='tiny',singleVal=TRUE)
 	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],tinyDesc,' in ',location),collapse='')
 	
 	full.title	<-	paste(c(fullDesc,titleMap[['full']][[subType]],' element of ',title),collapse='')
