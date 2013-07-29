@@ -15,27 +15,36 @@ historical.service = function(serviceEndpoint,attribute){
 	processDetail	<-	NULL
 	sourceString	<-	getSourceString(sourceContent)
 	
-	if (subType!='date'){ # additional line and details needed
-	  # get process source (could be DSASweb in the future) and version***
-	  for (j in 1:length(purpose[[1]])){
-	    if (grepl("(DSAS)",purpose[[1]][j])){
-	      stI <- regexpr('version ',purpose[[1]][j])[1]
-	      procDetail<- paste(c(subType,' is a shoreline change metric calculated using the ',
-	        'Digital Shoreline Analysis System v',substring(purpose[[1]][j],stI+nchar('version '))),
-	        collapse='')
-	      break
-	    }
-	  }
+	if (subType!='date' && subType!='date_'){ # additional line and details needed
+		# get process source (could be DSASweb in the future) and version***
+		sourceString	<-	NULL	# no sources for derivative calculations
+	  	for (j in 1:length(purpose[[1]])){
+	    	if (grepl("(DSAS)",purpose[[1]][j])){
+	      		stI <- regexpr('version ',purpose[[1]][j])[1]
+	      		processDetail<- paste(c(subType,' is a shoreline change metric calculated using the ',
+	        	'Digital Shoreline Analysis System v',substring(purpose[[1]][j],stI+nchar('version '))),
+	        	collapse='')
+	      		break
+	    	}
+	  	}
 	}
+	if (subType=='lrr'){
+		if (grepl("long-term",overview)){
+			itemTitle	<-	'Long-term rate of change'
+		} else if (grepl("short-term",overview)){
+			itemTitle	<-	'Short-term rate of change'
+		} else {itemTitle	<- titleMap[['medium']][[subType]]	}
+		
+	} else {itemTitle	<- titleMap[['medium']][[subType]]	}
 
 	
 	medium.summary	<-	paste(c(overview,processDetail,sourceString),collapse='. ')
 	
 	location	<-	getLocationString(overview) # default call is to medium service
-	medium.title	<-	paste(c(titleMap[['medium']][[subType]],'of shorelines in',location),collapse=' ')
+	medium.title	<-	paste(c(itemTitle,'of shorelines in',location),collapse=' ')
 	
 	location	<-	getLocationString(overview,size='tiny')
-	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],'for shorelines in',location),collapse=' ')
+	tiny.text	<-	paste(c(itemTitle,'of shorelines in',location),collapse=' ')
 	
 	full.title	<-	paste(c('The',titleMap[['full']][[subType]],'element of',datasetTitle),collapse=' ')
 	full.text	<-	sub('\\n\\n','',sub('\n','',paste(c(purpose[[1]]),collapse='. ')))
