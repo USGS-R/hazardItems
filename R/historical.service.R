@@ -21,7 +21,7 @@ historical.service = function(serviceEndpoint,attribute){
 	  	for (j in 1:length(purpose[[1]])){
 	    	if (grepl("(DSAS)",purpose[[1]][j])){
 	      		stI <- regexpr('version ',purpose[[1]][j])[1]
-	      		processDetail<- paste(c(subType,' is a shoreline change metric calculated using the ',
+	      		processDetail<- paste(c(toupper(subType),' is a shoreline change metric calculated using the ',
 	        	'Digital Shoreline Analysis System v',substring(purpose[[1]][j],stI+nchar('version '))),
 	        	collapse='')
 	      		break
