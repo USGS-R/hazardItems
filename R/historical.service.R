@@ -40,10 +40,10 @@ historical.service = function(serviceEndpoint,attribute){
 	
 	medium.summary	<-	paste(c(overview,processDetail,sourceString),collapse='. ')
 	
-	location	<-	getLocationString(overview) # default call is to medium service
+	location	<-	getLocationString(datasetTitle) # default call is to medium service
 	medium.title	<-	paste(c(itemTitle,'of shorelines in',location),collapse=' ')
 	
-	location	<-	getLocationString(overview,size='tiny')
+	location	<-	getLocationString(datasetTitle,size='tiny')
 	tiny.text	<-	paste(c(itemTitle,'of shorelines in',location),collapse=' ')
 	
 	full.title	<-	paste(c('The',titleMap[['full']][[subType]],'element of',datasetTitle),collapse=' ')
