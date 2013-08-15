@@ -10,7 +10,12 @@ getSourceString = function(sourceContent){
 	    }
 	  }
 	}
-	sourceString	<-	paste(c('Data sources:',
-		paste(c(subTypeDataSrc[useI]),collapse=', ')),collapse=' ')
+	if (any(useI)){
+		sourceString	<-	paste(c('Data sources:',
+			paste(c(subTypeDataSrc[useI]),collapse=', ')),collapse=' ')
+	} else {
+		sourceString	<-	NULL
+	}
+	
 	return(sourceString)
 }
