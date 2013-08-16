@@ -43,7 +43,7 @@ historical.service = function(serviceEndpoint,attribute){
 		  	}
 		}
 	}
-	if (subType=='lrr'){
+	if (subType %in% c('lrr','epr')){
 		if (grepl("long-term",datasetTitle,ignore.case = TRUE)){
 			itemTitle	<-	'Long-term change rates'
 			overview	<-	datasetTitle
