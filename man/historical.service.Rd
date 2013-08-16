@@ -27,6 +27,11 @@ Jordan S. Read
 	attribute	<-	'date'
 	summary	<-	historical.service(serviceEndpoint,attribute)
 	print(summary)
+	
+	serviceEndpoint	<-	'examples/ms1917.shp.xml'
+	attribute	<-	'date'
+	summary	<-	historical.service(serviceEndpoint,attribute)
+	print(summary)
 
 }
 
