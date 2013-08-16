@@ -8,6 +8,7 @@ historical.service = function(serviceEndpoint,attribute){
 	doc <- xmlInternalTreeParse(serviceEndpoint)
 	
 	datasetTitle	<-	xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
+	abstract	<-	xmlValue(getNodeSet(doc,'//descript/abstract')[[1]])
 	purpose <- strsplit(xmlValue(getNodeSet(doc,'//descript/purpose')[[1]]),'.  ') # purpose in text form
 	sourceContent	<- purpose[[1]][2]
 	
@@ -47,7 +48,9 @@ historical.service = function(serviceEndpoint,attribute){
 	tiny.text	<-	paste(c(itemTitle,'of shorelines in',location),collapse=' ')
 	
 	full.title	<-	paste(c('The',titleMap[['full']][[subType]],'element of',datasetTitle),collapse=' ')
-	full.text	<-	sub('\\n\\n','',sub('\n','',paste(c(purpose[[1]]),collapse='. ')))
+	full.text	<-	sub('\\n\\n','',sub('\n','',paste(c(purpose[[1]],abstract),collapse='. ')))
+	
+	full.text	<-	sub('..','.',sub('. . ','. ',full.text))
 	
 	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
 	full.publications	<- list()
