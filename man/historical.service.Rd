@@ -31,8 +31,9 @@ Jordan S. Read
 	serviceEndpoint	<-	'examples/ms1917.shp.xml'
 	attribute	<-	'date'
 	summary	<-	historical.service(serviceEndpoint,attribute)
-	print(summary)
-
+	sink('output.json')
+	cat(summary)
+	sink()
 }
 
 \keyword{coastal}
