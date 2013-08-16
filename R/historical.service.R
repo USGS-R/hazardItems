@@ -48,9 +48,7 @@ historical.service = function(serviceEndpoint,attribute){
 	tiny.text	<-	paste(c(itemTitle,'of shorelines in',location),collapse=' ')
 	
 	full.title	<-	paste(c('The',titleMap[['full']][[subType]],'element of',datasetTitle),collapse=' ')
-	full.text	<-	sub('\\n\\n','',sub('\n','',paste(c(purpose[[1]],abstract),collapse='. ')))
-	
-	full.text	<-	sub('..','.',sub('. . ','. ',full.text))
+	full.text	<-	clean.text(paste(c(purpose[[1]],abstract),collapse='. '))
 	
 	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
 	full.publications	<- list()
