@@ -30,10 +30,10 @@ historical.service = function(serviceEndpoint,attribute){
 	  	}
 	}
 	if (subType=='lrr'){
-		if (grepl("long-term",overview)){
-			itemTitle	<-	'Long-term rate of change'
-		} else if (grepl("short-term",overview)){
-			itemTitle	<-	'Short-term rate of change'
+		if (grepl("long-term",datasetTitle,ignore.case = TRUE)){
+			itemTitle	<-	'Long-term change rates'
+		} else if (grepl("short-term",datasetTitle,ignore.case = TRUE)){
+			itemTitle	<-	'Short-term change rates'
 		} else {itemTitle	<- titleMap[['medium']][[subType]]	}
 		
 	} else {itemTitle	<- titleMap[['medium']][[subType]]	}
