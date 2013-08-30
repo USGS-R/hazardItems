@@ -66,16 +66,7 @@ historical.service = function(serviceEndpoint,attribute){
 	full.title	<-	paste(c('The',titleMap[['full']][[subType]],'element of',datasetTitle),collapse=' ')
 	full.text	<-	clean.text(paste(c(purpose[[1]],abstract),collapse='. '),add.period=TRUE)
 	
-	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
-	full.publications	<- list()
-	names	<-	NULL
-	for (i in 1:length(onlinks)){
-		parentNode	<-	getNodeSet(onlinks[[i]],'parent::node()')
-		names	<- c(names,xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]))
-		newPub	<-	list(title=xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]),
-			link=xmlValue(onlinks[[i]]))
-		full.publications[[i]]	<-	newPub
-	}
+	full.publications	<-	getPublications(doc)
 
 	keywords	<-	getKeywords (doc,subType)
 	

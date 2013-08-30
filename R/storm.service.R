@@ -52,16 +52,7 @@ storm.service = function(serviceEndpoint,attribute){
 	full.title	<-	paste(c(fullDesc,titleMap[['full']][[subType]],' element of ',title),collapse='')
 	full.text	<-	sub('\n','',paste(c(abstract),collapse=''))
 	
-	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
-	full.publications	<- list()
-	names	<-	NULL
-	for (i in 1:length(onlinks)){
-		parentNode	<-	getNodeSet(onlinks[[i]],'parent::node()')
-		names	<- c(names,xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]))
-		newPub	<-	list(title=xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]),
-			link=xmlValue(onlinks[[i]]))
-		full.publications[[i]]	<-	newPub
-	}
+	full.publications	<-	getPublications(doc)
 	
 	keywords	<-	getKeywords (doc,subType)
 	
