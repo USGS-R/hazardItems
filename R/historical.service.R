@@ -11,7 +11,7 @@ historical.service = function(serviceEndpoint,attribute){
 	abstract	<-	xmlValue(getNodeSet(doc,'//descript/abstract')[[1]])
 	purpose <- strsplit(xmlValue(getNodeSet(doc,'//descript/purpose')[[1]]),'.  ',fixed=TRUE) # purpose in text form
 	process	<-	xmlValue(getNodeSet(doc,'//procstep/procdesc')[[1]])
-	sourceContent	<- purpose[[1]][2]
+	sourceContent	<- process
 	
 	overview	<-	purpose[[1]][1]
 	processDetail	<-	NULL
@@ -71,6 +71,7 @@ historical.service = function(serviceEndpoint,attribute){
 	keywords	<-	getKeywords (doc,subType)
 	
 	summaryJSON	<- toJSON(list(
+		'version'=as.character(packageVersion("itemSummaryService")),
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.text),
 		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications),
