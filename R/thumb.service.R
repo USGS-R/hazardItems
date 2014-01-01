@@ -12,15 +12,18 @@ host <- "http://cida-test.er.usgs.gov/coastalchangehazardsportal"
 wms.version <- "1.1.1"
 
 # from item JSON:
-item.id <- "C7gabcd"
+item.id <- "C68abcd"
 item.json	<-	fromJSON(file=paste(host,'/data/item/',item.id,sep=''))
 
 item.bbox <- item.json$bbox # in the form minX,minY,maxX,maxY
 bbox = getSquareBBox(item.bbox)
 png(file = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
-map("worldHires","US", xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="gray100",
+map("worldHires",xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="floralwhite",
     lwd = 0.01,
     fill=TRUE,boundary = TRUE,mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
+#map("worldHires","US", xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="gray100",
+ #   lwd = 0.01,
+  #  fill=TRUE,boundary = TRUE,mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
 lim <- par() # get limits from map image
 
 if (item.json$itemType == "data"){
@@ -47,7 +50,8 @@ if (item.json$itemType == "data"){
 		get.layer <- paste(child.wms,"?version=",wms.version,"&request=GetMap","&layers=",child.layer,
 		                   "&bbox=",paste(as.character(bbox),collapse=','),
 		                   "&width=",as.character(dim.x),"&height=",as.character(dim.y),
-		                   "&&format=image%2Fpng","&SLD=",host,'/data/sld/',item.json$children[i],sep='')
+		                   "&format=image%2Fpng","&SLD=",host,'/data/sld/',item.json$children[i],"?ribbon=",
+                        as.character(i),sep='')
 		download.file(get.layer,destfile="thumb_temp.png")
 		temp.ima <- readPNG("thumb_temp.png")
 		ima[temp.ima!=1] = temp.ima[temp.ima!=1] # valid? no need to loop
@@ -57,7 +61,9 @@ if (item.json$itemType == "data"){
 }
 
 
-map("worldHires","US", xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col=c(alpha("gray10",0.25),alpha("gray10",0.25)),
-    interior=FALSE,fill=TRUE,boundary = TRUE,add=TRUE,lwd = 0.2,
+map("worldHires",regions=c('US','Canada','Mexico','South America','Puerto Rico','Cuba'),
+    xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col=c(alpha("gray10",0.25),alpha("gray10",0.25)),
+    interior=FALSE,fill=TRUE,boundary = TRUE,add=TRUE,lwd = 0.1,
     mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
+
 dev.off()
