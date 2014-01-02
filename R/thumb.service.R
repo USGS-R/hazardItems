@@ -21,9 +21,7 @@ png(file = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y,
 map("worldHires",xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="floralwhite",
     lwd = 0.01,
     fill=TRUE,boundary = TRUE,mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
-#map("worldHires","US", xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="gray100",
- #   lwd = 0.01,
-  #  fill=TRUE,boundary = TRUE,mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
+
 lim <- par() # get limits from map image
 
 if (item.json$itemType == "data"){
@@ -41,7 +39,7 @@ if (item.json$itemType == "data"){
 } else {
 	# has children, is aggregation
 	num.kids	<-	length(item.json$children)
-	ima	<-	array(dim=c(150,150,3),data=1) # dims correct? Initialize blank array for png overlay w/ 1.0
+	ima	<-	array(dim=c(dim.y,dim.x,3),data=1) # dims correct? Initialize blank array for png overlay w/ 1.0
 	for (i in 1:num.kids){
 		# open children elements (chould these children be aggregations?)
 		child.json	<-	fromJSON(file=paste(host,'/data/item/',item.json$children[i],sep=''))
