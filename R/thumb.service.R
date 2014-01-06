@@ -12,7 +12,7 @@ host <- "http://cida-test.er.usgs.gov/coastalchangehazardsportal"
 wms.version <- "1.1.1"
 
 # from item JSON:
-item.id <- "C68abcd"
+item.id <- "C7gabcd"
 item.json	<-	fromJSON(file=paste(host,'/data/item/',item.id,sep=''))
 
 item.bbox <- item.json$bbox # in the form minX,minY,maxX,maxY
@@ -59,7 +59,7 @@ if (item.json$itemType == "data"){
 }
 
 
-map("worldHires",regions=c('US','Canada','Mexico','South America','Puerto Rico','Cuba'),
+map("worldHires",#regions=c('US','Canada','Mexico','South America','Puerto Rico','Cuba'),
     xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col=c(alpha("gray10",0.25),alpha("gray10",0.25)),
     interior=FALSE,fill=TRUE,boundary = TRUE,add=TRUE,lwd = 0.1,
     mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
