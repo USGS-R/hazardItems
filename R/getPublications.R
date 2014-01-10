@@ -1,16 +1,16 @@
-getPublications = function(doc){
-	onlinks	<-	getNodeSet(doc,'//citeinfo/onlink')
-	publications	<- list()
+getPublications	<-	function(doc){
+	# get all linked publications
+	onlinks	<- list()
+	onlinks$data <- getNodeSet(doc,'//citation/citeinfo/onlink')
+	onlinks$publications	<-	getNodeSet(doc,'//lworkcit/citeinfo/onlink')
+	onlinks$resources	<-	c(getNodeSet(doc,'//crossref/citeinfo/onlink'),getNodeSet(doc,'//srccite/citeinfo/onlink'))
+	publications	<- list(data=list(),publications=list(),resources=list())
 	names	<-	NULL
-	for (i in 1:length(onlinks)){
-		parentNode	<-	getNodeSet(onlinks[[i]],'parent::node()')
-		name.node	<-	getNodeSet(parentNode[[1]],'title')
-		if (length(name.node)!=0){
-			names	<- c(names,xmlValue(name.node[[1]]))
-			newPub	<-	list(title=xmlValue(getNodeSet(parentNode[[1]],'title')[[1]]),
-				link=xmlValue(onlinks[[i]]))
-			publications[[i]]	<-	newPub
-		}
-	}
+	publications$data	<-	getSubPub(onlinks$data )
+	publications$publications	<-	getSubPub(onlinks$publications )
+	publications$resources	<-	getSubPub(onlinks$resources)
+	
+	
 	return(publications) 
 }
+
