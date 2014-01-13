@@ -1,8 +1,11 @@
-getSquareBBox <- function(BBox){
+getSquareBBox <- function(item.id,item.host="http://cida-wiwsc-cchdev.er.usgs.gov:8080/coastal-hazards-portal"){
   
-  # returns a square BBox based on an assumed rectangular BBox input
-  
-  max.dim <- getMaxDim(BBox)
+  	# returns a square BBox based on item id
+
+  	item.json	<-	fromJSON(file=paste(item.host,'/data/item/',item.id,sep=''))
+
+	BBox <- item.json$bbox # in the form minX,minY,maxX,maxY
+  	max.dim <- getMaxDim(BBox)
   
   if (max.dim$max.dim=='long'){
     # need to elongate the lat dim

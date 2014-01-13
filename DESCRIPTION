@@ -1,7 +1,7 @@
 Package: itemSummaryService
 Type: Package
 Title: itemSummaryService
-Version: 1.2.16
+Version: 1.3.0
 Date: 2013-06-25
 Author: Jordan S Read
 Maintainer: Jordan S Read <jread@usgs.gov>
@@ -24,9 +24,10 @@ Collate:
 	'getPublications.R'
 	'getSquareBBox.R'
 	'getSubPub.R'
+	'childMethods.R'
 Depends:
     R (>= 2.15.0)
 Imports:
-    XML, rjson, png, scales, mapdata
+    XML, rjson, png, scales, mapdata, maps
 LazyLoad: yes
 LazyData: yes
