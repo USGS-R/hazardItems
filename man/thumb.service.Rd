@@ -11,7 +11,7 @@ thumb.service(json.url)
   \item{json.url}{ a valid JSON url}
 }
 \value{
-A created png image
+A strong location for the created png image
 }
 \author{
 Jordan S. Read

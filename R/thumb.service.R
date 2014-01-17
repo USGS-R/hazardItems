@@ -62,4 +62,6 @@ thumb.service <- function(json.url){
 		mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
 
   dev.off()
+	unlink(x="thumb_temp.png") # remove temporary png
+  return(paste("thumb_",item.id,".png",sep=''))
 }
