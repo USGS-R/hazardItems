@@ -1,10 +1,10 @@
 thumb.service <- function(json.url){
 	
   #json.url is a string
-  #require(maps)
-  #require(mapdata)
-  #require(rjson)
-  #require(scales)
+  require(maps)
+  require(mapdata)
+  require(rjson)
+  require(scales)
   
 	dim.x <- 150 # px
 	dim.y <- 150 # px
