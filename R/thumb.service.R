@@ -12,7 +12,7 @@ thumb.service <- function(json.url){
   
 	ima	<-	array(dim=c(dim.y,dim.x,3),data=1) 
 	wms.version <- "1.3.0"
-  item.json <- fromJSON( file = json.url )
+  item.json <- suppressWarnings(fromJSON( file = json.url ))
   
   item.id <- item.json$id
   
@@ -33,7 +33,7 @@ thumb.service <- function(json.url){
 	for (i in 1:num.kids){
     child.json.url <- as.character(kids$json[i])
     child.sld.url <- as.character(kids$sld[i])
-		child.json	<-	fromJSON(file=child.json.url)
+		child.json	<-	suppressWarnings(fromJSON(file=child.json.url))
 		child.services <- child.json$services
 			for (k in 1:length(child.services)){
 				if (child.services[[k]]$type=="proxy_wms"){
@@ -42,13 +42,24 @@ thumb.service <- function(json.url){
 					break
 				}
 			}
+    
+    r.c <- 0 # ribbon count
+    if (!item.json$ribbonable){
+      ribbon = "1"
+    } else if (item.json$ribbonable & !child.json$ribbonable){
+      ribbon = "1"
+    }
+    if (item.json$ribbonable & child.json$ribbonable){
+      r.c <- r.c+1 # only incremented per number of ribboned kids
+      ribbon = as.character(r.c)
+    }
 		get.layer <- paste(child.wms,"?version=",wms.version,"&service=wms","&request=GetMap","&layers=",child.layer,
 		                   "&bbox=",parent.char.bbox,
 		                   "&STYLES=cch",
                        "&TRANSPARENT=FALSE",
 		                   "&width=",parent.char.x,"&height=",parent.char.y,
-		                   "&format=image%2Fpng","&SLD=",child.sld.url,"?ribbon=",
-							         as.character(i),sep='')
+		                   "&format=image%2Fpng","&SLD=",child.sld.url,"?ribbon=",ribbon,
+							         sep='')
 							
 		download.file(get.layer,destfile="thumb_temp.png")
 		temp.ima <- readPNG("thumb_temp.png")

@@ -25,7 +25,7 @@ getVisibleChildren	<-	function(json.url){
 itemPeeler	<-	function(item.id,json.rest){
 	
 	# takes ONE item id, moves down one level, returns children
-	item.json	<-	fromJSON(file=paste(json.rest,item.id,sep=''))
+	item.json	<-	suppressWarnings(fromJSON(file=paste(json.rest,item.id,sep='')))
 	if(item.json$itemType == "data"){
 		item.children	<-	item.json$id
 		bottom	<-	TRUE
