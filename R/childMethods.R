@@ -1,25 +1,31 @@
-getVisibleChildren	<-	function(parent.id,item.host="http://cida-wiwsc-cchdev.er.usgs.gov:8080/coastal-hazards-portal"){
+getVisibleChildren	<-	function(json.url){
+
+  # returns character array of children json.urls
+  
+  json.sep <- '/data/item/'
+  sld.sep <- '/data/sld/'
+  parent.id <-  tail(strsplit(json.url,'/')[[1]],1)
+  json.rest <- paste(strsplit(json.url,json.sep)[[1]][1],json.sep,sep='')
+  sld.rest <- paste(strsplit(json.url,json.sep)[[1]][1],sld.sep,sep='')
 	
-	# returns character array of children
 	child.table	<-	data.frame(bottom=c(FALSE),children=c(parent.id))
 	which(!child.table$bottom)[1]
 	while (any(!child.table$bottom)){
 		peel.idx	<-	which(!child.table$bottom)[1]
-		peel.back	<-	itemPeeler(item.id=child.table$children[peel.idx],item.host=item.host)
+		peel.back	<-	itemPeeler(json.rest, item.id=as.character(child.table$children[peel.idx]))
 		child.table	<-	child.table[-peel.idx,]	# remove parent id
 		child.table	<-	rbind(child.table,peel.back)	# replace with children
 	}
-
-	
-	return(as.character(child.table$children))
+  kids <- data.frame('json'=paste(json.rest,as.character(child.table$children),sep=''),
+                     'sld'=paste(sld.rest,as.character(child.table$children),sep=''))
+	return(kids)
 }
 
 
-itemPeeler	<-	function(item.host,	item.id){
+itemPeeler	<-	function(item.id,json.rest){
 	
 	# takes ONE item id, moves down one level, returns children
-	library(rjson) 
-	item.json	<-	fromJSON(file=paste(item.host,'/data/item/',item.id,sep=''))
+	item.json	<-	fromJSON(file=paste(json.rest,item.id,sep=''))
 	if(item.json$itemType == "data"){
 		item.children	<-	item.json$id
 		bottom	<-	TRUE

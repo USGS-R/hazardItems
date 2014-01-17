@@ -1,23 +1,39 @@
-thumb.service <- function(item.id){
+thumb.service <- function(json.url){
 	
+  #json.url is a string
+  #require(maps)
+  #require(mapdata)
+  #require(rjson)
+  #require(scales)
+  
 	dim.x <- 150 # px
 	dim.y <- 150 # px
-	ima	<-	array(dim=c(dim.y,dim.x,3),data=1) # dims correct? Initialize blank array for png overlay w/ 1.0
-	item.host	<-	"http://cida-wiwsc-cchdev.er.usgs.gov:8080/coastal-hazards-portal"
+  if (dim.y!=dim.x){stop("non-square image not currently supported")}
+  
+	ima	<-	array(dim=c(dim.y,dim.x,3),data=1) 
 	wms.version <- "1.3.0"
-
-	bbox = getSquareBBox(item.id,item.host=item.host)
+  item.json <- fromJSON( file = json.url )
+  
+  item.id <- item.json$id
+  
+	bbox = getSquareBBox(item.json)
 	png(file = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
 	map("worldHires",xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="floralwhite",
     	lwd = 0.01,fill=TRUE,boundary = TRUE,
 		mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
 
 	lim <- par() # get limits from map image
-	kids	<-	getVisibleChildren(parent.id=item.id,item.host=item.host)
-	num.kids	<-	length(kids)
+	kids	<-	getVisibleChildren(json.url)
+	num.kids	<-	length(kids$json)
+  
+  parent.char.bbox <- paste(as.character(bbox),collapse=',')
+  parent.char.x <- as.character(dim.x)
+  parent.char.y <- as.character(dim.y)
+                  
 	for (i in 1:num.kids){
-		# open children elements (chould these children be aggregations?)
-		child.json	<-	fromJSON(file=paste(item.host,'/data/item/',kids[i],sep=''))
+    child.json.url <- as.character(kids$json[i])
+    child.sld.url <- as.character(kids$sld[i])
+		child.json	<-	fromJSON(file=child.json.url)
 		child.services <- child.json$services
 			for (k in 1:length(child.services)){
 				if (child.services[[k]]$type=="proxy_wms"){
@@ -27,14 +43,15 @@ thumb.service <- function(item.id){
 				}
 			}
 		get.layer <- paste(child.wms,"?version=",wms.version,"&service=wms","&request=GetMap","&layers=",child.layer,
-		                   "&bbox=",paste(as.character(bbox),collapse=','),
-		                   "&width=",as.character(dim.x),"&height=",as.character(dim.y),
-		                   "&format=image%2Fpng","&SLD=",item.host,'/data/sld/',kids[i],"?ribbon=",
-							as.character(i),sep='')
+		                   "&bbox=",parent.char.bbox,
+		                   "&STYLES=cch",
+                       "&TRANSPARENT=FALSE",
+		                   "&width=",parent.char.x,"&height=",parent.char.y,
+		                   "&format=image%2Fpng","&SLD=",child.sld.url,"?ribbon=",
+							         as.character(i),sep='')
 							
 		download.file(get.layer,destfile="thumb_temp.png")
 		temp.ima <- readPNG("thumb_temp.png")
-		temp.ima <- readPNG(get.layer)
 		ima[temp.ima!=1] = temp.ima[temp.ima!=1] # valid? no need to loop
 	 }
 	rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])

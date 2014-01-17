@@ -1,8 +1,7 @@
-getSquareBBox <- function(item.id,item.host="http://cida-wiwsc-cchdev.er.usgs.gov:8080/coastal-hazards-portal"){
-  
+getSquareBBox <- function(item.json){
+  # item json is in R data.frame
   	# returns a square BBox based on item id
 
-  	item.json	<-	fromJSON(file=paste(item.host,'/data/item/',item.id,sep=''))
 
 	BBox <- item.json$bbox # in the form minX,minY,maxX,maxY
   	max.dim <- getMaxDim(BBox)
