@@ -29,7 +29,7 @@ thumb.service <- function(json.url){
   parent.char.bbox <- paste(as.character(bbox),collapse=',')
   parent.char.x <- as.character(dim.x)
   parent.char.y <- as.character(dim.y)
-                  
+	r.c <- 0 # ribbon count              
 	for (i in 1:num.kids){
     child.json.url <- as.character(kids$json[i])
     child.sld.url <- as.character(kids$sld[i])
@@ -43,13 +43,12 @@ thumb.service <- function(json.url){
 				}
 			}
     
-    r.c <- 0 # ribbon count
+    
     if (!item.json$ribbonable){
       ribbon = "1"
     } else if (item.json$ribbonable & !child.json$ribbonable){
       ribbon = "1"
-    }
-    if (item.json$ribbonable & child.json$ribbonable){
+    } else if (item.json$ribbonable & child.json$ribbonable){
       r.c <- r.c+1 # only incremented per number of ribboned kids
       ribbon = as.character(r.c)
     }
