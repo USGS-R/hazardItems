@@ -1,2 +1,2 @@
-export(vulnerability.service, storm.service, historical.service)
-import(XML, rjson)
+export(vulnerability.service, storm.service, historical.service, thumb.service)
+import(XML, rjson, png, scales, mapdata, maps)
