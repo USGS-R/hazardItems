@@ -29,7 +29,7 @@ storm.service = function(serviceEndpoint,attribute){
 		fullDesc	<-	'The '
 		tinyDesc	<-	paste(c(',',strsplit(title,' ')[[1]][1:2]),collapse=' ')
 		medDesc	<-	paste(c('during',strsplit(title,' ')[[1]][1:2],'in'),collapse=' ')
-		locationHld	<-	sapply(getNodeSet(doc,'/metadata/idinfo/descript/abstract'),xmlValue)
+		locationHld	<-	sapply(getNodeSet(doc,'//metadata/idinfo/descript/abstract'),xmlValue)
 	}
 
 	
