@@ -36,3 +36,26 @@ itemPeeler	<-	function(item.id,json.rest){
 	}			
 	return(data.frame(bottom=bottom,children=item.children))
 }
+
+getUniqueBBoxIDs <- function(json.urls){
+  # json.urls is an array of urls for children. 
+  # returns indexes for unique bounding boxes
+  bboxes = matrix(nrow=length(json.urls),ncol=4)
+  for (j in 1:length(json.urls)){
+    item.json  <-	suppressWarnings(fromJSON(file = json.urls[j]))
+    bboxes[j,] <- item.json$bbox
+  }
+  un.bbox <- unique(bboxes)
+  bbox.idx = vector(length=length(json.urls))
+  # need better way for table match in R!!
+  for (j in 1:length(json.urls)){
+    for (k in 1:nrow(un.bbox)){
+      if (all(bboxes[j,]==un.bbox[k,])){
+        bbox.idx[j]<-k
+      }
+    }
+    
+  }
+
+  return(bbox.idx)
+}

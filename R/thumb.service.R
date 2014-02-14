@@ -5,6 +5,7 @@ thumb.service <- function(json.url){
   require(mapdata)
   require(rjson)
   require(scales)
+  require(png)
   
 	dim.x <- 150 # px
 	dim.y <- 150 # px
@@ -29,7 +30,11 @@ thumb.service <- function(json.url){
   parent.char.bbox <- paste(as.character(bbox),collapse=',')
   parent.char.x <- as.character(dim.x)
   parent.char.y <- as.character(dim.y)
-	r.c <- 0 # ribbon count              
+  
+  # get unique bounding boxes and indexes for the kids
+	bbox.idx <- getUniqueBBoxIDs(as.character(kids$json))
+
+	r.c <- vector(length=length(unique(bbox.idx))) # ribbon count              
 	for (i in 1:num.kids){
     child.json.url <- as.character(kids$json[i])
     child.sld.url <- as.character(kids$sld[i])
@@ -49,8 +54,10 @@ thumb.service <- function(json.url){
     } else if (item.json$ribbonable & !child.json$ribbonable){
       ribbon = "1"
     } else if (item.json$ribbonable & child.json$ribbonable){
-      r.c <- r.c+1 # only incremented per number of ribboned kids
-      ribbon = as.character(r.c)
+      # this child will be ribboned...
+      
+      r.c[bbox.idx[i]] <- r.c[bbox.idx[i]]+1 # only incremented per number of ribboned kids
+      ribbon = as.character(r.c[bbox.idx[i]])
     }
 		get.layer <- paste(child.wms,"?version=",wms.version,"&service=wms","&request=GetMap","&layers=",child.layer,
 		                   "&bbox=",parent.char.bbox,
