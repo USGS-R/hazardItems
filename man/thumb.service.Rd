@@ -22,7 +22,7 @@ Jordan S. Read
 \code{vulnerability.service}
 }
 \examples{
-	json.url	<-	'http://cida-test.er.usgs.gov/coastalchangehazardsportal/data/item/C67pzz9'
+	json.url	<-	'http://cida.usgs.gov/coastalchangehazardsportal/data/item/CCNLeSs'
 	thumb.service(json.url)
 
 }
