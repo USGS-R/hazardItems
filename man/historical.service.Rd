@@ -20,7 +20,8 @@ This service parses the metadata record and creates a summary specific to the
 HISTORICAL theme, with subtype being defined by the attribute name.
 }
 \examples{
-serviceEndpoint  <-	system.file('extdata',"NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
+serviceEndpoint  <-	system.file('extdata',
+"NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
 attribute	<-	'date'
 summary	<-	historical.service(serviceEndpoint,attribute)
 print(summary)

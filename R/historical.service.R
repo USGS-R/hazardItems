@@ -9,7 +9,8 @@
 #'@importFrom jsonlite toJSON
 #'@import XML
 #'@examples
-#'serviceEndpoint  <-	system.file('extdata',"NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
+#'serviceEndpoint  <-	system.file('extdata',
+#'"NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
 #'attribute	<-	'date'
 #'summary	<-	historical.service(serviceEndpoint,attribute)
 #'print(summary)
