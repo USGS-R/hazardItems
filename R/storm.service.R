@@ -1,4 +1,18 @@
-
+#'@title create summary json for an individual storm item
+#'@description This service parses the metadata record and creates a summary specific to the STORM theme, 
+#'with subtype being defined by the attribute name
+#'@param serviceEndpoint valid xml, either local or a url
+#'@param attribute an attribute to use form the shapefile corresponding to 
+#'\code{serviceEndpoint}
+#'@return Serialized JSON for summary
+#'@importFrom jsonlite toJSON
+#'@import XML
+#'@examples
+#'serviceEndpoint  <-	'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+#'attribute	<-	'PCOL3'
+#'summary	<-	storm.service(serviceEndpoint,attribute)
+#'print(summary)
+#'@export
 storm.service = function(serviceEndpoint,attribute){
 	subType	<-	tolower(attribute)
 

@@ -1,4 +1,23 @@
 
+#'@title create summary json for an individual historical item
+#'@description This service parses the metadata record and creates a summary specific to the 
+#'HISTORICAL theme, with subtype being defined by the attribute name.
+#'@param serviceEndpoint valid xml, either local or a url
+#'@param attribute an attribute to use form the shapefile corresponding to 
+#'\code{serviceEndpoint}
+#'@return Serialized JSON for summary
+#'@importFrom jsonlite toJSON
+#'@import XML
+#'@examples
+#'serviceEndpoint  <-	system.file('extdata',
+#'"NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
+#'attribute	<-	'date'
+#'summary	<-	historical.service(serviceEndpoint,attribute)
+#'print(summary)
+#'sink('output.json')
+#'cat(summary)
+#'sink()
+#'@export
 historical.service = function(serviceEndpoint,attribute){
 	
 	subType <- tolower(attribute)
