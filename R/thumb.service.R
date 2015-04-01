@@ -1,11 +1,17 @@
+#'@title create thumbnail for an item
+#'@description takes json url and creates summary image for item
+#'@param json.url a valid JSON url
+#'@return A strong location for the created png image
+#'@importFrom jsonlite toJSON
+#'@import maps mapdata rjson scales png
+#'@importFrom httr GET
+#'@examples
+#'serviceEndpoint <- 'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+#'attribute <- 'PCOL3'
+#'summary <- storm.service(serviceEndpoint,attribute)
+#'print(summary)
+#'@export
 thumb.service <- function(json.url){
-	
-  #json.url is a string
-  require(maps)
-  require(mapdata)
-  require(rjson)
-  require(scales)
-  require(png)
   
 	dim.x <- 150 # px
 	dim.y <- 150 # px
@@ -67,7 +73,7 @@ thumb.service <- function(json.url){
 		                   "&format=image%2Fpng","&SLD=",child.sld.url,"?ribbon=",ribbon,
 							         sep='')
 							
-		download.file(get.layer,destfile="thumb_temp.png")
+		GET(get.layer,write_disk("thumb_temp.png", overwrite = TRUE))
 		temp.ima <- readPNG("thumb_temp.png")
 		ima[temp.ima!=1] = temp.ima[temp.ima!=1] # valid? no need to loop
 	 }

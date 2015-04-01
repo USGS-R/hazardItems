@@ -7,3 +7,4 @@
 hazardItems.Rproj
 .DS_Store
 .item.data.R
+*.Rapp.history
