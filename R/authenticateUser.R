@@ -35,7 +35,7 @@ authenticateUser <- function(username, password){
     pkg.env$username <- username
     return(content(resp)$tokenId)
   } else {
-    return(stop('authentication for',username,'failed',resp$status_code))
+    return(stop('authentication for ',username,' failed ',resp$status_code))
   }
   
 }
