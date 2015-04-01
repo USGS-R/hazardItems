@@ -16,7 +16,8 @@ authenticateUser <- function(username, password){
 
   ## authenticate
   resp = POST(pkg.env$auth_token, accept_json(),
-              body = list(username=username, password=password), encode='form', config=list(ssl.verifypeer = FALSE))
+              body = list(username=username, password=password), encode='form', 
+              config=list(ssl.verifypeer = FALSE), verbose())
   return(content(resp)$tokenId)
 }
 
