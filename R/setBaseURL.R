@@ -23,16 +23,23 @@ setBaseURL = function(endpoint="prod"){
   
   endpoint = tolower(endpoint)
   
-  if(endpoint=="prod"){
-    pkg.env$url_base = "https://cida.usgs.gov/coastalchangehazardsportal/"
+  if (endpoint=="prod"){
+    pkg.env$url_base = "https://marine.usgs.gov/coastalchangehazardsportal/"
+    pkg.env$url_auth = "https://cida.usgs.gov/coastalchangehazardsportal/"
     cat('Setting endpoint to ',pkg.env$url_base,'\n')
-  }else if(endpoint=="dev"){
-    pkg.env$url_base = "https://cida-test.er.usgs.gov/dev/coastalchangehazardsportal/"
-    cat('Setting endpoint to ',pkg.env$url_base,'\n')
-  }else if(endpoint=="qa"){
+  } else if (endpoint=="qa"){
     pkg.env$url_base = "https://cida-test.er.usgs.gov/coastalchangehazardsportal/"
+    pkg.env$url_auth = "https://cida-test.er.usgs.gov/coastalchangehazardsportal/"
     cat('Setting endpoint to ',pkg.env$url_base,'\n')
-  }else{
+  } else if (endpoint=="dev"){
+    pkg.env$url_base = "https://cida-test.er.usgs.gov/dev/coastalchangehazardsportal/"
+    pkg.env$url_auth = "https://cida-test.er.usgs.gov/dev/coastalchangehazardsportal/"
+    cat('Setting endpoint to ',pkg.env$url_base,'\n')
+  } else if (endpoint=="qa"){
+    pkg.env$url_base = "https://cida-test.er.usgs.gov/coastalchangehazardsportal/"
+    pkg.env$url_auth = "https://cida-test.er.usgs.gov/coastalchangehazardsportal/"
+    cat('Setting endpoint to ',pkg.env$url_base,'\n')
+  } else {
     error('Unsupported endpoint option')
   }
 
@@ -40,5 +47,5 @@ setBaseURL = function(endpoint="prod"){
   pkg.env$item_sld = paste0(pkg.env$url_base, "data/sld/")
   pkg.env$item_layer = paste0(pkg.env$url_base, 'data/layer/')
   pkg.env$item_template = paste0(pkg.env$url_base, 'data/layer/')
-  pkg.env$auth_token = paste0(pkg.env$url_base, "auth-webservice/auth/ad/token/")
+  pkg.env$auth_token = paste0(pkg.env$url_auth, "auth-webservice/auth/ad/token/")
 }
