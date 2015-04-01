@@ -17,7 +17,8 @@ thumb.service <- function(json.url){
   
 	ima	<-	array(dim=c(dim.y,dim.x,3),data=1) 
 	wms.version <- "1.3.0"
-  item.json <- fromJSON( file = json.url )
+  response <- GET(json.url, accept_json())
+  item.json <- content(response, as = 'parsed')
   
   item.id <- item.json$id
   
@@ -42,7 +43,8 @@ thumb.service <- function(json.url){
 	for (i in 1:num.kids){
     child.json.url <- as.character(kids$json[i])
     child.sld.url <- as.character(kids$sld[i])
-		child.json	<-	suppressWarnings(fromJSON(file=child.json.url))
+    response <- GET(child.json.url, accept_json())
+    child.json <- content(response, as = 'parsed')
 		child.services <- child.json$services
 			for (k in 1:length(child.services)){
 				if (child.services[[k]]$type=="proxy_wms"){
