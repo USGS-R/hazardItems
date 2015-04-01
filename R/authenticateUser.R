@@ -9,7 +9,7 @@
 #'\code{authenticateUser} within the same R session can use the password argument 
 #'only (e.g., \code{authenticateUser(password = '12345')})
 #'@return a character token, or the status code if not 200
-#'@importFrom httr POST accept_json
+#'@importFrom httr POST accept_json content
 #'@export 
 authenticateUser <- function(username, password){
   
