@@ -1,3 +1,9 @@
+#'@title authenticate a user to CCH portal
+#'@description returns a token that can be used in POST or PUT methods
+#'@param username an active directory username (e.g., \code{'bbadger'})\
+#'@param password a character password for the active directory username. 
+#'Will be prompted for password if missing and in interactive mode
+#'@return a character token
 #'@importFrom httr POST accept_json
 #'@export 
 authenticateUser <- function(username, password){
