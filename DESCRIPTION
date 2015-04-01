@@ -16,7 +16,6 @@ Depends:
     R (>= 2.15.0)
 Imports:
     XML, 
-    rjson, 
     png, 
     scales, 
     mapdata, 
