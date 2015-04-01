@@ -15,7 +15,13 @@ Copyright: This software is in the public domain because it contains materials
 Depends:
     R (>= 2.15.0)
 Imports:
-    XML, rjson, png, scales, mapdata, maps
+    XML, 
+    rjson, 
+    png, 
+    scales, 
+    mapdata, 
+    maps,
+    httr
 LazyLoad: yes
 LazyData: yes
 
