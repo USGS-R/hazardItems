@@ -2,7 +2,7 @@
 #'@description takes json url and creates summary image for item
 #'@param json.url a valid JSON url
 #'@return A strong location for the created png image
-#'@importFrom jsonlite toJSON
+#'@importFrom jsonlite fromJSON
 #'@import maps mapdata scales png
 #'@importFrom httr GET write_disk
 #'@examples
@@ -19,12 +19,12 @@ thumb.service <- function(json.url){
   
 	ima	<-	array(dim=c(dim.y,dim.x,3),data=1) 
 	wms.version <- "1.3.0"
-  item.json <- suppressWarnings(fromJSON( file = json.url ))
+  item.json <- fromJSON( file = json.url )
   
   item.id <- item.json$id
   
 	bbox = getSquareBBox(item.json)
-	png(filename = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
+	png(file = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
 	map("worldHires",xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="floralwhite",
     	lwd = 0.01,fill=TRUE,boundary = TRUE,
 		mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
