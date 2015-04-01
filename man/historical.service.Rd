@@ -23,14 +23,10 @@ Jordan S. Read
 }
 
 \examples{
-	serviceEndpoint	<-	'examples/NewJerseyN_shorelines.shp.xml'
+	serviceEndpoint	<-	system.file('extdata',"NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
 	attribute	<-	'date'
 	summary	<-	historical.service(serviceEndpoint,attribute)
 	print(summary)
-	
-	serviceEndpoint	<-	'examples/ms1917.shp.xml'
-	attribute	<-	'date'
-	summary	<-	historical.service(serviceEndpoint,attribute)
 	sink('output.json')
 	cat(summary)
 	sink()
