@@ -2,8 +2,7 @@
 #'@description returns a token that can be used in POST or PUT methods
 #'@param username an active directory username (e.g., \code{'bbadger'})
 #'@param password a character password for the active directory username. 
-#'Will be prompted for password if missing and in interactive mode
-#'
+#'Will be prompted for password if missing and in interactive mode. 
 #'@details if \code{authenticateUser} is called with a \code{username} argument, 
 #'\code{username} is stored in the R session environment, and future calls to 
 #'\code{authenticateUser} within the same R session can use the password argument 
@@ -35,7 +34,7 @@ authenticateUser <- function(username, password){
     pkg.env$username <- username
     return(content(resp)$tokenId)
   } else {
-    return(stop('authentication for',username,'failed',resp$status_code))
+    return(stop('authentication for ',username,' failed ',resp$status_code))
   }
   
 }

@@ -3,8 +3,8 @@
 #'@param json.url a valid JSON url
 #'@return A strong location for the created png image
 #'@importFrom jsonlite toJSON
-#'@import maps mapdata rjson scales png
-#'@importFrom httr GET
+#'@import maps mapdata scales png
+#'@importFrom httr GET write_disk
 #'@examples
 #'serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/CAkR645'
 #'thumb.service(serviceEndpoint)
