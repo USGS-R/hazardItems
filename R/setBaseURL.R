@@ -10,8 +10,8 @@
 #'
 #'@examples
 #'\dontrun{
-#'#set_endpoint('prod')
-#'#set_endpoint('dev')
+#'set_endpoint('prod')
+#'set_endpoint('dev')
 #'}
 #'@export
 setBaseURL = function(endpoint="prod"){
@@ -43,4 +43,5 @@ setBaseURL = function(endpoint="prod"){
   pkg.env$item_layer = paste0(pkg.env$url_base, 'data/layer/')
   pkg.env$item_template = paste0(pkg.env$url_base, 'data/layer/')
   pkg.env$auth_token = paste0(pkg.env$url_auth, "authentication/auth/authenticate/")
+  pkg.env$username = NULL
 }

@@ -20,6 +20,7 @@ Imports:
     png, 
     scales, 
     mapdata, 
+    jsonlite,
     maps,
     httr
 LazyLoad: yes
