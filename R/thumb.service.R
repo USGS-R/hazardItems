@@ -24,7 +24,7 @@ thumb.service <- function(json.url){
   item.id <- item.json$id
   
 	bbox = getSquareBBox(item.json)
-	png(file = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
+	png(filename = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
 	map("worldHires",xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="floralwhite",
     	lwd = 0.01,fill=TRUE,boundary = TRUE,
 		mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
