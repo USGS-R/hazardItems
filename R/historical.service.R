@@ -71,7 +71,7 @@ historical.service = function(serviceEndpoint,attribute){
 	keywords	<-	getKeywords (doc,subType)
 	
 	summaryJSON	<- toJSON(list(
-		'version'=as.character(packageVersion("itemSummaryService")),
+		'version'=as.character(packageVersion(getPackageName())),
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.text),
 		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications),
