@@ -4,6 +4,6 @@
 # Example code in package build process
 *-Ex.R
 .Rproj.user
-.hazardItems.Rproj
+hazardItems.Rproj
 .DS_Store
 .item.data.R
