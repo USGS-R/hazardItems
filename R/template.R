@@ -12,7 +12,8 @@
 template = function(templateId, items, token) {
   url <- paste0(pkg.env$item_template, templateId)
   json <- toJSON(items, auto_unbox=TRUE)
-  respose <- POST(url=url, body=json,
+  auth <- paste("Bearer", token)
+  response <- POST(url=url, body=json,
                   content_type('application/json'),
                   add_headers('Authorization' = auth, 'Connection'='keep-alive'))
   return(http_status(response)$category == "success")
