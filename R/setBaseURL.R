@@ -30,10 +30,6 @@ setBaseURL = function(endpoint="prod"){
     pkg.env$url_base = "https://cida-test.er.usgs.gov/dev/coastalchangehazardsportal/"
     pkg.env$url_auth = "https://cida-test.er.usgs.gov/dev/coastalchangehazardsportal/"
     cat('Setting endpoint to ',pkg.env$url_base,'\n')
-  } else if (endpoint=="qa"){
-    pkg.env$url_base = "https://cida-test.er.usgs.gov/coastalchangehazardsportal/"
-    pkg.env$url_auth = "https://cida-test.er.usgs.gov/coastalchangehazardsportal/"
-    cat('Setting endpoint to ',pkg.env$url_base,'\n')
   } else {
     error('Unsupported endpoint option')
   }

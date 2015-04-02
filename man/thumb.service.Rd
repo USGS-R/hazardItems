@@ -16,9 +16,7 @@ A strong location for the created png image
 takes json url and creates summary image for item
 }
 \examples{
-serviceEndpoint <- 'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
-attribute <- 'PCOL3'
-summary <- storm.service(serviceEndpoint,attribute)
-print(summary)
+serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/CAkR645'
+thumb.service(serviceEndpoint)
 }
 

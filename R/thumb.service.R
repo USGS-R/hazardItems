@@ -2,14 +2,12 @@
 #'@description takes json url and creates summary image for item
 #'@param json.url a valid JSON url
 #'@return A strong location for the created png image
-#'@importFrom jsonlite toJSON
+#'@importFrom jsonlite fromJSON
 #'@import maps mapdata scales png
 #'@importFrom httr GET write_disk
 #'@examples
-#'serviceEndpoint <- 'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
-#'attribute <- 'PCOL3'
-#'summary <- storm.service(serviceEndpoint,attribute)
-#'print(summary)
+#'serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/CAkR645'
+#'thumb.service(serviceEndpoint)
 #'@export
 thumb.service <- function(json.url){
   
@@ -19,12 +17,13 @@ thumb.service <- function(json.url){
   
 	ima	<-	array(dim=c(dim.y,dim.x,3),data=1) 
 	wms.version <- "1.3.0"
-  item.json <- suppressWarnings(fromJSON( file = json.url ))
+  response <- GET(json.url, accept_json())
+  item.json <- content(response, as = 'parsed')
   
   item.id <- item.json$id
   
 	bbox = getSquareBBox(item.json)
-	png(filename = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
+	png(file = paste("thumb_",item.id,".png",sep=''), width = dim.x, height = dim.y, units = "px")
 	map("worldHires",xlim=c(bbox[1],bbox[3]), ylim=c(bbox[2],bbox[4]), col="floralwhite",
     	lwd = 0.01,fill=TRUE,boundary = TRUE,
 		mar=c(0,0,0,0),mai=c(0,0,0,0),oma=c(0,0,0,0),xpd = NA)
@@ -44,7 +43,8 @@ thumb.service <- function(json.url){
 	for (i in 1:num.kids){
     child.json.url <- as.character(kids$json[i])
     child.sld.url <- as.character(kids$sld[i])
-		child.json	<-	suppressWarnings(fromJSON(file=child.json.url))
+    response <- GET(child.json.url, accept_json())
+    child.json <- content(response, as = 'parsed')
 		child.services <- child.json$services
 			for (k in 1:length(child.services)){
 				if (child.services[[k]]$type=="proxy_wms"){
