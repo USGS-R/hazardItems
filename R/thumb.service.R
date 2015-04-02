@@ -11,7 +11,6 @@
 #'@export
 thumb.service <- function(json.url){
   
-  require(mapdata)
 	dim.x <- 150 # px
 	dim.y <- 150 # px
   if (dim.y!=dim.x){stop("non-square image not currently supported")}

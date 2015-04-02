@@ -25,13 +25,15 @@ getVisibleChildren	<-	function(json.url){
 itemPeeler	<-	function(item.id,json.rest){
 	
 	# takes ONE item id, moves down one level, returns children
-	item.json	<-	suppressWarnings(fromJSON(file=paste(json.rest,item.id,sep='')))
+  response <- GET(paste0(json.rest,item.id), accept_json())
+  item.json <- content(response, as = 'parsed')
+
 	if(item.json$itemType == "data"){
 		item.children	<-	item.json$id
 		bottom	<-	TRUE
 	} else {
 		# how many children?
-		item.children	<-	item.json$displayedChildren
+		item.children	<-	unlist(item.json$displayedChildren)
 		bottom	<-	vector(length=length(item.children))
 	}			
 	return(data.frame(bottom=bottom,children=item.children))
@@ -42,8 +44,10 @@ getUniqueBBoxIDs <- function(json.urls){
   # returns indexes for unique bounding boxes
   bboxes = matrix(nrow=length(json.urls),ncol=4)
   for (j in 1:length(json.urls)){
-    item.json  <-	suppressWarnings(fromJSON(file = json.urls[j]))
-    bboxes[j,] <- item.json$bbox
+    response <- GET(json.urls[j], accept_json())
+    item.json <- content(response, as = 'parsed')
+
+    bboxes[j,] <- unlist(item.json$bbox)
   }
   un.bbox <- unique(bboxes)
   bbox.idx = vector(length=length(json.urls))
