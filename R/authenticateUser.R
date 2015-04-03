@@ -8,14 +8,16 @@
 #'\code{authenticateUser} within the same R session can use the password argument 
 #'only (e.g., \code{authenticateUser(password = '12345')})
 #'@return a character token, or the status code if not 200
-#'@importFrom httr POST accept_json content
+#'@importFrom httr POST accept_json content timeout
 #'@export 
 authenticateUser <- function(username, password){
   
   
-  if (missing(username)) {
+  if (missing(username) & is.null(pkg.env$username) & interactive()) {
+    username <- readPassword('Please enter your Active Directory username:')
+  } else if (missing(username)) {
     username <- pkg.env$username
-  }
+  } 
   if (is.null(username)) {
     stop('username required for authentication')
   }
@@ -29,12 +31,15 @@ authenticateUser <- function(username, password){
 
   ## authenticate
   resp = POST(pkg.env$auth_token, accept_json(),
-              body = list(username=username, password=password), encode='form')
+              body = list(username=username, password=password), 
+              encode='form', timeout(5))
   if (resp$status_code == 200){
+
     pkg.env$username <- username
-    return(content(resp)$tokenId)
+    pkg.env$authToken <- content(resp)$tokenId
+    invisible(pkg.env$authToken)
   } else {
-    return(stop('authentication for ',username,' failed ',resp$status_code))
+    stop('authentication for ',username,' failed ',resp$status_code)
   }
   
 }

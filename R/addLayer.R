@@ -1,31 +1,32 @@
 #'@title add a layer from a shapefile to CCH portal
 #'@description returns url of the created layer
 #'@param filename a shapefile to post
-#'@param token token received from the authenticateUser function
+#'@param ... additional arguments passed to \code{\link{authenticateUser}}
 #'@details This layer is used to track WFS, WMS, and CSW pointers
 #'@return layer id for the new layer that was created
 #'@importFrom httr POST content_type add_headers headers http_status
 #'
 #'@examples
 #'\dontrun{
-#'  addLayer(system.file("extdata", "Sandy_CIDA.zip", 
-#'    package="hazardItems"), authenticateUser(username))
+#'authenticateUser('bbadger')
+#'addLayer(system.file("extdata", "Sandy_CIDA.zip", 
+#'    package="hazardItems"))
 #'}
 #'@export
-addLayer = function(filename, token) {
+addLayer = function(filename, ...) {
   file <- file(filename, "rb")
   size <- file.info(filename)$size
   rawData <- readBin(file, "raw", n=size)
   close(file)
   
-  if (!missing(token)) {
-    auth <- paste('Bearer', token)
-  }
+  checkAuth(...)
+  
   layerUrl <- pkg.env$item_layer
   
   response <- POST(url=layerUrl, body=rawData, 
                    content_type('application/octet-stream'),
-                   add_headers('Authorization' = auth, 'Connection'='keep-alive'))
+                   add_headers('Authorization' = getAuth(), 'Connection'='keep-alive'))
+  
   if (http_status(response)$category == "success") {
     location <- headers(response)$Location
     bits <- strsplit(location,"/")
@@ -35,3 +36,4 @@ addLayer = function(filename, token) {
   }
   return(id)
 }
+
