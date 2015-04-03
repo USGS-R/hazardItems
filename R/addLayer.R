@@ -3,7 +3,7 @@
 #'@param filename a shapefile to post
 #'@param token token received from the authenticateUser function
 #'@details This layer is used to track WFS, WMS, and CSW pointers
-#'@return layer url for the new layer
+#'@return layer id for the new layer that was created
 #'@importFrom httr POST content_type add_headers headers http_status
 #'
 #'@examples
@@ -28,8 +28,10 @@ addLayer = function(filename, token) {
                    add_headers('Authorization' = auth, 'Connection'='keep-alive'))
   if (http_status(response)$category == "success") {
     location <- headers(response)$Location
+    bits <- strsplit(location,"/")
+    id <- tail(bits[[1]],n=1)
   } else {
     error('Unable to post file, contact someone who can help')
   }
-  return(location)
+  return(id)
 }
