@@ -8,16 +8,17 @@ setBaseURL(endpoint = "prod")
 }
 \arguments{
 \item{endpoint}{Indicate which CCHP endpoint
-you want to use options: \code{c('prod','dev','qa')}}
+you want to use options: \code{c('prod','qa','dev')}}
 }
 \description{
-Sets the internal URLS used to either the production, dev or QA server.
+Sets the internal URLS used to either the production, QA, or dev server.
 URLS are stored internally to the package
 }
 \examples{
 \dontrun{
-set_endpoint('prod')
-set_endpoint('dev')
+setBaseURL('prod')
+setBaseURL('qa')
+setBaseURL('dev')
 }
 }
 \author{

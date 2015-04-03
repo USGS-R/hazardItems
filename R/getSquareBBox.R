@@ -3,7 +3,7 @@ getSquareBBox <- function(item.json){
   	# returns a square BBox based on item id
 
 
-	BBox <- item.json$bbox # in the form minX,minY,maxX,maxY
+	BBox <- unlist(item.json$bbox) # in the form minX,minY,maxX,maxY
   	max.dim <- getMaxDim(BBox)
   
   if (max.dim$max.dim=='long'){
