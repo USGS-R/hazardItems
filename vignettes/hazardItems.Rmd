@@ -1,0 +1,101 @@
+---
+title: "Hazard Items Workflow"
+author: "Jordan Read, Jordan Walker, Megan Hines"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Hazard Items Introduction}
+  \usepackage[utf8]{inputenc}
+---
+
+
+```{r setup, include=FALSE}
+library(rmarkdown)
+options(continue=" ")
+options(width=60)
+library(knitr)
+library(hazardItems)
+
+```
+
+# Introduction
+
+
+This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal (cchp) at marine.usgs.gov/coastalchangehazardsportal.  
+    
+`historical.service`, `storm.service` and `vulnerability.service` parse metadata records and create summaries specific to their respective themes. The subtypes are defined by the attribute names.
+
+`thumb.service` expects an input json.url and returns a thumbnail png for the item.
+
+`addLayer` service creates a new item from a zipped shapefile from an authenticated user.
+
+`template` service creates or replaces new child items based on an input id. 
+
+
+#Item Metadata Packages
+
+##Historical Metadata
+`historical.service` parses the metadata record and creates a summary specific to the HISTORICAL theme, with subtype being defined by the attribute name. For example, to create a historical item from a local shapefile metadata file called NewJerseyS_shorelines.shp.xml and create a subtype named 'date':
+
+```{r, results='hide'}
+serviceEndpoint  <-  system.file('extdata',
+"NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
+attribute	<-	'date'
+summary	<-	historical.service(serviceEndpoint,attribute)
+print(summary)
+sink('output.json')
+cat(summary)
+sink()
+```
+
+##Storm Service Metadata
+`storm.service` parses the metadata record and creates a summary specific to the STORM theme, with a subtype being defined by the attribute name. For example, to create a storm item from a remote url with an attribute named 'PCOL3':
+
+```{r, results='hide'}
+serviceEndpoint  <-  'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+attribute	<-	'PCOL3'
+summary	<-	storm.service(serviceEndpoint,attribute)
+print(summary)
+```
+
+##Real Time Storm Item Creation
+Creating an item for a real-time storms event requires first establishing a parent aggregation item that will hold any number of child items beneath it. The parent item represents the storm. For example, "Hurricane Sandy" could be the title of a parent aggregation item for a real-time storm. 
+
+<br />
+<br />
+An example workflow for a *new* incoming storm would involve the following:
+
+* a new `template` item is added from the mediation page (publish/item) describing the incoming storm (manually performed by NACCH administrators)
+
+* the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
+
+* a model is run at St. Pete's producing a shapefile
+
+* the shapefile contents are zipped including the XML metadata (shp, prj, xml, dbf, etc) - DO NOT NEST FILES IN A FOLDER
+
+* the user loads the R package `hazardItems` into their local R environment
+
+* the `addLayer` function is called to post the zipped file to the portal. If `addLayer` is successful, the layerId will be returned
+
+* the `getLayer` function is called with the argument `field = attrs`. This will return all possible attributes that can be used to create item children.
+
+* the `template` function is called to create specified items with the contents of the new layer
+
+* the NACCH administrator manually attaches the template item to the top level (uber item) through the mediation page (publish/item).
+
+
+
+```{r,eval=FALSE}
+
+
+```
+
+#Rendering
+##Thumbnail Generation
+##Template Items
+
+
+
