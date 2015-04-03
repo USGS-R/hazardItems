@@ -20,4 +20,10 @@ returns url of the created layer
 \details{
 This layer is used to track WFS, WMS, and CSW pointers
 }
+\examples{
+\dontrun{
+ addLayer(system.file("extdata", "Sandy_CIDA.zip",
+   package="hazardItems"), authenticateUser(username))
+}
+}
 

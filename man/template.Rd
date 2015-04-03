@@ -23,4 +23,31 @@ creates several items based on data passed to template
 This can be used to either create new items from a template
 or replace existing items under a template
 }
+\examples{
+# replace existing children items
+ items <- list(children=list(
+   list(
+     id="DvwQhQEH",
+     layerId="DvwcwCrK"
+   ),
+   list(
+     id="DvwQjFYJ",
+     layerId="DvwcwCrK"
+   )
+ ))
+ # create new children from template
+ items <- list(children=list(
+   list(
+     attr="MEAN",
+     layerId="DvwcwCrK"
+   ),
+   list(
+     attr="RUNUP",
+     layerId="DvwcwCrK"
+   )
+ ))
+\dontrun{
+ template("CAQw7M1", items, authenticateUser(username))
+}
+}
 
