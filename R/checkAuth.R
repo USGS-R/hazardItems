@@ -7,7 +7,7 @@
 #'@keywords internal
 checkAuth <- function(updateIfStale = TRUE, ...){
   if (is.null(pkg.env$authToken)){
-    stop('user is not authenticated, see authenticateUser')
+    authenticateUser(...)
   }
   auth = paste('Bearer', pkg.env$authToken)
   resp <- GET(pkg.env$auth_check, add_headers('Authorization' = auth))
