@@ -32,7 +32,7 @@ addLayer = function(filename, ...) {
     bits <- strsplit(location,"/")
     id <- tail(bits[[1]],n=1)
   } else {
-    error('Unable to post file, contact someone who can help')
+    stop('Unable to post file, contact someone who can help')
   }
   return(id)
 }
