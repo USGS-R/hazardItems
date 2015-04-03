@@ -1,6 +1,7 @@
 hazardItems
 ==============
-[![Build Status](https://travis-ci.org/USGS-R/hazardItems.svg)](https://travis-ci.org/USGS-R/hazardItems)
+[![Build Status](https://travis-ci.org/USGS-R/hazardItems.svg)](https://travis-ci.org/USGS-R/hazardItems)  
+[![Coverage Status](https://coveralls.io/repos/USGS-R/hazardItems/badge.svg)](https://coveralls.io/r/USGS-R/hazardItems)
 
 services for coastal change hazards items
 
