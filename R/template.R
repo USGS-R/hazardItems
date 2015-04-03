@@ -8,6 +8,32 @@
 #'@return TRUE if it worked FALSE otherwise
 #'@importFrom httr POST http_status
 #'@importFrom jsonlite toJSON
+#'@examples
+#'  # replace existing children items
+#'  items <- list(children=list(
+#'    list(
+#'      id="DvwQhQEH",
+#'      layerId="DvwcwCrK"
+#'    ),
+#'    list(
+#'      id="DvwQjFYJ",
+#'      layerId="DvwcwCrK"
+#'    )
+#'  ))
+#'  # create new children from template
+#'  items <- list(children=list(
+#'    list(
+#'      attr="MEAN",
+#'      layerId="DvwcwCrK"
+#'    ),
+#'    list(
+#'      attr="RUNUP",
+#'      layerId="DvwcwCrK"
+#'    )
+#'  ))
+#'\dontrun{
+#'  template("CAQw7M1", items, authenticateUser(username))
+#'}
 #'@export
 template = function(templateId, items, token) {
   url <- paste0(pkg.env$item_template, templateId)

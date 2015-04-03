@@ -5,11 +5,18 @@
 #'@details This layer is used to track WFS, WMS, and CSW pointers
 #'@return layer url for the new layer
 #'@importFrom httr POST content_type add_headers headers http_status
+#'
+#'@examples
+#'\dontrun{
+#'  addLayer(system.file("extdata", "Sandy_CIDA.zip", 
+#'    package="hazardItems"), authenticateUser(username))
+#'}
 #'@export
 addLayer = function(filename, token) {
   file <- file(filename, "rb")
   size <- file.info(filename)$size
   rawData <- readBin(file, "raw", n=size)
+  close(file)
   
   if (!missing(token)) {
     auth <- paste('Bearer', token)
