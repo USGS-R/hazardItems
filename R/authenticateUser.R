@@ -31,10 +31,12 @@ authenticateUser <- function(username, password){
   resp = POST(pkg.env$auth_token, accept_json(),
               body = list(username=username, password=password), encode='form')
   if (resp$status_code == 200){
+    content(resp)$tokenId
     pkg.env$username <- username
-    return(content(resp)$tokenId)
+    pkg.env$authToken <- content(resp)$tokenId
+    invisible(pkg.env$authToken)
   } else {
-    return(stop('authentication for ',username,' failed ',resp$status_code))
+    stop('authentication for ',username,' failed ',resp$status_code)
   }
   
 }
