@@ -66,6 +66,24 @@ Creating an item for a real-time storms event requires first establishing a pare
 
 <br />
 <br />
+An example workflow for adding or updating a real time storm would involve the following:
+
+
+(@) a new `template` item is added from the mediation page (publish/item) describing the incoming storm (manually performed by NACCH administrators)
+
+(@) the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
+
+(@) a model is run at St. Pete's producing a shapefile
+
+(@) the shapefile contents are zipped including the XML metadata (shp, prj, xml, dbf, etc) - DO NOT NEST FILES IN A FOLDER
+
+(@) the user calls `publishStorm CAQw7M1 D:\Sandy.zip` from command line with parameters for templateId and shapefile path 
+
+(@) every time the model is updated, follow steps 3 to 6
+
+
+##Advanced User Real Time Storm Item Creation
+
 An example workflow for a *new* incoming storm would involve the following:
 
 * a new `template` item is added from the mediation page (publish/item) describing the incoming storm (manually performed by NACCH administrators)
@@ -80,7 +98,7 @@ An example workflow for a *new* incoming storm would involve the following:
 
 * the `addLayer` function is called to post the zipped file to the portal. If `addLayer` is successful, the layerId will be returned
 
-* the `getLayer` function is called with the argument `field = attrs`. This will return all possible attributes that can be used to create item children.
+* the `getLayer` function is called with the argument `field = "attrs"`. This will return all possible attributes that can be used to create item children.
 
 * the `template` function is called to create specified items with the contents of the new layer
 
@@ -89,7 +107,14 @@ An example workflow for a *new* incoming storm would involve the following:
 
 
 ```{r,eval=FALSE}
-
+library(hazardItems)
+setBaseURL("dev") #setBaseURL("prod") in the event of actual storm.
+templateId = "CAQw7M1"
+shapefile = "C:\\Users\\mhines\\documents\\Sandy_CIDA.zip" #enter full path to your zipped shapefile here
+layerId = addLayer(shapefile)
+attrs = getLayer(layerId, field = "attrs")
+#enter more details here#
+template(templateId,layerId,attrs)
 
 ```
 
