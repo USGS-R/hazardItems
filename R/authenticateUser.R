@@ -45,6 +45,7 @@ authenticateUser <- function(username, password){
 }
 
 readPassword <- function(prompt) {
+  .rs.askForPassword = "_private_global"
   if (exists(".rs.askForPassword")) {
     pass <- .rs.askForPassword(prompt)
   } else {
