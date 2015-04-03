@@ -4,12 +4,12 @@
 \alias{addLayer}
 \title{add a layer from a shapefile to CCH portal}
 \usage{
-addLayer(filename, token)
+addLayer(filename, ...)
 }
 \arguments{
 \item{filename}{a shapefile to post}
 
-\item{token}{token received from the authenticateUser function}
+\item{...}{additional arguments passed to \code{\link{authenticateUser}}}
 }
 \value{
 layer id for the new layer that was created
@@ -22,8 +22,9 @@ This layer is used to track WFS, WMS, and CSW pointers
 }
 \examples{
 \dontrun{
- addLayer(system.file("extdata", "Sandy_CIDA.zip",
-   package="hazardItems"), authenticateUser(username))
+authenticateUser('bbadger')
+addLayer(system.file("extdata", "Sandy_CIDA.zip",
+   package="hazardItems"))
 }
 }
 

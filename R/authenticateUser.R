@@ -13,7 +13,9 @@
 authenticateUser <- function(username, password){
   
   
-  if (missing(username)) {
+  if (missing(username) & is.null(pkg.env$username) & interactive()) {
+    username <- readPassword('Please enter your Active Directory username:')
+  } else {
     username <- pkg.env$username
   }
   if (is.null(username)) {

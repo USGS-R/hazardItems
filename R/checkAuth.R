@@ -9,8 +9,7 @@ checkAuth <- function(updateIfStale = TRUE, ...){
   if (is.null(pkg.env$authToken)){
     authenticateUser(...)
   }
-  auth = paste('Bearer', pkg.env$authToken)
-  resp <- GET(pkg.env$auth_check, add_headers('Authorization' = auth))
+  resp <- GET(pkg.env$auth_check, add_headers('Authorization' = getAuth()))
   
   if (resp$status_code == 200){
     return(TRUE)
@@ -21,4 +20,16 @@ checkAuth <- function(updateIfStale = TRUE, ...){
     }
     return(FALSE)
   }
+}
+
+#'@title get auth header
+#'@return NULL if no auth token is set, otherwise auth header as string
+#'@keywords internal
+getAuth <- function(){
+  if (is.null(pkg.env$authToken)){
+    return(NULL)
+  } else {
+    return(paste('Bearer', pkg.env$authToken))
+  }
+  
 }
