@@ -12,7 +12,7 @@ addLayer(filename, token)
 \item{token}{token received from the authenticateUser function}
 }
 \value{
-layer url for the new layer
+layer id for the new layer that was created
 }
 \description{
 returns url of the created layer
