@@ -1,6 +1,6 @@
 ---
 title: "Hazard Items Workflow"
-author: "Jordan Read, Jordan Walker, Megan Hines"
+author: "Jordan Read, Jordan Walker, Luke Winslow, Megan Hines"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   rmarkdown::html_vignette:
@@ -21,7 +21,8 @@ library(hazardItems)
 
 ```
 
-# Introduction
+
+#Introduction
 
 
 This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal (cchp) at marine.usgs.gov/coastalchangehazardsportal.  
@@ -34,6 +35,22 @@ This package **hazardItems** provides services in support of coastal change haza
 
 `template` service creates or replaces new child items based on an input id. 
 
+`setBaseURL` and `authenticateUser` are supporting functions for directing requests and posts to the proper development, testing or production tier, and checking proper access for posting data.
+
+
+
+#Installation
+To install **hazardItems** 
+
+Install required packages:
+```{r, eval=FALSE}
+install.packages(c("httr","scales","rjson","png","maps","mapdata","XML","devtools","roxygen2","knitr","rmarkdown","mapdata"))
+```
+
+Then:
+```{r, eval=FALSE}
+library(hazardItems)
+```
 
 #Item Metadata Packages
 
