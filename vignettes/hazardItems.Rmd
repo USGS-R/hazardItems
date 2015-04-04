@@ -25,7 +25,7 @@ library(hazardItems)
 #Introduction
 
 
-This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal (cchp) at marine.usgs.gov/coastalchangehazardsportal.  
+This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal at <a href="marine.usgs.gov/coastalchangehazardsportal" target="_blank">marine.usgs.gov/coastalchangehazardsportal</a>.  
     
 `historical.service`, `storm.service` and `vulnerability.service` parse metadata records and create summaries specific to their respective themes. The subtypes are defined by the attribute names.
 
@@ -86,7 +86,7 @@ Creating an item for a real-time storms event requires first establishing a pare
 An example workflow for adding or updating a real time storm would involve the following:
 
 
-(@) a new `template` item is added from the mediation page (publish/item) describing the incoming storm (manually performed by NACCH administrators)
+(@) a new `template` item is added from the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators</a>)
 
 (@) the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
 
@@ -103,7 +103,7 @@ An example workflow for adding or updating a real time storm would involve the f
 
 An example workflow for a *new* incoming storm would involve the following:
 
-* a new `template` item is added from the mediation page (publish/item) describing the incoming storm (manually performed by NACCH administrators)
+* a new `template` item is added from the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators)
 
 * the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
 
@@ -119,7 +119,7 @@ An example workflow for a *new* incoming storm would involve the following:
 
 * the `template` function is called to create specified items with the contents of the new layer
 
-* the NACCH administrator manually attaches the template item to the top level (uber item) through the mediation page (publish/item).
+* the NACCH administrator manually attaches the template item to the top level (uber item) through the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a>.
 
 
 
