@@ -1,6 +1,6 @@
 ---
 title: "Hazard Items Workflow"
-author: "Jordan Read, Jordan Walker, Megan Hines"
+author: "Jordan Read, Jordan Walker, Luke Winslow, Megan Hines"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   rmarkdown::html_vignette:
@@ -21,10 +21,11 @@ library(hazardItems)
 
 ```
 
-# Introduction
+
+#Introduction
 
 
-This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal (cchp) at marine.usgs.gov/coastalchangehazardsportal.  
+This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal at <a href="http://marine.usgs.gov/coastalchangehazardsportal" target="_blank">marine.usgs.gov/coastalchangehazardsportal</a>.  
     
 `historical.service`, `storm.service` and `vulnerability.service` parse metadata records and create summaries specific to their respective themes. The subtypes are defined by the attribute names.
 
@@ -34,6 +35,22 @@ This package **hazardItems** provides services in support of coastal change haza
 
 `template` service creates or replaces new child items based on an input id. 
 
+`setBaseURL` and `authenticateUser` are supporting functions for directing requests and posts to the proper development, testing or production tier, and checking proper access for posting data.
+
+
+
+#Installation
+To use **hazardItems** 
+
+Install required packages:
+```{r, eval=FALSE}
+install.packages(c("httr","scales","rjson","png","maps","mapdata","XML","devtools","roxygen2","knitr","rmarkdown"))
+```
+
+Then:
+```{r, eval=FALSE}
+library(hazardItems)
+```
 
 #Item Metadata Packages
 
@@ -69,7 +86,7 @@ Creating an item for a real-time storms event requires first establishing a pare
 An example workflow for adding or updating a real time storm would involve the following:
 
 
-(@) a new `template` item is added from the mediation page (publish/item) describing the incoming storm (manually performed by NACCH administrators)
+(@) a new `template` item is added from the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators</a>)
 
 (@) the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
 
@@ -86,7 +103,7 @@ An example workflow for adding or updating a real time storm would involve the f
 
 An example workflow for a *new* incoming storm would involve the following:
 
-* a new `template` item is added from the mediation page (publish/item) describing the incoming storm (manually performed by NACCH administrators)
+* a new `template` item is added from the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators)
 
 * the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
 
@@ -102,7 +119,7 @@ An example workflow for a *new* incoming storm would involve the following:
 
 * the `template` function is called to create specified items with the contents of the new layer
 
-* the NACCH administrator manually attaches the template item to the top level (uber item) through the mediation page (publish/item).
+* the NACCH administrator manually attaches the template item to the top level (uber item) through the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a>.
 
 
 
@@ -120,7 +137,15 @@ template(templateId,layerId,attrs)
 
 #Rendering
 ##Thumbnail Generation
-##Template Items
+
+The `thumb.service` accepts a json URL and creates a handsome thumbnail preview of the layer. For the CCH Portal, the thumbnails are used on the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/">mediation page</a> as an item preview.
+
+To use:
+```{r,eval=FALSE}
+serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/CAkR645'
+thumb.service(serviceEndpoint)
+```
+
 
 
 
