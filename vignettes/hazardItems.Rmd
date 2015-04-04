@@ -25,7 +25,7 @@ library(hazardItems)
 #Introduction
 
 
-This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal at <a href="marine.usgs.gov/coastalchangehazardsportal" target="_blank">marine.usgs.gov/coastalchangehazardsportal</a>.  
+This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal at <a href="http://marine.usgs.gov/coastalchangehazardsportal" target="_blank">marine.usgs.gov/coastalchangehazardsportal</a>.  
     
 `historical.service`, `storm.service` and `vulnerability.service` parse metadata records and create summaries specific to their respective themes. The subtypes are defined by the attribute names.
 
@@ -44,7 +44,7 @@ To install **hazardItems**
 
 Install required packages:
 ```{r, eval=FALSE}
-install.packages(c("httr","scales","rjson","png","maps","mapdata","XML","devtools","roxygen2","knitr","rmarkdown","mapdata"))
+install.packages(c("httr","scales","rjson","png","maps","mapdata","XML","devtools","roxygen2","knitr","rmarkdown"))
 ```
 
 Then:
