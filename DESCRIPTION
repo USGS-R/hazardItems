@@ -25,6 +25,7 @@ Imports:
     httr
 Suggests: 
     testthat,
-    knitr
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
 
