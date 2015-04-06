@@ -40,7 +40,7 @@ This package **hazardItems** provides services in support of coastal change haza
 
 
 #Installation
-To use **hazardItems** 
+To install **hazardItems** 
 
 Install required packages:
 ```{r, eval=FALSE}
@@ -49,7 +49,9 @@ install.packages(c("httr","scales","rjson","png","maps","mapdata","XML","devtool
 
 Then:
 ```{r, eval=FALSE}
-library(hazardItems)
+install.packages("hazardItems", 
+    repos = c("https://github.com/USGS-R/hazardItems"),
+    dependencies = TRUE)
 ```
 
 #Item Metadata Packages
@@ -138,7 +140,7 @@ template(templateId,layerId,attrs)
 #Rendering
 ##Thumbnail Generation
 
-The `thumb.service` accepts a json URL and creates a handsome thumbnail preview of the layer. For the CCH Portal, the thumbnails are used on the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/">mediation page</a> as an item preview.
+The `thumb.service` accepts a json URL and creates a handsome thumbnail preview of the layer. For the CCH Portal, the thumbnails are used on the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/">mediation page</a> as an item preview, in your bucket and in the search results panel.
 
 To use:
 ```{r,eval=FALSE}
