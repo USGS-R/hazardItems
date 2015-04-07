@@ -42,15 +42,10 @@ This package **hazardItems** provides services in support of coastal change haza
 #Installation
 To install **hazardItems** 
 
-Install required packages:
-```{r, eval=FALSE}
-install.packages(c("httr","scales","rjson","png","maps","mapdata","XML","devtools","roxygen2","knitr","rmarkdown"))
-```
-
-Then:
+Install package with dependencies:
 ```{r, eval=FALSE}
 install.packages("hazardItems", 
-    repos = c("https://github.com/USGS-R/hazardItems"),
+    repos = c("https://owi.usgs.gov/R"),
     dependencies = TRUE)
 ```
 

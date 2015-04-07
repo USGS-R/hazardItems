@@ -2,6 +2,7 @@
 
 export(addLayer)
 export(authenticateUser)
+export(getTemplateItem)
 export(historical.service)
 export(setBaseURL)
 export(storm.service)
