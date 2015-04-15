@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>U.S. Geological Survey, Woods Hole Field Center</origin>
+        <pubdate>20010110</pubdate>
+        <title>Coastal Vulnerability to Sea-Level Rise: A Preliminary Database for the U.S. Pacific Coast</title>
+        <edition/>
+        <geoform>Map</geoform>
+        <pubinfo>
+          <pubplace>Woods Hole, Massachusetts</pubplace>
+          <publish>U.S. Geological Survey</publish>
+        </pubinfo>
+        <othercit>This CD-ROM is designed to address the needs of a variety of different users. It contains the geographic information system (GIS) databases necessary to incorporate data from multiple sources into a common spatial framework for hazards mapping and analysis. It also contains links to a free user-friendly GIS mapping tool to allow organizations that do not have GIS software the ability to view and manipulate the data on the CD-ROM.</othercit>
+        <onlink/>
+        <lworkcit>
+          <citeinfo>
+            <origin>U.S. Geological Survey, Woods Hole</origin>
+            <pubdate>20010110</pubdate>
+            <title>Coastal Vulnerability to Sea-Level Rise: A Preliminary Database for the U.S. Atlantic, Pacific, and Gulf of Mexico Coasts</title>
+            <pubinfo>
+              <pubplace>Woods Hole, Massachusetts</pubplace>
+              <publish>U.S. Geological Survey</publish>
+            </pubinfo>
+            <onlink/>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The goal of this project is to provide a preliminary overview, at a National scale, the relative susceptibility of the Nation's coast to sea- level rise through the use of a coastal vulnerability index (CVI). This initial classification is based upon the variables geomorphology, regional coastal slope, tide range, wave height, relative sea-level rise and shoreline erosion and accretion rates. The combination of these variables and the association of these variables to each other furnish a broad overview of regions where physical changes are likely to occur due to sea-level rise.</abstract>
+      <purpose>The purpose of this data layer is to allow the user to view both the coastal vulnerability index (CVI) and the data from which the CVI is calculated (tides, wave height, relative sea-level rise, coastal slope, geomorphology, and shoreline erosion and accretion rate) for the U.S. Pacific Coast. The CVI provides insight into the relative potential for coastal change due to future sea-level rise. The maps and data presented here can be viewed in at least two ways: 1) as a base for developing a more complete inventory of variables influencing the coastal vulnerability to future sea-level rise to which other elements can be added as they become available; and 2) as an example of the potential for assessing coastal vulnerability to future sea-level rise using objective criteria.</purpose>
+      <supplinf/>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate/>
+          <enddate/>
+        </rngdates>
+      </timeinfo>
+      <current>publication date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Continually</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-124.7608</westbc>
+        <eastbc>-117.1012</eastbc>
+        <northbc>48.3880</northbc>
+        <southbc>32.5612</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>Coastal Hazards</themekey>
+        <themekey>Hazards</themekey>
+        <themekey>Erosion</themekey>
+        <themekey>Shoreline</themekey>
+        <themekey>Shoreline Change</themekey>
+        <themekey>Beach</themekey>
+        <themekey>Beach Erosion</themekey>
+        <themekey>Sea-Level</themekey>
+        <themekey>Sea-Level Rise</themekey>
+        <themekey>Slope</themekey>
+        <themekey>Wave Height</themekey>
+        <themekey>Coastal Geomorphology</themekey>
+        <themekey>Tide Range</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Pacific Coast</placekey>
+        <placekey>West Coast</placekey>
+        <placekey>Oregon</placekey>
+        <placekey>Washington</placekey>
+        <placekey>California</placekey>
+      </place>
+    </keywords>
+    <accconst>none</accconst>
+    <useconst>none</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey, Woods Hole Field Center</cntorg>
+          <cntper>E. Robert Thieler</cntper>
+        </cntorgp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical address</addrtype>
+          <address>384 Woods Hole Road</address>
+          <city>Woods Hole</city>
+          <state>Massachusetts</state>
+          <postal>02543</postal>
+          <country>U.S.A</country>
+        </cntaddr>
+        <cntvoice>508-457-2350</cntvoice>
+        <cntfax>508-457-2310</cntfax>
+        <cntemail>rthieler@usgs.gov</cntemail>
+        <hours>M-F 9-5 EST</hours>
+      </cntinfo>
+    </ptcontac>
+    <native>ArcView version 3.2 shapefile format data\pacific\pacific.shp</native>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>The attributes in this dataset are based on A Coastal Hazards Database for the U.S. West Coast (Gornitz, V. and White, T. W. 1992. ORNL/CDIAC-81, NDP-043C. Oak Ridge National Laboratory, Oak Ridge, Tennessee) updated with data from more recent sources. The data has gone through a series of QA/QC procedures, and is therefore believed to accurately reflect the data gathered in the Coastal Vulnerability to Sea-Level Rise Study.</attraccr>
+    </attracc>
+    <logic>This database is believed to be logically consistent.</logic>
+    <complete>This database is complete.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>none</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>none</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>U.S. Geological Survey, Woods Hole Field Center</origin>
+            <pubdate>20010110</pubdate>
+            <title>Coastal Vulnerability to Sea-Level Rise: U.S. Atlantic Coast</title>
+            <edition/>
+            <geoform>map</geoform>
+            <pubinfo>
+              <pubplace>Woods Hole, Massachusetts</pubplace>
+              <publish>U.S. Geological Survey</publish>
+            </pubinfo>
+            <othercit/>
+            <onlink/>
+            <lworkcit>
+              <citeinfo>
+                <origin>U.S. Geological Survey</origin>
+                <pubdate>20010110</pubdate>
+                <title>Coastal Vulnerability to Sea-Level Rise: A Preliminary Database for the U.S. Atlantic, Pacific and Gulf Coasts</title>
+                <pubinfo>
+                  <pubplace>Woods Hole, Massachusetts</pubplace>
+                  <publish>U.S. Geological Survey</publish>
+                </pubinfo>
+                <onlink/>
+              </citeinfo>
+            </lworkcit>
+          </citeinfo>
+        </srccite>
+        <srcscale>~1:2,000,000</srcscale>
+        <typesrc>digital GIS data</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate/>
+              <enddate/>
+            </rngdates>
+          </timeinfo>
+          <srccurr/>
+        </srctime>
+        <srccitea/>
+        <srccontr/>
+      </srcinfo>
+      <procstep>
+        <procdesc>The Coastal Hazards Database for the U.S. Pacific Coast (Gornitz, V. and White, T. W. 1992. ORNL/CDIAC-81, NDP-043C. Oak Ridge National Laboratory, Oak Ridge, Tennessee), NOS tide and sea-level rise data, WIS wave data, state and U.S. Geological Survey erosion/accretion rate data, NGDC and ETOPO5 elevation data and the Living with the Shore series (Duke University Press, Durham, NC) were used to create this digital dataset. An ArcView .shp file was updated with each attribute.</procdesc>
+        <srcused/>
+        <procdate>19991215</procdate>
+        <srcprod/>
+        <proccont>
+          <cntinfo>
+            <cntperp>
+              <cntorg>U.S. Geological Survey, Woods Hole Field Center</cntorg>
+              <cntper>E. Robert Thieler</cntper>
+            </cntperp>
+            <cntpos>Geologist</cntpos>
+            <cntaddr>
+              <addrtype>mailing and physical address</addrtype>
+              <address>384 Woods Hole Road</address>
+              <city>Woods Hole</city>
+              <state>Massachusetts</state>
+              <postal>02543</postal>
+              <country>U.S.A.</country>
+            </cntaddr>
+            <cntvoice>508-457-2350</cntvoice>
+            <cntfax>508-457-2310</cntfax>
+            <cntemail>rthieler@usgs.gov</cntemail>
+            <hours>9-5 M-F EST</hours>
+          </cntinfo>
+        </proccont>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>Complete Chain</sdtstype>
+        <ptvctcnt>1635</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>3 arc seconds</latres>
+        <longres>3 arc seconds</longres>
+        <geogunit>Decimal Degrees</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>North American Datum of 1983</horizdn>
+        <ellips>WGS 84</ellips>
+        <semiaxis/>
+        <denflat/>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>pacific.dbf</enttypl>
+        <enttypd>Shapefile Attribute Table</enttypd>
+        <enttypds>None</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>Length</attrlabl>
+        <attrdef>Length of line</attrdef>
+        <attrdefs>Software generated</attrdefs>
+        <attrdomv>
+          <udom>Software computed</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Id_coast</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>1635</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sealevel_m</attrlabl>
+        <attrdef>Relative Sea-Level Rise (mm/yr)</attrdef>
+        <attrdefs>NOS Tide Stations</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-1.9</rdommin>
+            <rdommax>2.75</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sealevelri</attrlabl>
+        <attrdef>Relative Risk Ranking</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sea_level</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <udom>Character Field</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Slope___</attrlabl>
+        <attrdef>Regional Coastal Slope (%)</attrdef>
+        <attrdefs>ETOPO5</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.0079</rdommin>
+            <rdommax>5.72</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Sloperisk</attrlabl>
+        <attrdef>Relative Risk Ranking</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Slope</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <udom>Character Field</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tide_m_</attrlabl>
+        <attrdef>Mean Tide Range (m)</attrdef>
+        <attrdefs>NOS Tide Stations</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.06</rdommin>
+            <rdommax>2.21</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tiderisk</attrlabl>
+        <attrdef>Relative Risk Ranking</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>3</rdommin>
+            <rdommax>4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Tides</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <udom>Character Field</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Waveheight</attrlabl>
+        <attrdef>Mean Wave Height (m)</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.3</rdommin>
+            <rdommax>2.8</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Waverisk</attrlabl>
+        <attrdef>Relative Risk Ranking</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>2</rdommin>
+            <rdommax>5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Waves</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <udom>Character Field</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Erosion__m</attrlabl>
+        <attrdef>Erosion and Accretion Rates (m/yr)</attrdef>
+        <attrdefs>CEIS, Washington Coastal Change Analysis, WA Department of Ecology, Coastal Monitoring and Analysis Program</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>-7.0588</rdommin>
+            <rdommax>17.5882</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Errrisk</attrlabl>
+        <attrdef>Relative Risk Ranking</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Erosion</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <udom>Character Field</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Geomorphri</attrlabl>
+        <attrdef>Geomorphology Risk Ranking</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>5</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Geomorph</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <udom>Character Field</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cvidata</attrlabl>
+        <attrdef>Actual CVI value</attrdef>
+        <attrdefs>Calculated</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.82</rdommin>
+            <rdommax>24.49</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cvirisk</attrlabl>
+        <attrdef>Relative Risk Ranking</attrdef>
+        <attrdefs/>
+        <attrdomv>
+          <rdom>
+            <rdommin>1</rdommin>
+            <rdommax>4</rdommax>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Cvi</attrlabl>
+        <attrdef/>
+        <attrdefs/>
+        <attrdomv>
+          <udom>Character Field</udom>
+        </attrdomv>
+      </attr>
+    </detailed>
+    <overview>
+      <eaover/>
+      <eadetcit/>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey, Woods Hole Field Center</cntorg>
+          <cntper>E. Robert Thieler</cntper>
+        </cntorgp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical address</addrtype>
+          <address>384 Woods Hole Road</address>
+          <city>Woods Hole</city>
+          <state>Massachusetts</state>
+          <postal>02543</postal>
+          <country>U.S.A.</country>
+        </cntaddr>
+        <cntvoice>508-457-2350</cntvoice>
+        <cntfax>508-457-2310</cntfax>
+        <cntemail>rthieler@usgs.gov</cntemail>
+        <hours>9-5 M-F EST</hours>
+      </cntinfo>
+    </distrib>
+    <resdesc/>
+    <distliab>User must assume responsibility to determine the usability of this data.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>ESRI shapefile, ESRI .e00 file</formname>
+        </digtinfo>
+        <digtopt>
+          <offoptn>
+            <offmedia>CD-ROM</offmedia>
+            <recfmt>ISO 9660</recfmt>
+            <compat>ISO 9660 format allows the CD-ROM to be read by most computer operating systems.</compat>
+          </offoptn>
+        </digtopt>
+      </digform>
+      <fees>none</fees>
+      <ordering>Contact:
+E. Robert Thieler
+USGS Woods Hole Field Center
+384 Woods Hole Road
+Woods Hole, MA 02543
+rthieler@usgs.gov</ordering>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20000626</metd>
+    <metrd/>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey, Woods Hole Field Center</cntorg>
+          <cntper>E. Robert Thieler</cntper>
+        </cntorgp>
+        <cntpos>Geologist</cntpos>
+        <cntaddr>
+          <addrtype>Mailing and physical address</addrtype>
+          <address>384 Woods Hole Road</address>
+          <city>Woods Hole</city>
+          <state>Massachusetts</state>
+          <postal>02543</postal>
+          <country>U.S.A.</country>
+        </cntaddr>
+        <cntvoice>508-457-2350</cntvoice>
+        <cntfax>508-457-2310</cntfax>
+        <cntemail>rthieler@usgs.gov</cntemail>
+        <hours>9-5 M-F EST</hours>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC CSDGM</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>
