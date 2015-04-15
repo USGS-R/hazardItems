@@ -36,6 +36,7 @@ setBaseURL = function(endpoint="prod"){
   pkg.env$item_sld = paste0(pkg.env$url_base, "data/sld/")
   pkg.env$item_layer = paste0(pkg.env$url_base, 'data/layer/')
   pkg.env$item_template = paste0(pkg.env$url_base, 'data/template/item/')
+  pkg.env$item_download = paste0(pkg.env$url_base, 'data/download/item/')
   pkg.env$auth_token = paste0(pkg.env$url_base, "authentication/auth/authenticate/")
   pkg.env$auth_check = paste0(pkg.env$url_base, "security/auth/check/")
   pkg.env$authToken = NULL
