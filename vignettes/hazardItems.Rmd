@@ -75,6 +75,18 @@ summary	<-	storm.service(serviceEndpoint,attribute)
 print(summary)
 ```
 
+##Vulnerability Service Metadata
+`vulnerability.service` parses the metadata record and creates a summary specific to the VULNERABILITY theme, with subtype being defined by the attribute name. The serviceEndpoint can be any valid xml file, either locally hosted or at a remote URL. For example, to create a vulnerability item from a local shapefile metadata file called `CVI_Pacific.shp.xml` and create an attribute named `SEA_LEVEL`:
+
+```{r, results='hide'}
+serviceEndpoint  <-  system.file('extdata',
+"CVI_Pacific.shp.xml", package = 'hazardItems')
+attribute  <-	'SEA_LEVEL'
+summary	<-	vulnerability.service(serviceEndpoint,attribute)
+print(summary)
+```
+
+
 ##Real Time Storm Item Creation
 Creating an item for a real-time storms event requires first establishing a parent aggregation item that will hold any number of child items beneath it. The parent item represents the storm. For example, "Hurricane Sandy" could be the title of a parent aggregation item for a real-time storm. 
 
@@ -93,7 +105,7 @@ An example workflow for adding or updating a real time storm would involve the f
 
 (@) the user calls `publishStorm CAQw7M1 D:\Sandy.zip` from command line with parameters for templateId and shapefile path 
 
-(@) every time the model is updated, follow steps 3 to 6
+-- every time the model is updated, follow steps 3 to 5
 
 
 ##Advanced User Real Time Storm Item Creation
