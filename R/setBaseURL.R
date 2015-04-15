@@ -20,7 +20,7 @@ setBaseURL = function(endpoint="prod"){
   endpoint = tolower(endpoint)
   
   if (endpoint=="prod"){
-    pkg.env$url_base = "https://marine.usgs.gov/coastalchangehazardsportal/"
+    pkg.env$url_base = "https://cida.usgs.gov/coastalchangehazardsportal/"
     cat('Setting endpoint to ',pkg.env$url_base,'\n')
   } else if (endpoint=="qa"){
     pkg.env$url_base = "https://cida-test.er.usgs.gov/coastalchangehazardsportal/"
