@@ -41,4 +41,5 @@ setBaseURL = function(endpoint="prod"){
   pkg.env$auth_check = paste0(pkg.env$url_base, "security/auth/check/")
   pkg.env$authToken = NULL
   pkg.env$username = NULL
+  pkg.env$item_thumbnail = paste0(pkg.env$url_base, "data/thumbnail/item/")
 }
