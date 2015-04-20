@@ -3,6 +3,7 @@
 export(addLayer)
 export(authenticateUser)
 export(deleteDownload)
+export(deleteTileCache)
 export(downloadItem)
 export(getTemplateItem)
 export(historical.service)

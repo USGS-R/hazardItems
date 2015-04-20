@@ -35,7 +35,7 @@ setBaseURL = function(endpoint="prod"){
   pkg.env$item_json = paste0(pkg.env$url_base, "data/item/")
   pkg.env$item_sld = paste0(pkg.env$url_base, "data/sld/")
   pkg.env$item_layer = paste0(pkg.env$url_base, 'data/layer/')
-  pkg.env$tile_cache = paste0(pkg.env$url_base,'/data/cache/')
+  pkg.env$tile_cache = paste0(pkg.env$url_base,'data/cache/')
   pkg.env$item_template = paste0(pkg.env$url_base, 'data/template/item/')
   pkg.env$item_download = paste0(pkg.env$url_base, 'data/download/item/')
   pkg.env$item_thumbnail = paste0(pkg.env$url_base, "data/thumbnail/item/")
