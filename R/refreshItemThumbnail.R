@@ -3,7 +3,7 @@
 #'@param itemID id of item to refresh thumbnail for
 #'@param ... extra parameters to pass to checkAuth
 #'@return returns TRUE if the thumbnail is put successfully, and false if it fails
-#'#'@importFrom base64enc base64encode
+#'@importFrom base64enc base64encode
 #'@importFrom httr PUT
 #'
 #'@examples 

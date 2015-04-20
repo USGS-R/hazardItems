@@ -22,7 +22,8 @@ Imports:
     scales, 
     jsonlite,
     maps,
-    httr
+    httr,
+    base64enc
 Suggests: 
     testthat,
     knitr,
