@@ -8,6 +8,8 @@ downloadItem(itemId, ...)
 }
 \arguments{
 \item{itemId}{id to download}
+
+\item{...}{extra params to pass to checkAuth}
 }
 \value{
 TRUE if download worked
