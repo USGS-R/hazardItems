@@ -11,9 +11,7 @@
 #'checkItemExists('CCGftiy')
 #'}
 #'@export
-checkItemExists <- function(itemID, ...) {
-  
-  checkAuth(...)
+checkItemExists <- function(itemID) {
   
   response <- GET(url = paste0(pkg.env$item_json, itemID))
   
