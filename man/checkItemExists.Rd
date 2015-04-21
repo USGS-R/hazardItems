@@ -4,7 +4,7 @@
 \alias{checkItemExists}
 \title{Checks to see if an item exists}
 \usage{
-checkItemExists(itemID, ...)
+checkItemExists(itemID)
 }
 \arguments{
 \item{itemID}{id of item to check}

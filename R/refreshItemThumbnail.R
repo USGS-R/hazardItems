@@ -21,6 +21,12 @@ refreshItemThumbnail <- function(itemID, ...) {
   
   enc <- base64encode(pngFile)
   
+  exists <- checkItemExists(itemID)
+  
+  if (exists != TRUE){
+    stop('failed GET on item ', itemID ,'. error code:', exists$status_code)
+  }
+  
   response <- PUT(url=itemThumbnailEndpoint, body=enc, 
                    content_type('text/plain'),
                    add_headers('Authorization' = getAuth(), 'Connection'='keep-alive'))
