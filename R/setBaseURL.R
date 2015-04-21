@@ -39,7 +39,8 @@ setBaseURL = function(endpoint="prod"){
   pkg.env$item_download = paste0(pkg.env$url_base, 'data/download/item/')
   pkg.env$auth_token = paste0(pkg.env$url_base, "authentication/auth/authenticate/")
   pkg.env$auth_check = paste0(pkg.env$url_base, "security/auth/check/")
+  pkg.env$item_thumbnail = paste0(pkg.env$url_base, "data/thumbnail/item/")
   pkg.env$authToken = NULL
   pkg.env$username = NULL
-  pkg.env$item_thumbnail = paste0(pkg.env$url_base, "data/thumbnail/item/")
+
 }
