@@ -13,7 +13,6 @@ refreshItemThumbnail(itemID, ...)
 }
 \value{
 returns TRUE if the thumbnail is put successfully, and false if it fails
-#'
 }
 \description{
 returns a boolean success
