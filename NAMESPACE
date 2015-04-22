@@ -2,6 +2,7 @@
 
 export(addLayer)
 export(authenticateUser)
+export(checkItemExists)
 export(deleteDownload)
 export(deleteTileCache)
 export(downloadItem)
