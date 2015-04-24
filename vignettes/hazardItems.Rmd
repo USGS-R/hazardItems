@@ -39,7 +39,7 @@ This package **hazardItems** provides services in support of coastal change haza
 
 `setBaseURL` is a supporting function for directing requests and posts to the proper development, testing or production tier 
 
-`authenticateUser` checks proper access for posting data to the currently specified tier/endpoint
+`authenticateUser` authenticates user against the current specified endpoint, and `checkAuth` verifies if the user is still authenticated
 
 `checkItemExists` is a supporting function that accepts an item ID and returns TRUE or FALSE depending on if the item exists on the currently specified tier/endpoint.
 
