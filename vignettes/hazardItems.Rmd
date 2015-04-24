@@ -31,13 +31,17 @@ This package **hazardItems** provides services in support of coastal change haza
 
 `thumb.service` expects an input json.url and returns a thumbnail png for the item.
 
+`refreshItemThumbnail` creates a new thumbnail PNG for the requested item ID and puts it to the user specified endpoint.
+
 `addLayer` service creates a new item from a zipped shapefile from an authenticated user.
 
 `template` service creates or replaces new child items based on an input id. 
 
-`setBaseURL` and `authenticateUser` are supporting functions for directing requests and posts to the proper development, testing or production tier, and checking proper access for posting data.
+`setBaseURL` is a supporting function for directing requests and posts to the proper development, testing or production tier 
 
+`authenticateUser` authenticates user against the current specified endpoint, and `checkAuth` verifies if the user is still authenticated
 
+`checkItemExists` is a supporting function that accepts an item ID and returns TRUE or FALSE depending on if the item exists on the currently specified tier/endpoint.
 
 #Installation
 To install **hazardItems** 
@@ -145,7 +149,7 @@ template(templateId,layerId,attrs)
 ```
 
 #Rendering
-##Thumbnail Generation
+##Thumbnail Generation 
 
 The `thumb.service` accepts a json URL and creates a handsome thumbnail preview of the layer. For the CCH Portal, the thumbnails are used on the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/">mediation page</a> as an item preview, in your bucket and in the search results panel.
 
@@ -156,5 +160,39 @@ thumb.service(serviceEndpoint)
 ```
 
 
+#Refresh/delete of various caches
 
+There are a number of functions that are required in order to clear out cached contents when items change. 
+
+##Delete Entire Application Tile Cache
+
+The `deleteTileCache` function takes the cache URL set by `pkg.env$tile_cache` and drops the entire tile cache for the application. The user must be authenticated to perform this task. 
+
+To use:
+```{r,eval=FALSE}
+setBaseURL('dev') #setBaseURL("prod") in the event of production use.
+tileCacheUrl <- pkg.env$tile_cache
+deleteTileCache(username='bbadger') #replace the user making the request, if not authenticated, the checkAuth function will be called
+```
+
+##Delete Download Cache 
+
+The `deleteDownload' function accepts the itemID for an item and drops the cached download for the item. The user must be authenticated to perform this task.
+
+To use:
+```{r,eval=FALSE}
+setBaseURL('dev') #setBaseURL("prod") in the event of production use.
+authenticateUser("bbadger")
+deleteDownload("CCNKrhr") #itemID you wish to delete the download cache for
+```
+
+##Thumbnail Refresh
+
+The `refreshItemThumbnail` accepts an item ID and will verify that the item exists, before putting a newly created thumbnail in the database.
+
+To use:
+```{r,eval=FALSE}
+setBaseURL('dev') #setBaseURL("prod") in the event of production use.
+refreshItemThumbnail('CCGftiy') #or whichever itemID you wish to regenerate and put
+```
 
