@@ -39,7 +39,7 @@ This package **hazardItems** provides services in support of coastal change haza
 
 `setBaseURL` is a supporting function for directing requests and posts to the proper development, testing or production tier 
 
-`authenticateUser` checks proper access for posting data to the currently specified tier/endpoint
+`authenticateUser` authenticates user against the current specified endpoint, and `checkAuth` verifies if the user is still authenticated
 
 `checkItemExists` is a supporting function that accepts an item ID and returns TRUE or FALSE depending on if the item exists on the currently specified tier/endpoint.
 
@@ -196,3 +196,12 @@ setBaseURL('dev') #setBaseURL("prod") in the event of production use.
 refreshItemThumbnail('CCGftiy') #or whichever itemID you wish to regenerate and put
 ```
 
+##Refreshing/deleting items and aggregations - Example Workflow
+
+The workflow for changing an item or aggregation and needing to refresh the various caches/downloads/bits includes:
+
+* Update the item via the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a>
+* Delete the tile cache for the application with `deleteTileCache`
+* Delete the download cache for the item with `deleteDownload` (rinse and repeat for all parent items)
+* Regen the download cache for the item with `downloadItem` (rinse and repeat for all parent items)
+* Regen the thumbnail for the item with `refreshItemThumbnail`
