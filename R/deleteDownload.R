@@ -7,7 +7,7 @@
 #'
 #'@examples
 #'\dontrun{
-#'  authenticateUser("bbadger)
+#'  authenticateUser("bbadger")
 #'  deleteDownload("CCNKrhr")
 #'}
 #'@export
