@@ -4,14 +4,14 @@
 \alias{template}
 \title{instantiate a template with new items based on new data}
 \usage{
-template(templateId, items, token)
+template(templateId, items, ...)
 }
 \arguments{
 \item{templateId}{id of the template to instantiate}
 
 \item{items}{list of items to create (attr or item id and layerId)}
 
-\item{token}{auth token to pass in for templating}
+\item{...}{extra params to pass to checkAuth}
 }
 \value{
 TRUE if it worked FALSE otherwise
@@ -47,6 +47,7 @@ or replace existing items under a template
    )
  ))
 \dontrun{
+#templateID is manually created on the publish page
  template("CAQw7M1", items, authenticateUser(username))
 }
 }
