@@ -2,7 +2,7 @@
 #'@description creates several items based on data passed to template
 #'@param templateId id of the template to instantiate
 #'@param items list of items to create (attr or item id and layerId)
-#'@param token auth token to pass in for templating
+#'@param ... extra params to pass to checkAuth
 #'@details This can be used to either create new items from a template
 #' or replace existing items under a template
 #'@return TRUE if it worked FALSE otherwise
@@ -32,15 +32,16 @@
 #'    )
 #'  ))
 #'\dontrun{
+#'#templateID is manually created on the publish page
 #'  template("CAQw7M1", items, authenticateUser(username))
 #'}
 #'@export
-template = function(templateId, items, token) {
+template = function(templateId, items, ...) {
+  checkAuth(...)
   url <- paste0(pkg.env$item_template, templateId)
   json <- toJSON(items, auto_unbox=TRUE)
-  auth <- paste("Bearer", token)
   response <- POST(url=url, body=json,
                   content_type('application/json'),
-                  add_headers('Authorization' = auth, 'Connection'='keep-alive'))
+                  add_headers('Authorization' = getAuth(), 'Connection'='keep-alive'))
   return(http_status(response)$category == "success")
 }
