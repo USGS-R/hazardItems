@@ -19,7 +19,7 @@ deletes cached download, can then be re-seeded
 }
 \examples{
 \dontrun{
- authenticateUser("bbadger)
+ authenticateUser("bbadger")
  deleteDownload("CCNKrhr")
 }
 }
