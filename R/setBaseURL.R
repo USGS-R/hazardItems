@@ -29,7 +29,8 @@ setBaseURL = function(endpoint="prod"){
     pkg.env$url_base = "https://cida-test.er.usgs.gov/dev/coastalchangehazardsportal/"
     cat('Setting endpoint to ',pkg.env$url_base,'\n')
   } else {
-    stop('Unsupported endpoint option')
+    pkg.env$url_base = endpoint
+    cat('Setting endpoint to ',pkg.env$url_base,'\n')
   }
 
   pkg.env$item_json = paste0(pkg.env$url_base, "data/item/")
