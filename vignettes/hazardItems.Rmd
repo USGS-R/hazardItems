@@ -204,4 +204,4 @@ The workflow for changing an item or aggregation and needing to refresh the vari
 * Delete the tile cache for the application with `deleteTileCache`
 * Delete the download cache for the item with `deleteDownload` (rinse and repeat for all parent items)
 * Regen the download cache for the item with `downloadItem` (rinse and repeat for all parent items)
-* Regen the thumbnail for the item with `refreshItemThumbnail`
+* Regen the thumbnail for the item with `refreshItemThumbnail` (rinse and repeat for all parent items)
