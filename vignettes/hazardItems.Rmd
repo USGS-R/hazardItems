@@ -56,7 +56,9 @@ install.packages("hazardItems",
 #Updating 
 To update **hazardItems**
 
-Insert juicy details here.
+```{r, eval=FALSE}
+update.packages(repos = "http://owi.usgs.gov/R")
+```
 
 #Item Metadata Packages
 
@@ -242,3 +244,4 @@ There are a number of services that can be checked that will provide insight on 
 <a href="https://marine.usgs.gov/coastalchangehazardsportal/data/download">Download item service</a> provides a status on item's and their download, the timestamp it was created and its location.
 
 <a href="https://marine.usgs.gov/coastalchangehazardsportal/data/item/CARv9Z5">Item service</a> provides a document summarizing all of the item's details including bbox, children, publications and so forth. Replace the `itemID` at the end of the request based on desired item.
+
