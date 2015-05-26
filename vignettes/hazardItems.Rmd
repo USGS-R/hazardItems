@@ -108,7 +108,7 @@ An example workflow for a new real time storm would involve the following:
 
 (@) a new `template` item is added from the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators</a>). 
 - The item should be given the Item Type `Storm` which also makes available the checkbox for Active Storm. The Active Storm checkbox is how the red `Active Storm` sash is applied to the item's card. - Check the checkbox for Show Children and Ribbonable and save the template item.
-- The NACCH administrator should also add the NHC NOAA Cone, Track and Points layers to the template item.
+- The NACCH administrator should also add the NHC NOAA Cone, Track and Points layers to the template item as children.
 
 (@) the NACCH administrators note the new template item's itemId (usually a 7-9 character string, such as "CAQw7M1")
 
