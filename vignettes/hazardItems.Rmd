@@ -106,7 +106,9 @@ Creating an item for a real-time storms event requires first establishing a pare
 An example workflow for a new real time storm would involve the following:
 
 
-(@) a new `template` item is added from the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators</a>). The item should be given the Item Type `Storm` which also makes available the checkbox for Active Storm. The Active Storm checkbox is how the red `Active Storm` sash is applied to the item's card. Check the checkbox for Show Children and Ribbonable and save the template item.
+(@) a new `template` item is added from the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators</a>). 
+- The item should be given the Item Type `Storm` which also makes available the checkbox for Active Storm. The Active Storm checkbox is how the red `Active Storm` sash is applied to the item's card. - Check the checkbox for Show Children and Ribbonable and save the template item.
+- The NACCH administrator should also add the NHC NOAA Cone, Track and Points layers to the template item.
 
 (@) the NACCH administrators note the new template item's itemId (usually a 7-9 character string, such as "CAQw7M1")
 
@@ -193,6 +195,8 @@ There are a number of functions that are available to clear out cached contents 
 
 The `deleteTileCache` function takes the cache URL set by `pkg.env$tile_cache` and drops the entire tile cache for the application. The user must be authenticated to perform this task. The second argument is unnecessary, user need only set the base URL for the proper endpoint (dev, qa or prod) and run `deleteTileCache()`. 
 
+If you do a lot of changes (e.g. adding items, moving children around, changing geographic extens, editing geographic features, adding children to an aggregate (if it's a displayed child)), you should use this function to make sure that users are experiencing the latest changes. This cache is repopulated by application use.
+
 To use:
 ```{r,eval=FALSE}
 setBaseURL('dev') #setBaseURL("prod") in the event of production use.
@@ -204,11 +208,24 @@ deleteTileCache() # if the user is not currently authenticated, the checkAuth fu
 
 The `deleteDownload' function accepts the itemID for an item and drops the cached download for the item. The user must be authenticated to perform this task. 
 
+This is automatically run when save is done on the mediation page, and also cleans up ancestor items as well.
+
 To use:
 ```{r,eval=FALSE}
 setBaseURL('dev') #setBaseURL("prod") in the event of production use.
 deleteDownload("CCNKrhr") #itemID you wish to delete the download cache for. if the user is not currently authenticated, the checkAuth function will be called and the user will be asked for a valid username and password
 ```
+
+##Reseed the Download Cache for an Item
+
+You can seseed the download for an item by calling:
+```{r,eval=FALSE}
+setBaseURL('dev') #setBaseURL("prod") in the event of production use.
+downloadItem("CCNKrhr") #itemID you wish to refresh the download for. 
+```
+
+The item download is also refreshed upon request, by visiting the back of the card.
+
 
 ##Thumbnail Refresh
 
@@ -236,6 +253,8 @@ Currently, when items are changed via the mediation page, all item and ancestor 
 
 The item downloads are not recreated automatically, but can be recreated by visiting the back of the card for the item or by calling the `downloadItem` function for the item. The initial response given by the server when an item is first requested (either by loading the back of card or clicking the download item button when the item is not yet available) will be a 202 (request received). Once the item is ready to download, the response will be 200.  
 
+Bounding box updates are all currently built into the system and will update based on changes the user makes either via the mediation page or otherwise.
+
 
 #Health/Status Checks and Item info
 
@@ -249,3 +268,4 @@ There are a number of services that can be checked that will provide insight on 
 
 <a href="https://marine.usgs.gov/coastalchangehazardsportal/data/item/CARv9Z5">Item service</a> provides a document summarizing all of the item's details including bbox, children, publications and so forth. Replace the `itemID` at the end of the request based on desired item.
 
+<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/thubmnail/?dirty=true">Review which thumbnails are in need of refreshing. Working on an automatic function to reset these.</a>
