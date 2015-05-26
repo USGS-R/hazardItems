@@ -122,7 +122,9 @@ An example workflow for a new real time storm would involve the following:
 
 -- every time the model is updated, to replace all items on the desired active storm, follow steps 4 to 7
 
-When a storm is no longer 'Active' the user should return to the mediation page, and uncheck the active storm checkbox. They can alter its location from the tree, to either orphan the record or move it under another card.
+Currently, items that are replaced are orphaned and can be found under the Tree Manipulation Service under Orphaned items. An improvement is planned that will place them under a parent item so they are more easily located. 
+
+When a storm is no longer 'Active' the user should return to the mediation page, and uncheck the active storm checkbox. They can alter its location from the Tree Manipulation Service, to either orphan the record or move it under another card.
 
 
 ##Advanced User Real Time Storm Item Creation
