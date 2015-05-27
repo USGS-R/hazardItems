@@ -57,7 +57,7 @@ install.packages("hazardItems",
 To update **hazardItems**
 
 ```{r, eval=FALSE}
-update.packages(repos = "http://owi.usgs.gov/R")
+update.packages(repos = c("http://owi.usgs.gov/R", "http://cran.rstudio.com/"))
 ```
 
 #Item Metadata Packages
@@ -108,7 +108,6 @@ An example workflow for a new real time storm would involve the following:
 
 (@) a new `template` item is added from the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators</a>). 
 - The item should be given the Item Type `Storm` which also makes available the checkbox for Active Storm. The Active Storm checkbox is how the red `Active Storm` sash is applied to the item's card. - Check the checkbox for Show Children and Ribbonable and save the template item.
-- The NACCH administrator should also add the NHC NOAA Cone, Track and Points layers to the template item as children.
 
 (@) the NACCH administrators note the new template item's itemId (usually a 7-9 character string, such as "CAQw7M1")
 
@@ -125,6 +124,8 @@ An example workflow for a new real time storm would involve the following:
 -- every time the model is updated, to replace all items on the desired active storm, follow steps 4 to 7
 
 Currently, items that are replaced are orphaned and can be found under the Tree Manipulation Service under Orphaned items. An improvement is planned that will place them under a parent item so they are more easily located. 
+
+The NOAA/NHC Hurricane Cone, Track and Lines layers are automatically added when the publishStorm() function is run.
 
 When a storm is no longer 'Active' the user should return to the mediation page, and uncheck the active storm checkbox. They can alter its location from the Tree Manipulation Service, to either orphan the record or move it under another card.
 
