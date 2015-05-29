@@ -8,25 +8,26 @@
 #'\code{username} is stored in the R session environment, and future calls to 
 #'\code{authenticateUser} within the same R session can use the password argument 
 #'only (e.g., \code{authenticateUser(password = '12345')})
+#'The username and password can also be specified in the config file
 #'@return a character token, or the status code if not 200
 #'@importFrom httr POST accept_json content timeout verbose
 #'@export 
 authenticateUser <- function(username, password, verbose=FALSE){
   
   
-  if (missing(username) & is.null(pkg.env$username) & interactive()) {
+  if (is.null(getUsername(username)) & interactive()) {
     username <- readPassword('Please enter your Active Directory username:')
   } else if (missing(username)) {
-    username <- pkg.env$username
+    username <- getUsername()
   } 
   if (is.null(username)) {
     stop('username required for authentication')
   }
   
-  if(!interactive() & missing(password)){
+  if(!interactive() & is.null(getPassword(password))){
     stop('No password supplied to authenticateUser in a non-interactive session.')
   }else{
-    password = ifelse(missing(password), readPassword('Please enter your Active Directory password:'), password)
+    password = ifelse(is.null(getPassword(password)), readPassword('Please enter your Active Directory password:'), getPassword(password))
   }
   
 
@@ -57,3 +58,30 @@ readPassword <- function(prompt) {
   return (pass)
 }
 
+getUsername <- function(username) {
+  result <- NULL
+  if (missing(username)) {
+    if (is.null(pkg.env$username)) {
+      configUser = getOption("hazardItems")$username
+      if (!is.null(configUser) & nzchar(configUser)) {
+        result = configUser
+      }
+    } else {
+      result = pkg.env$username
+    }
+  } else {
+    result = username
+  }
+  return(result)
+}
+
+getPassword <- function(password) {
+  result = NULL
+  if (missing(password)) {
+    configPass = getOption("hazardItems")$password
+    if (!is.null(configPass) & nzchar(configPass)) {
+      result = configPass
+    }
+  }
+  return(result)
+}
