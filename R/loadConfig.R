@@ -7,31 +7,25 @@
 #'
 #'@examples
 #'loadConfig()
-#'@importFrom yaml as.yaml yaml.load_file
+#'@importFrom yaml yaml.load_file
 #'@export
 loadConfig = function(filename) {
   if (missing(filename)) {
     filename <- file.path(Sys.getenv("HOME"), ".R", "hazardItems.yaml")
   }
   if (!file.exists(filename)) {
-    createDefaultConfig(filename)
+    copyDefaultConfig(filename)
   }
   
   config <- yaml.load_file(filename)
   options("hazardItems"=config)
 }
 
-createDefaultConfig <- function(filename) {
-  defaults = list("username"="", "password"="", 
-                  "realtime.storms"=list("trackId"="DvDJ6Vcg"))
-  defaultYaml <- as.yaml(defaults)
+copyDefaultConfig <- function(filename) {
+ 
   configDir <- dirname(filename)
   if (!file.exists(configDir)) {
     dir.create(configDir, recursive = TRUE)
   }
-  file.create(filename)
-  
-  fh <- file(filename)
-  cat(defaultYaml, file=fh)
-  close(fh)
+  file.copy(system.file("extdata", "hazardItems.yaml", package="hazardItems"), filename, overwrite=FALSE)
 }
