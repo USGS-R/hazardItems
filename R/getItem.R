@@ -11,12 +11,15 @@
 #'getItem('CAQw7M1', field = 'children')
 #'}
 #'@export 
-getItem <- function(itemID, field = NULL){
-  
-  response <- GET(url = paste0(pkg.env$item_json, itemID), accept_json())
+getItem <- function(itemID, field = NULL, subtree = FALSE){
+  url = paste0(pkg.env$item_json, itemID)
+  if (subtree) {
+    url = paste0(url, "?subtree=true")
+  }
+  response <- GET(url = url, accept_json())
   
   if (response$status_code != 200){
-    stop('failed GET on template item ', itemID ,'. error code:', response$status_code)
+    stop('failed GET on item ', itemID ,'. error code:', response$status_code)
   }
   item <- content(response, as = 'parsed')
   

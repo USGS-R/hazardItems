@@ -4,7 +4,7 @@
 \alias{getItem}
 \title{get item or subset of fields}
 \usage{
-getItem(itemID, field = NULL)
+getItem(itemID, field = NULL, subtree = FALSE)
 }
 \arguments{
 \item{itemID}{a string for a valid item identifier}
