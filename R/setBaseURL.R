@@ -1,7 +1,9 @@
 #'@title Set CCHP endpoint
 #'
 #'@param endpoint Indicate which CCHP endpoint 
-#' you want to use options: \code{c('prod','qa','dev')}
+#' you want to use options: \code{c('prod','qa','dev')}.
+#' Fully qualified urls are also allowed
+#' (i.e. \code{https://localhost:8080/coastal-hazards-portal/})
 #'
 #'@description Sets the internal URLS used to either the production, QA, or dev server. 
 #'URLS are stored internally to the package
