@@ -23,7 +23,8 @@ Imports:
     jsonlite,
     maps,
     httr,
-    base64enc
+    base64enc,
+    yaml
 Suggests: 
     testthat,
     knitr,

@@ -1,0 +1,19 @@
+username: ''
+password: ''
+realtime.storms:
+  trackId: DvDJ6Vcg
+  layout:
+    - PCOL
+    - POVW
+    - PIND
+    - DHIGH
+    - DLOW
+    - MEAN
+    - EXTREME
+    - TRACK
+  visible:
+    - PCOL
+    - POVW
+    - PIND
+    - TRACK
+    

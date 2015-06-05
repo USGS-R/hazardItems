@@ -25,5 +25,6 @@ if \code{authenticateUser} is called with a \code{username} argument,
 \code{username} is stored in the R session environment, and future calls to
 \code{authenticateUser} within the same R session can use the password argument
 only (e.g., \code{authenticateUser(password = '12345')})
+The username and password can also be specified in the config file
 }
 
