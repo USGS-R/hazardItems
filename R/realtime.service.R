@@ -85,11 +85,13 @@ realtime.service = function(serviceEndpoint,attribute=NULL){
                            "mean water levels,", 
                            "extreme (98% exceedance) water levels,"),
                            "at the shoreline for", paste0(titleParts$name, ": ", titleParts$advFull, "."))
-      full.text <- paste("This dataset contains modeled", tolower(titleMap$medium[[subType]]),
-                         "at the shoreline during", titleParts$name,
+      full.text <- paste("This dataset contains modeled storm-induced", ifelse(subType == "mean",
+                             "mean water levels", 
+                             "extreme (98% exceedance) water levels"),
+                         "at the shoreline during", paste0(titleParts$name, "."),
                          "Values were computed by summing modeled storm",
-                         paste0("surge and parameterized wave runup", ifelse(subType == "mean",
-                         ", the increase in mean water level at the shoreline due to breaking waves.", ".")),
+                         paste0("surge and parameterized wave", ifelse(subType == "mean",
+                         "setup, the increase in mean water level at the shoreline due to breaking waves.", "runup.")),
                          surge, "Maximum wave heights in 20-m water depth, obtained from the NOAA",
                          "WaveWatch3 model 7-day forecast, were used to compute wave setup at the shoreline.")
       tiny.text <- paste("Modeled", gsub("mean", "Mean", gsub("extreme", "Probability", tiny.text)))
@@ -135,7 +137,7 @@ getSurgeDescription = function(doc) {
   if (has(srcUsed, "psurge", ignore.case=TRUE)) {
     text <- paste(text, "probabilistic surge forecast (psurge), which is based on conditions specific to the",
                        "landfalling storm. Errors in hurricane forecasts are included in order to identify probable surge levels.",
-                       "The 10% exceedence surge level was used to represent the worst-case scenario.")
+                       "The 10% exceedance surge level was used to represent the worst-case scenario.")
   } else if (has(srcUsed, "estofs", ignore.case=TRUE)) {
     text <- paste(text, "ESTOFS (Extratropical Surge and Tide Operational Forecast System).")
   } else if (has(srcUsed, "moms", ignore.case=TRUE)) {

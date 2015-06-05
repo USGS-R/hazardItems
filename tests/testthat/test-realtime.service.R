@@ -1,6 +1,6 @@
 context("testing realtime.service")
 
-test_that ("check if item exists", {
+test_that ("check that metadata parseing works", {
   meta <- system.file("extdata/Sandy_PCOI_metadata_updated2015May29.xml", package = "hazardItems")
   result <- realtime.service(serviceEndpoint = meta)
   result <- realtime.service(serviceEndpoint = meta, attribute = "PCOL")
@@ -10,5 +10,5 @@ test_that ("check if item exists", {
   result <- realtime.service(serviceEndpoint = meta, attribute = "DLOW")
   result <- realtime.service(serviceEndpoint = meta, attribute = "MEAN")
   result <- realtime.service(serviceEndpoint = meta, attribute = "EXTREME")
-  expect_true("exceedence" %in% result$full$text)
+  expect_true(grepl("exceedance",fromJSON(result)$full$text))
 })
