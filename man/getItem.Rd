@@ -10,6 +10,8 @@ getItem(itemID, field = NULL, subtree = FALSE)
 \item{itemID}{a string for a valid item identifier}
 
 \item{field}{a subfield to return from the item. Default is NULL}
+
+\item{subtree}{whether or not to return the item subtree}
 }
 \value{
 a list or a character vector (depending on \code{field} argument)
