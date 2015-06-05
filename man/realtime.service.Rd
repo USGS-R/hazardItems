@@ -4,7 +4,7 @@
 \alias{realtime.service}
 \title{create summary json for an individual storm item}
 \usage{
-realtime.service(serviceEndpoint, attribute)
+realtime.service(serviceEndpoint, attribute = NULL)
 }
 \arguments{
 \item{serviceEndpoint}{valid xml, either local or a url}

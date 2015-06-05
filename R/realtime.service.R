@@ -13,7 +13,7 @@
 #'summary	<-	realtime.service(serviceEndpoint,attribute)
 #'print(summary)
 #'@export
-realtime.service = function(serviceEndpoint,attribute){
+realtime.service = function(serviceEndpoint,attribute=NULL){
 	subType	<-	tolower(attribute)
 
 	subTypeDataSrc <- names(sourceSynonyms)
@@ -27,7 +27,7 @@ realtime.service = function(serviceEndpoint,attribute){
   sourceContent <-  paste(dataSrc,collapse='|')
   
   # NULL if it is for the whole storm
-  if (subType == NULL) {
+  if (length(subType) == 0) {
     tiny.text <- paste(titleParts$name, "Assessment of Potential Coastal-Change Impacts: NHC Adv.", titleParts$advNum)
     medium.title <- titleParts$name
     medium.text <- paste0("Potential coastal change impacts during a direct landfall of ",
@@ -53,6 +53,8 @@ realtime.service = function(serviceEndpoint,attribute){
                        "apply to open coast environments and do not consider potential coastal change along",
                        "inland waters. The public should not base evacuation decisions on this product. Citizens",
                        "should follow the evacuation advice of local emergency management authorities.")
+    full.publications <- list(data=list(),publications=list(),resources=list())
+    keywords <- ""
   } else {
     tiny.text <- paste(titleMap$medium[[subType]], "during", paste0(titleParts$name, ":"), "NHC Adv.", titleParts$advNum)
     medium.title <- paste(titleMap$medium[[subType]])
@@ -63,63 +65,47 @@ realtime.service = function(serviceEndpoint,attribute){
       medium.text <- description$medium
       full.text <- description$full
     } else if (subType == "dhigh" | subType == "dlow") {
-      collectionDate <- extractCollectionDate(xmlValue(getNodeSet(doc,paste0('//eainfo/detailed/attr/attrlabl/text()=',
-                                 toupper(subType),/../attrdef))[[1]]))
-      
+      collectionDate <- extractCollectionDate(doc, subType)
+      attrDef <- ifelse(subType == "dhigh", 
+        "The elevation of the dune crest, or top of the foredune,",
+        "The elevation of the dune toe, or ocean-side base of the foredune,")
       full.title <- paste(titleMap$medium[[subType]], "prior to", titleParts$name)
       medium.text <- paste(titleMap$medium[[subType]], "(m, NAVD88) for open coast sandy beaches every 1 km alongshore.")
-      full.text <- 
+      full.text <- paste("This dataset contains", tolower(titleMap$medium[[subType]]),
+                         "(m, NAVD88) for the United States coastline.", attrDef,
+                         "was extracted for open coast sandy beaches from gridded",
+                         "lidar topography every 10 m alongshore and then averaged",
+                         "in 1-km bins. Lidar surveys were collected from",
+                         paste0(collectionDate, "."))
     } else if (subType == "mean" | subType == "extreme") {
-      
+      surge <- getSurgeDescription(doc)
+      full.title <- paste("Modeled", tolower(titleMap$medium[[subType]]), "during",
+                          paste0(titleParts$name), titleParts$advFull)
+      medium.text <- paste("The storm-induced", ifelse(subType == "mean",
+                           "mean water levels,", 
+                           "extreme (98% exceedance) water levels,"),
+                           "at the shoreline for", paste0(titleParts$name, ": ", titleParts$advFull, "."))
+      full.text <- paste("This dataset contains modeled", tolower(titleMap$medium[[subType]]),
+                         "at the shoreline during", titleParts$name,
+                         "Values were computed by summing modeled storm",
+                         paste0("surge and parameterized wave runup", ifelse(subType == "mean",
+                         ", the increase in mean water level at the shoreline due to breaking waves.", ".")),
+                         surge, "Maximum wave heights in 20-m water depth, obtained from the NOAA",
+                         "WaveWatch3 model 7-day forecast, were used to compute wave setup at the shoreline.")
+      tiny.text <- paste("Modeled", gsub("mean", "Mean", gsub("extreme", "Probability", tiny.text)))
     }
+    
+    full.publications  <-	getPublications(doc)
+    keywords	<-	getKeywords (doc,subType)
   }
-  
-  
-	overview <-  paste(c('This datasets includes an element of ', title),collapse='')
-
-		is.generic	<-	TRUE
-		stormNum	<-	substr(subType,nchar(subType),nchar(subType))
-		subType	<-		substring(subType,1,(nchar(subType)-1))
-		processDetail <- paste(c('These probabilities apply to a generic representation of a category',
-		                  stormNum,'hurricane'),collapse=' ')
-		tinyDesc	<-	paste(c(' CAT',stormNum,' storm'),collapse='')
-		medDesc	<-	paste(c('during a category',stormNum,'storm in'),collapse=' ')
-		fullDesc	<-	paste(c('The Category ',stormNum,' '),collapse='')
-		locationHld	<-	overview
-		processDetail <- NULL
-		fullDesc	<-	'The '
-		tinyDesc	<-	paste(c(',',strsplit(title,' ')[[1]][1:2]),collapse=' ')
-		medDesc	<-	paste(c('during',strsplit(title,' ')[[1]][1:2],'in'),collapse=' ')
-		locationHld	<-	sapply(getNodeSet(doc,'//metadata/idinfo/descript/abstract'),xmlValue)
-	
-	attrDefinition  <- attrDefinitions[subType]
-	
-	sourceString	<-	getSourceString(sourceContent)
-	
-	medium.summary	<-	paste(c(overview,attrDefinition,processDetail,sourceString),collapse='. ')
-	
-	# create medium title for storm item
-	location	<-	getLocationString(locationHld,singleVal=TRUE) # default call is to medium service
-	medium.title	<-	paste(c(titleMap[['medium']][[subType]],medDesc,location),collapse=' ')
-
-	
-	location	<-	getLocationString(locationHld,size='tiny',singleVal=TRUE)
-	tiny.text	<-	paste(c(titleMap[['tiny']][[subType]],tinyDesc,' in ',location),collapse='')
-	
-	full.title	<-	paste(c(fullDesc,titleMap[['full']][[subType]],' element of ',title),collapse='')
-	full.text	<-	sub('\n','',paste(c(abstract),collapse=''))
-	
-	full.publications	<-	getPublications(doc)
-	
-	keywords	<-	getKeywords (doc,subType)
 	
 	summaryJSON	<- toJSON(list(
 		'version'=as.character(packageVersion(getPackageName())),
 		'tiny'=list('text'=tiny.text),
-		'medium'=list('title'=medium.title,'text'=medium.summary),
+		'medium'=list('title'=medium.title,'text'=medium.text),
 		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications),
 		'keywords'=keywords), auto_unbox = TRUE )
-	summaryJSON	<-	sub('NULL. ','',summaryJSON)
+	summaryJSON	<- sub('NULL. ','',summaryJSON)
 	return(summaryJSON)
 }
 
@@ -131,10 +117,14 @@ extractInfoFromTitle = function(title) {
   return(parts)
 }
 
-extractCollectionDate = function(label) {
-  "Elevation of dune crest in meters NAVD88. Extracted from lidar surveys collected November 2009 to December 2009."
-  match <- regexec(".*?(\\w+ \\d{4} to \\w+ \\d{4})\\.?", label)
-  collected <- regmatches(label, match)[[1]][2]
+extractCollectionDate = function(doc, attr) {
+  attrDescs <- sapply(getNodeSet(doc,paste0('//eainfo/detailed/attr')), xmlChildren)
+  matchingAttr <- Filter(function(f){
+    grepl(attr, xmlValue(f$attrlabl), ignore.case = TRUE)
+  }, attrDescs)
+  defn <- xmlValue(matchingAttr[[1]]$attrdef)
+  match <- regexec(".*?(\\w+ \\d{4} to \\w+ \\d{4})\\.?", defn)
+  collected <- regmatches(defn, match)[[1]][2]
   return(collected)
 }
 
