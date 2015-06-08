@@ -53,6 +53,13 @@ install.packages("hazardItems",
     dependencies = TRUE)
 ```
 
+#Updating 
+To update **hazardItems**
+
+```{r, eval=FALSE}
+update.packages(repos = c("http://owi.usgs.gov/R", "http://cran.rstudio.com/"))
+```
+
 #Item Metadata Packages
 
 ##Historical Metadata
@@ -92,66 +99,48 @@ print(summary)
 
 
 ##Real Time Storm Item Creation
-Creating an item for a real-time storms event requires first establishing a parent aggregation item that will hold any number of child items beneath it. The parent item represents the storm. For example, "Hurricane Sandy" could be the title of a parent aggregation item for a real-time storm. 
+A real-time storms event item is established in a special way. The item can be updated each time a model is run with new data. The parent aggregation is dropped and re-created each time a model update is run and NACCH scientists want to update the data.The parent item represents the storm. For example, "Hurricane Sandy" could be the title of a parent aggregation item for a real-time storm. 
 
 <br />
 <br />
-An example workflow for adding or updating a real time storm would involve the following:
-
-
-(@) a new `template` item is added from the <a href="https://cida.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators</a>)
-
-(@) the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
-
-(@) a model is run at St. Pete's producing a shapefile
-
-(@) the shapefile contents are zipped including the XML metadata (shp, prj, xml, dbf, etc) - DO NOT NEST FILES IN A FOLDER
-
-(@) the user calls `publishStorm CAQw7M1 D:\Sandy.zip` from command line with parameters for templateId and shapefile path 
-
--- every time the model is updated, follow steps 3 to 5
-
-
-##Advanced User Real Time Storm Item Creation
-
-An example workflow for a *new* incoming storm would involve the following:
-
-* a new `template` item is added from the <a href="https://cida.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> describing the incoming storm (manually performed by NACCH administrators)
-
-* the NACCH administrators note the new template item's itemId (usually a 7-9 character string)
-
-* a model is run at St. Pete's producing a shapefile
-
-* the shapefile contents are zipped including the XML metadata (shp, prj, xml, dbf, etc) - DO NOT NEST FILES IN A FOLDER
-
-* the user loads the R package `hazardItems` into their local R environment
-
-* the `addLayer` function is called to post the zipped file to the portal. If `addLayer` is successful, the layerId will be returned
-
-* the `getLayer` function is called with the argument `field = "attrs"`. This will return all possible attributes that can be used to create item children.
-
-* the `template` function is called to create specified items with the contents of the new layer
-
-* the NACCH administrator manually attaches the template item to the top level (uber item) through the <a href="https://cida.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a>.
-
+An example workflow to create a new real time storm would involve the following:
 
 
 ```{r,eval=FALSE}
 library(hazardItems)
 setBaseURL("dev") #setBaseURL("prod") in the event of actual storm.
-templateId = "CAQw7M1"
-shapefile = "C:\\Users\\mhines\\documents\\Sandy_CIDA.zip" #enter full path to your zipped shapefile here
-layerId = addLayer(shapefile)
-attrs = getLayer(layerId, field = "attrs")
-#enter more details here#
-template(templateId,layerId,attrs)
-
+createStorm(templateId = NULL, "D:\\mkhdata\\model_output\\Sandy_CIDA060520150800.zip")
 ```
+
+Where the model output shapefile is zipped into a zip file and pointed through in the arguments above.
+
+When this function completes, the user must record the ID returned in the console (e.g. CAQw7M1) and use that argument in the function `templateId = "CAQw7M1")` for future updates.
+
+##Updating a Real Time Storm Item
+If a user wants to update the model run output on an existing real time storm item, they must have the templateId handy, and follo the example workflow to update the real time storm:
+
+```{r,eval=FALSE}
+library(hazardItems)
+setBaseURL("dev") #setBaseURL("prod") in the event of actual storm.
+createStorm(templateId = "CAQw7M1", "D:\\mkhdata\\model_output\\Sandy_CIDA060520151400.zip")
+```
+
+When this function is run to update the item, the previously posted parent and children are all orphaned.
+
+#Adding Layers to the Portal 
+
+The `addLayer` function accepts a zipped shapefile and returns an itemID. Users can use this function to post new shapefiles to the Portal. The zipped shapefile must be put into your environment's `extdata` directory and the package `hazardItems` must be rebuilt to be available to R. If the user is not currently authenticated, the `checkAuth` function will be called and the user will be asked for a valid username and password
+
+To Use:
+```{r,eval=FALSE}
+addLayer("D:\\mkhdata\\new_data\\Sandy_CIDA.zip"))
+```
+
 
 #Rendering
 ##Thumbnail Generation 
 
-The `thumb.service` accepts a json URL and creates a handsome thumbnail preview of the layer. For the CCH Portal, the thumbnails are used on the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/">mediation page</a> as an item preview, in your bucket and in the search results panel.
+The `thumb.service` accepts a json URL and creates a handsome thumbnail preview of the layer. For the CCH Portal, the thumbnails are used on the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/">mediation page</a> as an item preview, in your Bucket and in the search results panel.
 
 To use:
 ```{r,eval=FALSE}
@@ -162,29 +151,43 @@ thumb.service(serviceEndpoint)
 
 #Refresh/delete of various caches
 
-There are a number of functions that are required in order to clear out cached contents when items change. 
+There are a number of functions that are available to clear out cached contents when items change. 
 
 ##Delete Entire Application Tile Cache
 
-The `deleteTileCache` function takes the cache URL set by `pkg.env$tile_cache` and drops the entire tile cache for the application. The user must be authenticated to perform this task. 
+The `deleteTileCache` function takes the cache URL set by `pkg.env$tile_cache` and drops the entire tile cache for the application. The user must be authenticated to perform this task. The second argument is unnecessary, user need only set the base URL for the proper endpoint (dev, qa or prod) and run `deleteTileCache()`. 
+
+If you do a lot of changes (e.g. adding items, moving children around, changing geographic extens, editing geographic features, adding children to an aggregate (if it's a displayed child)), you should use this function to make sure that users are experiencing the latest changes. This cache is repopulated by application use.
 
 To use:
 ```{r,eval=FALSE}
 setBaseURL('dev') #setBaseURL("prod") in the event of production use.
-tileCacheUrl <- pkg.env$tile_cache
-deleteTileCache(username='bbadger') #replace the user making the request, if not authenticated, the checkAuth function will be called
+tileCacheUrl <- pkg.env$tile_cache 
+deleteTileCache() # if the user is not currently authenticated, the checkAuth function will be called and the user will be asked for a valid username and password
 ```
 
 ##Delete Download Cache 
 
-The `deleteDownload' function accepts the itemID for an item and drops the cached download for the item. The user must be authenticated to perform this task.
+The `deleteDownload' function accepts the itemID for an item and drops the cached download for the item. The user must be authenticated to perform this task. 
+
+This is automatically run when save is done on the mediation page, and also cleans up ancestor items as well.
 
 To use:
 ```{r,eval=FALSE}
 setBaseURL('dev') #setBaseURL("prod") in the event of production use.
-authenticateUser("bbadger")
-deleteDownload("CCNKrhr") #itemID you wish to delete the download cache for
+deleteDownload("CCNKrhr") #itemID you wish to delete the download cache for. if the user is not currently authenticated, the checkAuth function will be called and the user will be asked for a valid username and password
 ```
+
+##Reseed the Download Cache for an Item
+
+You can seseed the download for an item by calling:
+```{r,eval=FALSE}
+setBaseURL('dev') #setBaseURL("prod") in the event of production use.
+downloadItem("CCNKrhr") #itemID you wish to refresh the download for. 
+```
+
+The item download is also refreshed upon request, by visiting the back of the card.
+
 
 ##Thumbnail Refresh
 
@@ -193,15 +196,38 @@ The `refreshItemThumbnail` accepts an item ID and will verify that the item exis
 To use:
 ```{r,eval=FALSE}
 setBaseURL('dev') #setBaseURL("prod") in the event of production use.
-refreshItemThumbnail('CCGftiy') #or whichever itemID you wish to regenerate and put
+refreshItemThumbnail("CCGftiy") #or whichever itemID you wish to regenerate and put
 ```
 
 ##Refreshing/deleting items and aggregations - Example Workflow
 
 The workflow for changing an item or aggregation and needing to refresh the various caches/downloads/bits includes:
 
-* Update the item via the <a href="http://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a>
-* Delete the tile cache for the application with `deleteTileCache`
+* Update the item via the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a>
+* Delete the tile cache for the entire application with `deleteTileCache`
 * Delete the download cache for the item with `deleteDownload` (rinse and repeat for all parent items)
 * Regen the download cache for the item with `downloadItem` (rinse and repeat for all parent items)
-* Regen the thumbnail for the item with `refreshItemThumbnail`
+* Regen the thumbnail for the item with `refreshItemThumbnail` (rinse and repeat for all parent items)
+
+Alternatively, by visiting the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/" target="_blank">mediation page</a> a user can replace items and and make changes to aggregations, which will trigger updates to the download files and thumbnails for the item and all ancestors/aggregations to which it belongs. 
+
+Currently, when items are changed via the mediation page, all item and ancestor caches are cleared (thumbnail, download) automatically with the exception of the tile cache. 
+
+The item downloads are not recreated automatically, but can be recreated by visiting the back of the card for the item or by calling the `downloadItem` function for the item. The initial response given by the server when an item is first requested (either by loading the back of card or clicking the download item button when the item is not yet available) will be a 202 (request received). Once the item is ready to download, the response will be 200.  
+
+Bounding box updates are all currently built into the system and will update based on changes the user makes either via the mediation page or otherwise.
+
+
+#Health/Status Checks and Item info
+
+There are a number of services that can be checked that will provide insight on the Portal's items. These services can be visited on all endpoints/tiers.
+
+<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/health">Health Check service</a> provides a summary of application states that are used for application monitoring 
+
+<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/thumbnail/">Thumbnail service</a> provides a summary of thumbnail generation details, indicating whether or not the thumbnails need to be refreshed. A sweeper program is being created to use this information to automatically clean up on a regular basis.
+
+<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/download">Download item service</a> provides a status on item's and their download, the timestamp it was created and its location.
+
+<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/item/CARv9Z5">Item service</a> provides a document summarizing all of the item's details including bbox, children, publications and so forth. Replace the `itemID` at the end of the request based on desired item.
+
+<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/thubmnail/?dirty=true">Review which thumbnails are in need of refreshing. Working on an automatic function to reset these.</a>
