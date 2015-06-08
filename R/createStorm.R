@@ -16,9 +16,8 @@ createStorm = function(templateId=NULL, filename, ...) {
   layerId = addLayer(filename, ...)
   newTemplate <- makeTemplateItem(layerId)
   newId <- saveItem(newTemplate)
-  # TODO fix this part up to fully specify template
-  items = list("children"=list("layerId"=layerId))
-  success = template(templateId, items, ...)
+  items = makeItemLayout(layerId)
+  success = template(newId, items, ...)
   if (success) {
     uber <- getItem("uber")
     children <- uber$children
@@ -27,12 +26,12 @@ createStorm = function(templateId=NULL, filename, ...) {
     } else {
       children <- c(newId, children)
     }
+    uber$children <- children
     saveItem(uber)
     return(newId)
   } else {
     stop("unable to run template")
   }
-  
 }
 
 makeTemplateItem = function(layerId) {
@@ -50,4 +49,21 @@ makeTemplateItem = function(layerId) {
   summary <- fromJSON(realtime.service(csw$endpoint))
   newTemplate$summary <- summary
   return(newTemplate)
+}
+
+makeItemLayout = function(layerId) {
+  items <- list("children"=list())
+  layout <- getOption("hazardItems")$realtime.storms$layout
+  trackId <- getOption("hazardItems")$realtime.storms$trackId
+  for (i in 1:length(layout)) {
+    attr = layout[[i]]
+    # TRACK is a magic value representing the NHC track aggregation
+    visible = attr %in% getOption("hazardItems")$realtime.storms$visible
+    if (attr == "TRACK") {
+      items$children[[i]] <- list(id=trackId, visible=visible)
+    } else {
+      items$children[[i]] <- list(attr=attr, layerId=layerId, visible=visible)
+    }
+  }
+  return(items)
 }

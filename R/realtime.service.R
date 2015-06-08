@@ -66,35 +66,40 @@ realtime.service = function(serviceEndpoint,attribute=NULL){
       full.text <- description$full
     } else if (subType == "dhigh" | subType == "dlow") {
       collectionDate <- extractCollectionDate(doc, subType)
+      attrDesc <- ifelse(subType == "dhigh",
+        "elevation of the dune crest",
+        "elevation of the dune toe")
       attrDef <- ifelse(subType == "dhigh", 
-        "The elevation of the dune crest, or top of the foredune,",
-        "The elevation of the dune toe, or ocean-side base of the foredune,")
+        paste0("The ", attrDesc, ", or top of the foredune,"),
+        paste0("The ", attrDesc, ", or ocean-side base of the foredune,"))
       full.title <- paste(titleMap$medium[[subType]], "prior to", titleParts$name)
       medium.text <- paste(titleMap$medium[[subType]], "(m, NAVD88) for open coast sandy beaches every 1 km alongshore.")
-      full.text <- paste("This dataset contains", tolower(titleMap$medium[[subType]]),
+      full.text <- paste("This dataset contains", attrDesc,
                          "(m, NAVD88) for the United States coastline.", attrDef,
                          "was extracted for open coast sandy beaches from gridded",
                          "lidar topography every 10 m alongshore and then averaged",
                          "in 1-km bins. Lidar surveys were collected from",
                          paste0(collectionDate, "."))
+      tiny.text <- paste(titleMap$medium[[subType]], "prior to", titleParts$name)
     } else if (subType == "mean" | subType == "extreme") {
       surge <- getSurgeDescription(doc)
       full.title <- paste("Modeled", tolower(titleMap$medium[[subType]]), "during",
-                          paste0(titleParts$name), titleParts$advFull)
+                          paste0(titleParts$name, ":"), titleParts$advFull)
       medium.text <- paste("The storm-induced", ifelse(subType == "mean",
                            "mean water levels,", 
                            "extreme (98% exceedance) water levels,"),
                            "at the shoreline for", paste0(titleParts$name, ": ", titleParts$advFull, "."))
       full.text <- paste("This dataset contains modeled storm-induced", ifelse(subType == "mean",
-                             "mean water levels", 
-                             "extreme (98% exceedance) water levels"),
+                             "mean water levels, which includes both waves and surge,", 
+                             "extreme (98% exceedance) water levels, which includes wave runup and storm surge,"),
                          "at the shoreline during", paste0(titleParts$name, "."),
                          "Values were computed by summing modeled storm",
-                         paste0("surge and parameterized wave", ifelse(subType == "mean",
-                         "setup, the increase in mean water level at the shoreline due to breaking waves.", "runup.")),
+                         "surge and parameterized wave", ifelse(subType == "mean",
+                         "setup, the increase in mean water level at the shoreline due to breaking waves.", "runup."),
                          surge, "Maximum wave heights in 20-m water depth, obtained from the NOAA",
-                         "WaveWatch3 model 7-day forecast, were used to compute wave setup at the shoreline.")
-      tiny.text <- paste("Modeled", gsub("mean", "Mean", gsub("extreme", "Probability", tiny.text)))
+                         "WaveWatch3 model 7-day forecast, were used to compute",
+                         ifelse(subType == "mean", "wave setup", "wave runup elevations"), "at the shoreline.")
+      tiny.text <- paste("Modeled", gsub("mean", "Mean", gsub("extreme", "Extreme", tiny.text)))
     }
     
     full.publications  <-	getPublications(doc)
@@ -155,9 +160,11 @@ getSurgeDescription = function(doc) {
 }
 
 getPCOIDescription = function(subType, titleParts, ...) {
+  runupOrSetup <- ifelse(subType == "pind", "setup", "runup")
   definition <- paste("probability of",
                   paste0(titleMap$full[[subType]], ","), "or the likelihood",
-                  "that wave runup and storm surge will",
+                  ifelse(subType == "pind", "that storm surge and wave setup",
+                         "that wave runup and storm surge will"),
                   ifelse(subType == "pcol", "reach the dune toe,", 
                          ifelse(subType == "povw", "overtop the dune crest,",
                                 "submerge the beach and dune crest,")))
@@ -165,10 +172,11 @@ getPCOIDescription = function(subType, titleParts, ...) {
   full <- paste("These data represent the", definition, "during",
                  paste0(titleParts$name, "."),
                   "Estimates were based on observations of dune morphology and modeled",
-                  "storm surge and wave runup.",
+                  "storm surge and wave", paste0(runupOrSetup, "."),
                  getSurgeDescription(...),
                  "Maximum wave heights in 20-m water depth, obtained from the NOAA WaveWatch3",
-                 "model 7-day forecast, were used to compute wave runup elevations at the",
+                 "model 7-day forecast, were used to compute wave", 
+                 ifelse(subType == "pind", runupOrSetup, paste(runupOrSetup, "elevation")), "at the",
                  "shoreline. Dune elevations were extracted from lidar surveys.")
   medium <- paste(gsub("probability", "Probability", definition), "during", 
                   paste0(titleParts$name, ":"), titleParts$advFull)
