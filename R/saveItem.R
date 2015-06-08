@@ -27,7 +27,7 @@ saveItem <- function(item, ...){
     ok <- content(response, as = "parsed")
   } else {
     url = paste0(url, item$id)
-    response <- PUT(url=url, body=json,ontent_type('application/json'),
+    response <- PUT(url=url, body=json, content_type('application/json'),
                     add_headers('Authorization' = getAuth(), 'Connection'='keep-alive'))
     ok <- list(id=item$id)
   }

@@ -26,6 +26,7 @@ createStorm = function(templateId=NULL, filename, ...) {
     } else {
       children <- c(newId, children)
     }
+    uber$children <- children
     saveItem(uber)
     return(newId)
   } else {
