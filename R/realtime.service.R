@@ -114,7 +114,12 @@ realtime.service = function(serviceEndpoint,attribute=NULL){
 extractInfoFromTitle = function(title) {
   # Hurricane Sandy Assessment of Potential Coastal-Change Impacts: NHC Advisory 29, 1100 AM EDT MON OCT 29 2012
   match <- regexec("(\\w+ \\w+).*(NHC Advisory (\\d+), (.*))", title)
-  parts <- as.list(regmatches(title, match)[[1]][c(2, 3, 4, 5)])
+  matches <- regmatches(title, match)
+  if (length(matches)) {
+    parts <- as.list(matches[[1]][c(2, 3, 4, 5)])
+  } else {
+    parts <- as.list(rep("",4))
+  }
   names(parts)<- c("name", "advFull", "advNum", "time")
   return(parts)
 }

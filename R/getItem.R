@@ -2,6 +2,7 @@
 #'@description returns a list of item contents
 #'@param itemID a string for a valid item identifier
 #'@param field a subfield to return from the item. Default is NULL
+#'@param subtree whether or not to return the item subtree
 #'@return a list or a character vector (depending on \code{field} argument)
 #'@importFrom httr GET accept_json content
 #'@examples
