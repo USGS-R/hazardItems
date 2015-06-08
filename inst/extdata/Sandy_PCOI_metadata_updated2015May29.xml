@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+<idinfo>
+<citation>
+<citeinfo>
+<origin>Kara S. Doran</origin>
+<origin>Hilary F. Stockdon</origin>
+<origin>David S. Thompson</origin>
+<origin>Kristin S. Sopkin</origin>
+<origin>Nathaniel G. Plant</origin>
+<origin>Asbury H. Sallenger</origin>
+<pubdate>2012</pubdate>
+<title>Hurricane Sandy Assessment of Potential Coastal-Change Impacts: NHC Advisory 29, 1100 AM EDT MON OCT 29 2012</title>
+<geoform>vector digital data</geoform>
+<onlink>http://coastal.er.usgs.gov/hurricanes/sandy/coastal-change/</onlink>
+<lworkcit>
+<citeinfo>
+<origin>U.S. Geological Survey</origin>
+<pubdate>2012</pubdate>
+<title>Coastal Change Hazards: Hurricanes and Extreme Storms</title>
+<onlink>http://coastal.er.usgs.gov/hurricanes/</onlink>
+</citeinfo>
+</lworkcit>
+</citeinfo>
+</citation>
+<descript>
+<abstract>This data defines hurricane-induced coastal erosion hazards for the Delaware, Maryland and Virginia coastline. The analysis is based on a storm-impact scaling model that uses observations of beach morphology combined with sophisticated hydrodynamic models to predict how the coast will respond to the direct landfall of Hurricane Sandy. Hurricane-induced water levels, due to both surge and waves, are compared to beach and dune elevations to determine the probabilities of three types of coastal change: collision (dune erosion), overwash, and inundation.</abstract>
+<purpose>To provide data on the probability of hurricane-induced coastal erosion hazards for the Delmarva coast for Hurricane Sandy.</purpose>
+</descript>
+<timeperd>
+<timeinfo>
+<sngdate>
+<caldate>20121029</caldate>
+</sngdate>
+</timeinfo>
+<current>Publication date</current>
+</timeperd>
+<status>
+<progress>Complete</progress>
+<update>None planned, however future updates and post-storm analyses are anticipated.</update>
+</status>
+<spdom>
+<bounding>
+<westbc>-76.02</westbc>
+<eastbc>-74.96</eastbc>
+<northbc>38.88</northbc>
+<southbc>37.04</southbc>
+</bounding>
+</spdom>
+<keywords>
+<theme>
+<themekt>General</themekt>
+<themekey>U.S. Geological Survey</themekey>
+<themekey>USGS</themekey>
+<themekey>St. Petersburg Coastal and Marine Science Center</themekey>
+<themekey>Coastal and Marine Geology Program</themekey>
+<themekey>CMGP</themekey>
+<themekey>SPCMSC</themekey>
+<themekey>Hurricane Sandy</themekey>
+</theme>
+<theme>
+<themekt>ISO 19115 Topic Category</themekt>
+<themekey>coastal</themekey>
+<themekey>elevation</themekey>
+<themekey>environment</themekey>
+</theme>
+<place>
+<placekt>General</placekt>
+<placekey>Delaware</placekey>
+<placekey>Maryland</placekey>
+<placekey>Virginia</placekey>
+<placekey>Delmarva</placekey>
+<placekey>United States of America</placekey>
+</place>
+</keywords>
+<accconst>None</accconst>
+<useconst>The U.S. Geological Survey requests to be acknowledged as originators of the data in future products or derivative research.</useconst>
+<ptcontac>
+<cntinfo>
+<cntorgp>
+<cntorg>U.S. Geological Survey</cntorg>
+<cntper>Hilary Stockdon</cntper>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>600 4th Street South</address>
+<city>Saint Petersburg</city>
+<state>FL</state>
+<postal>33701</postal>
+<country>UNITED STATES</country>
+</cntaddr>
+<cntvoice>727-803-8747</cntvoice>
+<cntfax>727-803-2030</cntfax>
+<cntemail>hstockdon@usgs.gov</cntemail>
+</cntinfo>
+</ptcontac>
+<datacred>The predicted elevations of storm surge were extracted from the National Oceanic and Atmospheric Administration (NOAA) SLOSH (Sea, Lake, and Overland Surges from Hurricanes) model, which has been employed by NOAA in inundation risk studies and operational storm surge forecasting. Wave runup and setup conditions were generated using NOAA's WaveWatch3 model.</datacred>
+<native>Microsoft Windows 7 Version 6.1 (Build 7600) ; ESRI ArcGIS 10.0.4.4000</native>
+</idinfo>
+<dataqual>
+<logic>No additional checks for consistency were performed on this data.</logic>
+<complete>These data include dune morhology, and hurricane hydrodynamic data used to generate probabilities of hurricane-induced erosion. Elevation data from lidar surveys are not included. Measurements are collected approximately every 10-meters and summarized to 1-km segments.</complete>
+<posacc>
+<horizpa>
+<horizpar>Horizontal accuracy was not estimated.</horizpar>
+</horizpa>
+<vertacc>
+<vertaccr>
+Vertical accuracy for hydrodynamic measurements (surge, setup, and runup) is dependent on input data. SLOSH model accuracy is estimated to +/- 20 percent of the calculated value.  No other accuracy checks were performed.
+
+Vertical accuracy for dune morphology (dune crest and toe elevation) data is dependent on the positional accuracy of the lidar data. Estimated accuracy of lidar surveys are +/- 15 centimeters. However, vertical accuracies may vary based on the type of terrain (for example, inaccuracies may increase as slope increases or with the presence of extremely dense vegetation) and the accuracy of the GPS and aircraft-attitude measurements.
+</vertaccr>
+</vertacc>
+</posacc>
+<lineage>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>National Hurricane Center, National Oceanic and Atmospheric Administration</origin>
+<pubdate>20121029</pubdate>
+<title>Probabalistic storm surge</title>
+<onlink>http://www.nws.noaa.gov/mdl/psurge/</onlink>
+</citeinfo>
+</srccite>
+<typesrc>Online digital data</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>20121029</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>The date when web page was last modified.</srccurr>
+</srctime>
+<srccitea>Psurge</srccitea>
+<srccontr>Data provides water levels that have a 1 in 10 chance of being exceeded during the next 3 days.</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>NOAA National Weather Service Environmental Modeling Center</origin>
+<pubdate>20121029</pubdate>
+<title>NOAA Wavewatch III</title>
+<onlink>http://polar.ncep.noaa.gov/waves/index2.shtml</onlink>
+</citeinfo>
+</srccite>
+<typesrc>Type_of_Source_Media</typesrc>
+<srctime>
+<timeinfo>
+<sngdate>
+<caldate>20121029</caldate>
+</sngdate>
+</timeinfo>
+<srccurr>The date when the model was run.</srccurr>
+</srctime>
+<srccitea>WW3</srccitea>
+<srccontr>Model that was used to estimate wave setup and runup conditions for hurricane Sandy.</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Bonisteel-Cormier, J.M.</origin>
+<pubdate>2011</pubdate>
+<title>EAARL Coastal Topography-Virginia, Post-Nor'Ida, 2009</title>
+<serinfo>
+<sername>USGS Open File Report</sername>
+<issue>2011-638</issue>
+</serinfo>
+<onlink>http://pubs.usgs.gov/ds/638/</onlink>
+</citeinfo>
+</srccite>
+<typesrc>Online digital data</typesrc>
+<srctime>
+<timeinfo>
+<rngdates>
+<begdate>20091127</begdate>
+<enddate>20091201</enddate>
+</rngdates>
+</timeinfo>
+<srccurr>The date when lidar surveys were collected.</srccurr>
+</srctime>
+<srccitea>DS 638</srccitea>
+<srccontr>A lidar survey that was used to estimate dune morphology variables.</srccontr>
+</srcinfo>
+<srcinfo>
+<srccite>
+<citeinfo>
+<origin>Bonisteel-Cormier, J.M.</origin>
+<pubdate>2011</pubdate>
+<title>EAARL Coastal Topography-Maryland and Delaware, Post-Nor'Ida, 2009</title>
+<serinfo>
+<sername>USGS Data Series</sername>
+<issue>562</issue>
+</serinfo>
+<onlink>http://pubs.usgs.gov/ds/562/</onlink>
+</citeinfo>
+</srccite>
+<typesrc>Online digital data</typesrc>
+<srctime>
+<timeinfo>
+<rngdates>
+<begdate>20091128</begdate>
+<enddate>20091130</enddate>
+</rngdates>
+</timeinfo>
+<srccurr>The date when lidar surveys were collected.</srccurr>
+</srctime>
+<srccitea>DS 562</srccitea>
+<srccontr>A lidar survey that was used to estimate dune morphology variables.</srccontr>
+</srcinfo>
+<procstep>
+<procdesc>For dune morphology data: Elevation data from lidar surveys were interpolated in MATLAB to a gridded domain that was rotated parallel to the shoreline and had a resolution of 10 m in the longshore direction and 2.5 m in the cross-shore direction. The interpolation method applies spatial filtering with a Hanning window that is twice as wide as the grid resolution. Dune morphology data are extracted from the elevation grid in MATLAB. Dune morphology data are then summarized to 1 km sections. Sections with greater than 75 percent of data missing are flagged with the invalid number of -999. The 1-kilometer smoothed dune crest, toe and root mean square (RMS) error for each were written to line shapefiles using Matlab's shapewrite.m script.</procdesc>
+<srcused>DS 638</srcused>
+<srcused>DS 562</srcused>
+<procdate>2011</procdate>
+<srcprod>Dune morphology (DHIGH, DLOW, DHIrms, DLOrms)</srcprod>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>U.S. Geological Survey</cntorg>
+<cntper>Kara S. Doran</cntper>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>600 4th Street South</address>
+<city>Saint Petersburg</city>
+<state>FL</state>
+<postal>33701</postal>
+<country>UNITED STATES</country>
+</cntaddr>
+<cntvoice>727-803-8747</cntvoice>
+<cntfax>727-803-2030</cntfax>
+<cntemail>kdoran@usgs.gov</cntemail>
+</cntinfo>
+</proccont>
+</procstep>
+<procstep>
+<procdesc>
+For hydrodynamic data: Water level is computed in Matlab by adding storm surge from NOAAs SLOSH model to wave setup and runup. The wave height and period for calculating wave runup and setup come from the Wavewatch III model. Hydrodynamic parameters were calculated in MATLAB and exported into ArcGIS format.
+For details on modeling parameterization, see:
+Stockdon, H.F., Doran, K.J., Thompson, D.M., Sopkin, K.L., Plant, N.G., and Sallenger, A.H., 2012, National assessment of hurricane-induced coastal erosion hazards: Gulf of Mexico: U.S. Geological Survey Open-File Report 2012-1084, 51 p. http://pubs.usgs.gov/of/2012/1084/
+</procdesc>
+<srcused>Psurge</srcused>
+<srcused>WW3</srcused>
+<procdate>20121029</procdate>
+<srcprod>Hydrodynamics (SURGE, SETUP, RUNUP)</srcprod>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>U.S. Geological Survey</cntorg>
+<cntper>Kara S. Doran</cntper>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>600 4th Street South</address>
+<city>Saint Petersburg</city>
+<state>FL</state>
+<postal>33701</postal>
+<country>UNITED STATES</country>
+</cntaddr>
+<cntvoice>727-803-8747</cntvoice>
+<cntfax>727-803-2030</cntfax>
+<cntemail>kdoran@usgs.gov</cntemail>
+</cntinfo>
+</proccont>
+</procstep>
+<procstep>
+<procdesc>
+Probabilities of coastal erosion hazards are based on estimating the likelihood that the beach system will experience erosion and deposition patterns consistent with collision, overwash, or inundation regimes. The regimes are calculated by using values of dune morphology and mean and extreme water levels for each 1 km section, such that probability of collision occurs when extreme water levels reach the dune toe; overwash when extreme water levels reach the dune crest; and inundation when mean water levels reach the dune crest. Probabilities were calculated in MATLAB and exported in ArcGIS format.
+For details on modeling parameterization, see:
+Stockdon, H.F., Doran, K.J., Thompson, D.M., Sopkin, K.L., Plant, N.G., and Sallenger, A.H., 2012, National assessment of hurricane-induced coastal erosion hazards: Gulf of Mexico: U.S. Geological Survey Open-File Report 2012-1084, 51 p. http://pubs.usgs.gov/of/2012/1084/
+</procdesc>
+<srcused>Dune morphology</srcused>
+<srcused>Hydrodynamics</srcused>
+<procdate>2012</procdate>
+<srcprod>Probabilities (PCOL, POVW, PIND)</srcprod>
+<proccont>
+<cntinfo>
+<cntorgp>
+<cntorg>U.S. Geological Survey</cntorg>
+<cntper>Kara S. Doran</cntper>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>600 4th Street South</address>
+<city>Saint Petersburg</city>
+<state>FL</state>
+<postal>33701</postal>
+<country>UNITED STATES</country>
+</cntaddr>
+<cntvoice>727-803-8747</cntvoice>
+<cntfax>727-803-2030</cntfax>
+<cntemail>kdoran@usgs.gov</cntemail>
+</cntinfo>
+</proccont>
+</procstep>
+</lineage>
+</dataqual>
+<spdoinfo>
+<direct>Vector</direct>
+<ptvctinf>
+<sdtsterm>
+<sdtstype>GT-polygon composed of chains</sdtstype>
+<ptvctcnt>219</ptvctcnt>
+</sdtsterm>
+</ptvctinf>
+</spdoinfo>
+<spref>
+<horizsys>
+<geograph>
+<latres>8.9831528411952133e-009</latres>
+<longres>8.9831528411952133e-009</longres>
+<geogunit>Decimal Degrees</geogunit>
+</geograph>
+<geodetic>
+<horizdn>D WGS 1984</horizdn>
+<ellips>WGS 1984</ellips>
+<semiaxis>6378137.0</semiaxis>
+<denflat>298.257223563</denflat>
+</geodetic>
+</horizsys>
+</spref>
+<eainfo>
+<detailed>
+<enttyp>
+<enttypl>Sandy_PCOI_line</enttypl>
+<enttypd>Probabilities of hurricane-induced coastal erosion, dune morphology, and hurricane hydrodynamic data</enttypd>
+<enttypds>USGS</enttypds>
+</enttyp>
+<attr>
+<attrlabl>FID</attrlabl>
+<attrdef>Internal feature number.</attrdef>
+<attrdefs>ESRI</attrdefs>
+<attrdomv>
+<udom>Sequential unique whole numbers that are automatically generated.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>Shape</attrlabl>
+<attrdef>Feature geometry.</attrdef>
+<attrdefs>ESRI</attrdefs>
+<attrdomv>
+<udom>Coordinates defining the features.</udom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>DHIGH</attrlabl>
+<attrdef>Elevation of dune crest in meters NAVD88. Extracted from lidar surveys collected November 2009 to December 2009.</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>1.18</rdommin>
+<rdommax>6.23</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>DLOW</attrlabl>
+<attrdef>
+Elevation of the dune toe in meters NAVD88. Extracted from lidar surveys collected November 2009 to December 2009.
+</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>1.08</rdommin>
+<rdommax>3.47</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>-999</edomv>
+<edomvd>Null value</edomvd>
+<edomvds>USGS</edomvds>
+</edom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>DHIrms</attrlabl>
+<attrdef>Root mean squared error of dune crest elevation measurements (square meters).</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>0.02</rdommin>
+<rdommax>1.45</rdommax>
+<attrunit>square meters</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>DLOrms</attrlabl>
+<attrdef>Root mean square error of dune toe elevation measurements (square meters).</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>0.02</rdommin>
+<rdommax>0.76</rdommax>
+<attrunit>square meters</attrunit>
+</rdom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>-999</edomv>
+<edomvd>Nulll value</edomvd>
+<edomvds>USGS</edomvds>
+</edom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>SURGE</attrlabl>
+<attrdef>Storm surge water level</attrdef>
+<attrdefs>NOAA</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>1.14</rdommin>
+<rdommax>2.83</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>TIDE</attrlabl>
+<attrdef>Predicted tide water level</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>0</rdommin>
+<rdommax>0</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>SETUP</attrlabl>
+<attrdef>Wave setup water level</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>0.09</rdommin>
+<rdommax>2.53</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>RUNUP</attrlabl>
+<attrdef>Wave runup water level</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>1.27</rdommin>
+<rdommax>6.10</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>MEAN</attrlabl>
+<attrdef>Mean water level (surge + setup)</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>1.65</rdommin>
+<rdommax>5.28</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>EXTREME</attrlabl>
+<attrdef>Extreme water level (surge + runup).</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>2.86</rdommin>
+<rdommax>8.85</rdommax>
+<attrunit>meters NAVD88</attrunit>
+</rdom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>PCOL</attrlabl>
+<attrdef>Probability of collision</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>24.04</rdommin>
+<rdommax>100.0</rdommax>
+<attrunit>percent</attrunit>
+</rdom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>-999</edomv>
+<edomvd>Null value</edomvd>
+<edomvds>USGS</edomvds>
+</edom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>POVW</attrlabl>
+<attrdef>Probability of overwash</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>0</rdommin>
+<rdommax>100.0</rdommax>
+<attrunit>percent</attrunit>
+</rdom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>-999</edomv>
+<edomvd>Null value</edomvd>
+<edomvds>USGS</edomvds>
+</edom>
+</attrdomv>
+</attr>
+<attr>
+<attrlabl>PIND</attrlabl>
+<attrdef>Probability of inundation</attrdef>
+<attrdefs>USGS</attrdefs>
+<attrdomv>
+<rdom>
+<rdommin>0</rdommin>
+<rdommax>100.0</rdommax>
+<attrunit>percent</attrunit>
+</rdom>
+</attrdomv>
+<attrdomv>
+<edom>
+<edomv>-999</edomv>
+<edomvd>Null value</edomvd>
+<edomvds>USGS</edomvds>
+</edom>
+</attrdomv>
+</attr>
+</detailed>
+</eainfo>
+<distinfo>
+<distrib>
+<cntinfo>
+<cntorgp>
+<cntorg>U.S. Geological Survey</cntorg>
+<cntper>Kara S. Doran</cntper>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>600 4th Street Sourth</address>
+<city>Saint Petersburg</city>
+<state>FL</state>
+<postal>33701</postal>
+</cntaddr>
+<cntvoice>727-803-8747</cntvoice>
+<cntfax>727-8032030</cntfax>
+<cntemail>kdoran@usgs.gov</cntemail>
+<cntinst>All of this report is available on-line.</cntinst>
+</cntinfo>
+</distrib>
+<distliab>Although these data have been processed successfully on a computer system at the USGS, no warranty expressed or implied is made regarding the display or utility of the data on any other system, or for general or scientific purposes, nor shall the act of distribution constitute any such warranty. The USGS shall not be held liable for improper or incorrect use of the data described and/or contained herein. Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</distliab>
+<stdorder>
+<digform>
+<digtinfo>
+<formname>shapefiles</formname>
+<filedec>zip</filedec>
+</digtinfo>
+<digtopt>
+<onlinopt>
+<computer>
+<networka>
+<networkr>http://coastal.er.usgs.gov/hurricanes/sandy/coastal-change/</networkr>
+</networka>
+</computer>
+</onlinopt>
+</digtopt>
+</digform>
+<fees>None, if obtained online.</fees>
+</stdorder>
+</distinfo>
+<metainfo>
+<metd>20130618</metd>
+<metc>
+<cntinfo>
+<cntorgp>
+<cntorg>U.S. Geological Survey</cntorg>
+<cntper>Kara S. Doran</cntper>
+</cntorgp>
+<cntaddr>
+<addrtype>mailing and physical</addrtype>
+<address>600 4th Street South</address>
+<city>Saint Petersburg</city>
+<state>FL</state>
+<postal>33701</postal>
+<country>UNITED STATES</country>
+</cntaddr>
+<cntvoice>727-803-8747</cntvoice>
+<cntfax>727-803-2030</cntfax>
+<cntemail>kdoran@usgs.gov</cntemail>
+</cntinfo>
+</metc>
+<metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+<metstdv>FGDC-STD-001-1998</metstdv>
+<mettc>local time</mettc>
+</metainfo>
+</metadata>
