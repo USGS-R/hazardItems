@@ -117,7 +117,7 @@ Where the model output shapefile is zipped into a zip file and pointed through i
 When this function completes, the user must record the ID returned in the console (e.g. CAQw7M1) and use that argument in the function `templateId = "CAQw7M1")` for future updates.
 
 ##Updating a Real Time Storm Item
-If a user wants to update the model run output on an existing real time storm item, they must have the templateId handy, and follo the example workflow to update the real time storm:
+If a user wants to update the model run output on an existing real time storm item, they must have the templateId handy, and follow the example workflow to update the real time storm:
 
 ```{r,eval=FALSE}
 library(hazardItems)
