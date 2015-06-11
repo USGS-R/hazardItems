@@ -54,7 +54,7 @@ makeTemplateItem = function(layerId) {
 makeItemLayout = function(layerId) {
   items <- list("children"=list())
   layout <- getOption("hazardItems")$realtime.storms$layout
-  trackId <- getOption("hazardItems")$realtime.storms$trackId
+  trackId <- getOption("hazardItems")$realtime.storms$track$id
   for (i in 1:length(layout)) {
     attr = layout[[i]]
     # TRACK is a magic value representing the NHC track aggregation

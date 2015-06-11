@@ -26,7 +26,7 @@ buildList = function(template, layerId) {
   for (i in 1:length(existing)) {
     child = existing[[i]]
     # TRACK is a magic value representing the NHC track aggregation
-    attr = ifelse(child$id == getOption("hazardItems")$realtime.storms$trackId, "TRACK", child$attr)
+    attr = ifelse(child$id == getOption("hazardItems")$realtime.storms$track$id, "TRACK", child$attr)
     visible = attr %in% getOption("hazardItems")$realtime.storms$visible
     if (is.null(attr) | attr == "TRACK") {
       result$children[[i]] <- list(id=child$id, visible=visible)
