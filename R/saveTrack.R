@@ -14,8 +14,11 @@ saveTrack <- function(...){
   checkAuth(...)
   
   trackConfig <- getOption("hazardItems")$realtime.storms$track
-  
-  children <- sapply(trackConfig$children, makeChild, trackConfig$serviceEndpoint)
+
+  children <- sapply(trackConfig$children, makeChild,
+                     trackConfig$serviceEndpoint,
+                     trackConfig$bbox,
+                     trackConfig$summary)
   item <- list(
     id = trackConfig$id,
     itemType = "aggregation",
@@ -23,8 +26,8 @@ saveTrack <- function(...){
     type = "storms",
     ribbonable = FALSE,
     showChildren = FALSE,
-    bbox = bbox,
-    summary = summary,
+    bbox = trackConfig$bbox,
+    summary = trackConfig$summary,
     children = children,
     displayedChildren = children
   )
@@ -32,14 +35,16 @@ saveTrack <- function(...){
   return(trackId == trackConfig$id)
 }
 
-makeChild = function(serviceParam, serviceEndpoint, bbox, summary) {
+makeChild = function(serviceParams, serviceEndpoint, bbox, summary) {
+  param <- serviceParams$serviceParameter
+  attr <- serviceParams$attr
   item <- list(itemType="data", name="track", type="storms", ribbonable=FALSE)
-  item$attr <- serviceParam
+  item$attr <- attr
   item$bbox <- bbox
   item$summary <- summary
   services = list()
-  append(services, list(type="source_wms", endpoint=serviceEndpoint, serviceParameter=serviceParam))
-  append(services, list(type="proxy_wms", endpoint=serviceEndpoint, serviceParameter=serviceParam))
+  append(services, list(type="source_wms", endpoint=serviceEndpoint, serviceParameter=param))
+  append(services, list(type="proxy_wms", endpoint=serviceEndpoint, serviceParameter=param))
   item$services <- services
   id <- saveItem(item)
   return(id)
