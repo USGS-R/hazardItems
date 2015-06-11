@@ -31,7 +31,10 @@ realtime.storms:
       full:
         title: "NWS NHC Forecasted Tropical Cyclone"
         text: "The nowCOAST 'wwa' Web Map Service (WMS) provides layers containing near real-time watches, warnings and advisories from the National Weather Service (NWS).  This layer shows the latest Tropical Cyclone Track and Cone Forecast from the NWS National Hurricane Center (NHC), updated hourly. The 'wwa' WMS is one of several map services provided by NOAA's nowCOAST project (http://nowcoast.noaa.gov), a product of the NOAA/NOS/OCS Coast Survey Development Laboratory."
-        publications: ""     
+        publications:
+          data: []
+          publications: []
+          resources: []
       keywords: ""
     serviceEndpoint: "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/wwa"
     children:
