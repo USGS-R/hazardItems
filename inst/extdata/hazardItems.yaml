@@ -36,7 +36,7 @@ realtime.storms:
       cone:
         serviceParameter: "NHC_TRACK_POLY"
         attr: "NHC_TRACK_POLY"
-    track:
+      track:
         serviceParameter: "NHC_TRACK_LIN"
         attr: "NHC_TRACK_LIN"
       point:
