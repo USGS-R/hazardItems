@@ -18,10 +18,10 @@ realtime.storms:
   track:
     id: "DvDJ6Vcg"
     bbox:
-      - 21
-      - -102
-      - 52
-      - -56
+      - -101.84
+      - 17.64
+      - -62.4
+      - 45.95
     summary:
       tiny:
         text: "NWS NHC Forecasted Tropical Cyclone"
