@@ -38,8 +38,8 @@ realtime.storms:
             {
               "title": "NOAA's nowCOAST",
               "link": "https://nowcoast.noaa.gov/"
-}
-            ]
+            }
+          ]
       keywords: "Hurricane|Track|NOAA|nowCOAST"
     serviceEndpoint: "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/wwa"
     children:
