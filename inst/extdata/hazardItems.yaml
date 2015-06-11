@@ -1,7 +1,6 @@
 username: ''
 password: ''
 realtime.storms:
-  trackId: DvDJ6Vcg
   layout:
     - PCOL
     - POVW
@@ -10,10 +9,40 @@ realtime.storms:
     - DLOW
     - MEAN
     - EXTREME
-    - TRACK
   visible:
     - PCOL
     - POVW
     - PIND
-    - TRACK
+  track:
+    trackId: "DvDJ6Vcg"
+    bbox:
+      - 21
+      - -102
+      - 52
+      - -56
+    summary:
+      tiny:
+        text: "NWS NHC Forecasted Tropical Cyclone"
+      medium:
+        title: "NWS NHC Forecast"
+        text: "The latest Tropical Cyclone Forecast from the NWS National Hurricane Center (NHC), updated hourly."
+      full:
+        title: "NWS NHC Forecasted Tropical Cyclone"
+        text: "The nowCOAST 'wwa' Web Map Service (WMS) provides layers containing near real-time watches, warnings and advisories from the National Weather Service (NWS).  This layer shows the latest Tropical Cyclone Track and Cone Forecast from the NWS National Hurricane Center (NHC), updated hourly. The 'wwa' WMS is one of several map services provided by NOAA's nowCOAST project (http://nowcoast.noaa.gov), a product of the NOAA/NOS/OCS Coast Survey Development Laboratory."
+        publications: ""     
+      keywords: ""
+    serviceEndpoint: "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/wwa"
+    children:
+      cone:
+        serviceParameter: "NHC_TRACK_POLY"
+        attr: "NHC_TRACK_POLY"
+    track:
+        serviceParameter: "NHC_TRACK_LIN"
+        attr: "NHC_TRACK_LIN"
+      point:
+        serviceParameter: "NHC_TRACK_PT,NHC_TRACK_PT_0NAMEDATE,NHC_TRACK_PT_120DATE,NHC_TRACK_PT_72DATE"
+        attr: "NHC_TRACK_PT"
+
     
+      
+	
