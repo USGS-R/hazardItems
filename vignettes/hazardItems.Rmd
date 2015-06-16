@@ -43,6 +43,8 @@ This package **hazardItems** provides services in support of coastal change haza
 
 `checkItemExists` is a supporting function that accepts an item ID and returns TRUE or FALSE depending on if the item exists on the currently specified tier/endpoint.
 
+`saveTrack` allows a user to create or update the NHC NOAA hurricane track on the currently set endpoint. The details for controlling these layers are set in the hazardItems.yaml file. 
+
 #Installation
 To install **hazardItems** 
 
@@ -99,22 +101,21 @@ print(summary)
 
 
 ##Real Time Storm Item Creation
-A real-time storms event item is established in a special way. The item can be updated each time a model is run with new data. The parent aggregation is dropped and re-created each time a model update is run and NACCH scientists want to update the data.The parent item represents the storm. For example, "Hurricane Sandy" could be the title of a parent aggregation item for a real-time storm. 
+A real-time storms event item is established in a special way. When it needs to be updated, the parent aggregation is dropped and re-created each time a model update is run and NACCH scientists want to update the data by using the `createStorm()` function. The parent item represents the storm. For example, "Hurricane Sandy" could be the title of a parent aggregation item for a real-time storm. The NOAA NHC Hurricane cone, track and points are all added automatically when the `createStorm()` function is run. 
 
 <br />
 <br />
 An example workflow to create a new real time storm would involve the following:
 
-
 ```{r,eval=FALSE}
 library(hazardItems)
-setBaseURL("dev") #setBaseURL("prod") in the event of actual storm.
-createStorm(templateId = NULL, "D:\\mkhdata\\model_output\\Sandy_CIDA060520150800.zip")
+setBaseURL("dev") #setBaseURL("prod") in the event of actual storm. setBaseURL("qa") in the event of testing on the qa server.
+createStorm(templateId = NULL, "D:\\mkhdata\\model_output\\Sandy_CIDA060520150800.zip") #don't forget to double escape slashes if you are running this command in a Windows environment.
 ```
 
 Where the model output shapefile is zipped into a zip file and pointed through in the arguments above.
 
-When this function completes, the user must record the ID returned in the console (e.g. CAQw7M1) and use that argument in the function `templateId = "CAQw7M1")` for future updates.
+When this function completes, the user must record the ID returned in the console (e.g. CAQw7M1) and use that argument in the function `templateId = "CAQw7M1")` for future updates to the same active storm.
 
 ##Updating a Real Time Storm Item
 If a user wants to update the model run output on an existing real time storm item, they must have the templateId handy, and follow the example workflow to update the real time storm:
@@ -125,7 +126,7 @@ setBaseURL("dev") #setBaseURL("prod") in the event of actual storm.
 createStorm(templateId = "CAQw7M1", "D:\\mkhdata\\model_output\\Sandy_CIDA060520151400.zip")
 ```
 
-When this function is run to update the item, the previously posted parent and children are all orphaned.
+When this function is run to replace the existing out of date item, the previously posted parent and children are orphaned. Record the new templateId returned when the function is successful in order to replace with future updates.
 
 #Adding Layers to the Portal 
 
