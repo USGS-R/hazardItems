@@ -31,6 +31,10 @@ This package **hazardItems** provides services in support of coastal change haza
 
 `saveTrack` allows a user to create or update the NHC NOAA hurricane track on the currently set endpoint. The details for controlling these layers are set in the hazardItems.yaml file. 
 
+The hazardItems.yaml file copies itself to your working directory location and is used from there. For example, my machine copies the file to C:\Users\mhines\Documents\R\win-library\3.1\hazardItems\extdata on build. If I make any changes to the hazards.yaml file (changes to the track metadata or bounding box, for example) I would need to go remove the file from that working directory location before the `saveTrack()` command was used to make sure that the yaml contents are updated in my working directory when I build/reload the hazardItems package.
+
+The user can also store their active directory credentials in this file, if desired, so they do not need to re-enter them each time they run the `createStorm()` function.
+
 #Installation
 To install **hazardItems** 
 
