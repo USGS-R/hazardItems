@@ -8,17 +8,6 @@ services for coastal change hazards items
 Getting started in R is easy! Check out how to set up your local environment with <a href="http://owi.usgs.gov/R/resources.html">this helpful set of resources from the USGS Office of Water Information R Community</a>. At a minimum, you'll need to have <a href="http://cran.rstudio.com/">R installed on your machine</a>.
 
 
-
-```{r setup, include=FALSE}
-library(rmarkdown)
-options(continue=" ")
-options(width=60)
-library(knitr)
-library(hazardItems)
-
-```
-
-
 #Introduction
 
 
