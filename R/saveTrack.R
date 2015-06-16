@@ -43,8 +43,8 @@ makeChild = function(serviceParams, serviceEndpoint, bbox, summary) {
   item$bbox <- bbox
   item$summary <- summary
   services = list()
-  append(services, list(type="source_wms", endpoint=serviceEndpoint, serviceParameter=param))
-  append(services, list(type="proxy_wms", endpoint=serviceEndpoint, serviceParameter=param))
+  services[[1]] <- list(type="source_wms", endpoint=serviceEndpoint, serviceParameter=param)
+  services[[2]] <- list(type="proxy_wms", endpoint=serviceEndpoint, serviceParameter=param)
   item$services <- services
   id <- saveItem(item)
   return(id)
