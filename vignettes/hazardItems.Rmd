@@ -21,6 +21,16 @@ library(hazardItems)
 
 ```
 
+hazardItems
+==============
+[![Build Status](https://travis-ci.org/USGS-R/hazardItems.svg)](https://travis-ci.org/USGS-R/hazardItems)  
+[![Coverage Status](https://coveralls.io/repos/USGS-R/hazardItems/badge.svg)](https://coveralls.io/r/USGS-R/hazardItems)
+
+services for coastal change hazards items
+
+Getting started in R is easy! Check out how to set up your local environment with <a href="http://owi.usgs.gov/R/resources.html">this helpful set of resources from the USGS Office of Water Information R Community</a>. At a minimum, you'll need to have <a href="http://cran.rstudio.com/">R installed on your machine</a>.
+
+
 
 #Introduction
 
@@ -162,7 +172,7 @@ There are a number of functions that are available to clear out cached contents 
 
 The `deleteTileCache` function takes the cache URL set by `pkg.env$tile_cache` and drops the entire tile cache for the application. The user must be authenticated to perform this task. The second argument is unnecessary, user need only set the base URL for the proper endpoint (dev, qa or prod) and run `deleteTileCache()`. 
 
-If you do a lot of changes (e.g. adding items, moving children around, changing geographic extens, editing geographic features, adding children to an aggregate (if it's a displayed child)), you should use this function to make sure that users are experiencing the latest changes. This cache is repopulated by application use.
+If you do a lot of changes (e.g. adding items, moving children around, changing geographic extents, editing geographic features, adding children to an aggregate (if it's a displayed child)), you should use this function to make sure that users are experiencing the latest changes. This cache is repopulated by application use.
 
 To use:
 ```{r,eval=FALSE}
@@ -185,7 +195,7 @@ deleteDownload("CCNKrhr") #itemID you wish to delete the download cache for. if 
 
 ##Reseed the Download Cache for an Item
 
-You can seseed the download for an item by calling:
+You can reseed the download for an item by calling:
 ```{r,eval=FALSE}
 setBaseURL('dev') #setBaseURL("prod") in the event of production use.
 downloadItem("CCNKrhr") #itemID you wish to refresh the download for. 
@@ -235,4 +245,4 @@ There are a number of services that can be checked that will provide insight on 
 
 <a href="https://marine.usgs.gov/coastalchangehazardsportal/data/item/CARv9Z5">Item service</a> provides a document summarizing all of the item's details including bbox, children, publications and so forth. Replace the `itemID` at the end of the request based on desired item.
 
-<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/thubmnail/?dirty=true">Review which thumbnails are in need of refreshing. Working on an automatic function to reset these.</a>
+<a href="https://marine.usgs.gov/coastalchangehazardsportal/data/thumbnail/?dirty=true">Review which thumbnails are in need of refreshing. Working on an automatic function to reset these.</a>

@@ -80,7 +80,7 @@ update.packages(repos = c("http://owi.usgs.gov/R", "http://cran.rstudio.com/"))
 ```r
 serviceEndpoint  <-  system.file('extdata',
 "NewJerseyS_shorelines.shp.xml", package = 'hazardItems')
-attribute  <-	'date'
+attribute	<-	'date'
 summary	<-	historical.service(serviceEndpoint,attribute)
 print(summary)
 sink('output.json')
