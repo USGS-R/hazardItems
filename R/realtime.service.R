@@ -102,8 +102,8 @@ realtime.service = function(serviceEndpoint,attribute=NULL){
       tiny.text <- paste("Modeled", gsub("mean", "Mean", gsub("extreme", "Extreme", tiny.text)))
     }
     
-    full.publications  <-	getPublications(doc)
-    keywords	<-	getKeywords (doc,subType)
+    full.publications <- getPublications_(doc)
+    keywords <- getKeywords (doc,subType)
   }
 	
 	summaryJSON	<- toJSON(list(
@@ -138,6 +138,21 @@ extractCollectionDate = function(doc, attr) {
   match <- regexec(".*?(\\w+ \\d{4} to \\w+ \\d{4})\\.?", defn)
   collected <- regmatches(defn, match)[[1]][2]
   return(collected)
+}
+
+getPublications_ <- function(doc){
+  # get all linked publications
+  onlinks	<- list()
+  onlinks$data <- list()
+  onlinks$publications	<- list()
+  onlinks$resources	<- c(getNodeSet(doc,'//crossref/citeinfo/onlink'),getNodeSet(doc,'//srccite/citeinfo/onlink'), getNodeSet(doc,'//lworkcit/citeinfo/onlink'))
+  publications <- list(data=list(),publications=list(),resources=list())
+  names	<- NULL
+  publications$data	<- getSubPub(onlinks$data)
+  publications$publications	<- getSubPub(onlinks$publications)
+  publications$resources	<- getSubPub(onlinks$resources)
+  
+  return(publications) 
 }
 
 getSurgeDescription = function(doc) {
