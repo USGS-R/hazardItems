@@ -65,8 +65,8 @@ To install **hazardItems**
 Install package with dependencies:
 ```{r, eval=FALSE}
 install.packages("hazardItems",
-repos = c("http://owi.usgs.gov/R"),
-dependencies = TRUE, type = 'both')
+  repos = c("http://owi.usgs.gov/R", "http://cran.rstudio.com/"),
+  dependencies = TRUE, type = 'both')
 ```
 
 #Updating 
