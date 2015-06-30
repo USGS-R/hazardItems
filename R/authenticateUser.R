@@ -35,7 +35,7 @@ authenticateUser <- function(username, password, verbose=FALSE){
 
   resp = POST(pkg.env$auth_token, accept_json(),
               body = list(username=username, password=password), 
-              encode='form', timeout(5), config = list('verbose' = verbose))
+              encode='form', timeout(5), config(verbose=verbose))
   
   if (resp$status_code == 200){
 
