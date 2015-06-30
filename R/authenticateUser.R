@@ -3,16 +3,15 @@
 #'@param username an active directory username (e.g., \code{'bbadger'})
 #'@param password a character password for the active directory username. 
 #'Will be prompted for password if missing and in interactive mode. 
-#'@param verbose boolean for verbose output. Default FALSE
 #'@details if \code{authenticateUser} is called with a \code{username} argument, 
 #'\code{username} is stored in the R session environment, and future calls to 
 #'\code{authenticateUser} within the same R session can use the password argument 
 #'only (e.g., \code{authenticateUser(password = '12345')})
 #'The username and password can also be specified in the config file
 #'@return a character token, or the status code if not 200
-#'@importFrom httr POST accept_json content timeout verbose
+#'@importFrom httr POST accept_json content timeout
 #'@export 
-authenticateUser <- function(username, password, verbose=FALSE){
+authenticateUser <- function(username, password){
   
   
   if (is.null(getUsername(username)) & interactive()) {
@@ -35,7 +34,7 @@ authenticateUser <- function(username, password, verbose=FALSE){
 
   resp = POST(pkg.env$auth_token, accept_json(),
               body = list(username=username, password=password), 
-              encode='form', timeout(5), config(verbose=verbose))
+              encode='form', timeout(5))
   
   if (resp$status_code == 200){
 
