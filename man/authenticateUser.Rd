@@ -4,15 +4,13 @@
 \alias{authenticateUser}
 \title{authenticate a user to CCH portal}
 \usage{
-authenticateUser(username, password, verbose = FALSE)
+authenticateUser(username, password)
 }
 \arguments{
 \item{username}{an active directory username (e.g., \code{'bbadger'})}
 
 \item{password}{a character password for the active directory username.
 Will be prompted for password if missing and in interactive mode.}
-
-\item{verbose}{boolean for verbose output. Default FALSE}
 }
 \value{
 a character token, or the status code if not 200
