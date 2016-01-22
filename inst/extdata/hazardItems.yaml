@@ -39,14 +39,14 @@ realtime.storms:
               title: "NOAA's nowCOAST"
               link: "https://nowcoast.noaa.gov/"
       keywords: "Hurricane|Track|NOAA|nowCOAST"
-    serviceEndpoint: "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/wwa"
+    serviceEndpoint: "http://nowcoast.noaa.gov/arcgis/services/nowcoast/wwa_meteocean_tropicalcyclones_trackintensityfcsts_time/MapServer/WmsServer?"
     children:
       -
-        serviceParameter: "NHC_TRACK_POLY"
+        serviceParameter: "6"
         attr: "NHC_TRACK_POLY"
       -
-        serviceParameter: "NHC_TRACK_LIN"
+        serviceParameter: "3"
         attr: "NHC_TRACK_LIN"
       -
-        serviceParameter: "NHC_TRACK_PT,NHC_TRACK_PT_0NAMEDATE,NHC_TRACK_PT_120DATE,NHC_TRACK_PT_72DATE"
+        serviceParameter: "8,7,4"
         attr: "NHC_TRACK_PT"
