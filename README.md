@@ -161,7 +161,7 @@ The `thumb.service` accepts a json URL and creates a handsome thumbnail preview 
 To use:
 
 ```r
-serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/CAkR645'
+serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
 thumb.service(serviceEndpoint)
 ```
 
