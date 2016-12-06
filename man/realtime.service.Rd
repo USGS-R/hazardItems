@@ -20,7 +20,7 @@ This service parses the metadata record and creates a summary specific to the ST
 with subtype being defined by the attribute name
 }
 \examples{
-serviceEndpoint  <-	'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+serviceEndpoint  <-	system.file('extdata', "GOM_erosion_hazards_metadata.xml", package = 'hazardItems')
 attribute	<-	'PCOL'
 summary	<-	realtime.service(serviceEndpoint,attribute)
 print(summary)

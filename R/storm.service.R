@@ -8,7 +8,7 @@
 #'@importFrom jsonlite toJSON
 #'@import XML
 #'@examples
-#'serviceEndpoint  <-	'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+#'serviceEndpoint  <-	system.file('extdata', "GOM_erosion_hazards_metadata.xml", package = 'hazardItems')
 #'attribute	<-	'PCOL3'
 #'summary	<-	storm.service(serviceEndpoint,attribute)
 #'print(summary)
