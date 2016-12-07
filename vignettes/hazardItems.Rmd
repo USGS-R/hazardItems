@@ -28,14 +28,14 @@ hazardItems
 
 services for coastal change hazards items
 
-Getting started in R is easy! Check out how to set up your local environment with <a href="http://owi.usgs.gov/R/resources.html">this helpful set of resources from the USGS Office of Water Information R Community</a>. At a minimum, you'll need to have <a href="http://cran.rstudio.com/">R installed on your machine</a>.
+Getting started in R is easy! Check out how to set up your local environment with <a href="https://owi.usgs.gov/R/resources.html">this helpful set of resources from the USGS Office of Water Information R Community</a>. At a minimum, you'll need to have <a href="http://cran.rstudio.com/">R installed on your machine</a>.
 
 
 
 #Introduction
 
 
-This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal at <a href="http://marine.usgs.gov/coastalchangehazardsportal" target="_blank">marine.usgs.gov/coastalchangehazardsportal</a>.  
+This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal at <a href="https://marine.usgs.gov/coastalchangehazardsportal" target="_blank">marine.usgs.gov/coastalchangehazardsportal</a>.  
     
 `historical.service`, `storm.service` and `vulnerability.service` parse metadata records and create summaries specific to their respective themes. The subtypes are defined by the attribute names.
 
@@ -65,7 +65,7 @@ To install **hazardItems**
 Install package with dependencies:
 ```{r, eval=FALSE}
 install.packages("hazardItems",
-  repos = c("http://owi.usgs.gov/R", "http://cran.rstudio.com/"),
+  repos = c("https://owi.usgs.gov/R", "http://cran.rstudio.com/"),
   dependencies = TRUE, type = 'both')
 ```
 
@@ -73,7 +73,7 @@ install.packages("hazardItems",
 To update **hazardItems**
 
 ```{r, eval=FALSE}
-update.packages(repos = c("http://owi.usgs.gov/R", "http://cran.rstudio.com/"))
+update.packages(repos = c("https://owi.usgs.gov/R", "http://cran.rstudio.com/"))
 ```
 
 #Item Metadata Packages
@@ -96,7 +96,7 @@ sink()
 `storm.service` parses the metadata record and creates a summary specific to the STORM theme, with a subtype being defined by the attribute name. For example, to create a storm item from a remote url with an attribute named 'PCOL3':
 
 ```{r, results='hide'}
-serviceEndpoint  <-  'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+serviceEndpoint  <-  system.file('extdata', "GOM_erosion_hazards_metadata.xml", package = 'hazardItems')
 attribute	<-	'PCOL3'
 summary	<-	storm.service(serviceEndpoint,attribute)
 print(summary)
@@ -159,7 +159,7 @@ The `thumb.service` accepts a json URL and creates a handsome thumbnail preview 
 
 To use:
 ```{r,eval=FALSE}
-serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
+serviceEndpoint <- 'https://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
 thumb.service(serviceEndpoint)
 ```
 

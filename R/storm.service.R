@@ -8,7 +8,7 @@
 #'@importFrom jsonlite toJSON
 #'@import XML
 #'@examples
-#'serviceEndpoint  <-	'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+#'serviceEndpoint  <-	system.file('extdata', "GOM_erosion_hazards_metadata.xml", package = 'hazardItems')
 #'attribute	<-	'PCOL3'
 #'summary	<-	storm.service(serviceEndpoint,attribute)
 #'print(summary)
@@ -18,7 +18,7 @@ storm.service = function(serviceEndpoint,attribute){
 
 	subTypeDataSrc <- names(sourceSynonyms)
 
-	doc <- xmlInternalTreeParse(serviceEndpoint)
+	doc <- grabXML(serviceEndpoint)
 
 	title <- xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
 	abstract	<-	xmlValue(getNodeSet(doc,'//descript/abstract')[[1]])

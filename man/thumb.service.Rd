@@ -16,7 +16,7 @@ A strong location for the created png image
 takes json url and creates summary image for item
 }
 \examples{
-serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
+serviceEndpoint <- 'https://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
 thumb.service(serviceEndpoint)
 }
 

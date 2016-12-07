@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Kara S. Doran</origin>
+        <origin>Hilary F. Stockdon</origin>
+        <origin>David M. Thompson</origin>
+        <origin>Justin Birchler</origin>
+        <origin>Nathaniel G. Plant</origin>
+        <origin>Jacquelyn R. Overbeck</origin>
+        <pubdate>20160317</pubdate>
+        <title>National Assessment of Hurricane-Induced Coastal Erosion Hazards: Gulf of Mexico Update</title>
+        <geoform>vector digital data</geoform>
+        <onlink>http://dx.doi.org/10.5066/F7QC01KZ</onlink>
+        <lworkcit>
+          <citeinfo>
+            <origin>U.S. Geological Survey</origin>
+            <pubdate>2016</pubdate>
+            <title>Coastal Change Hazards: Hurricanes and Extreme Storms</title>
+            <onlink>http://coastal.er.usgs.gov/hurricanes/assessments/scenario-based.php</onlink>
+          </citeinfo>
+        </lworkcit>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This dataset contains information on the probabilities of hurricane-induced erosion (collision, inundation and overwash) for each 1-km section of the Gulf of Mexico coast for category 1-5 hurricanes. The analysis is based on a storm-impact scaling model that uses observations of beach morphology combined with sophisticated hydrodynamic models to predict how the coast will respond to the direct landfall of category 1-5 hurricanes. Hurricane-induced water levels, due to both surge and waves, are compared to beach and dune elevations to determine the probabilities of three types of coastal change: collision (dune erosion), overwash, and inundation. Data on dune morphology (dune crest and toe elevation) and hydrodynamics (storm surge, wave setup and runup) are also included in this data set. As new beach morphology observations and storm predictions become available, this analysis will be updated to describe how coastal vulnerability to storms will vary in the future. The data presented here include the dune morphology observations, as derived from lidar surveys.</abstract>
+      <purpose>To provide data on the probability of hurricane-induced coastal erosion hazards for the Gulf of Mexico coast.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>20160317</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>Publication date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None planned, however future updates and post-storm analyses are anticipated.</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-97.380110</westbc>
+        <eastbc>-81.728262</eastbc>
+        <northbc>30.397917</northbc>
+        <southbc>25.908923</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>General</themekt>
+        <themekey>U.S. Geological Survey</themekey>
+        <themekey>USGS</themekey>
+        <themekey>St. Petersburg Coastal and Marine Science Center</themekey>
+        <themekey>Coastal and Marine Geology Program</themekey>
+        <themekey>CMGP</themekey>
+        <themekey>SPCMSC</themekey>
+        <themekey>Open-File Report 2012-1084</themekey>
+        <themekey>OFR 2012-1084</themekey>
+      </theme>
+      <theme>
+        <themekt>ISO 19115 Topic Category</themekt>
+        <themekey>coastal</themekey>
+        <themekey>elevation</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <place>
+        <placekt>General</placekt>
+        <placekey>Gulf of Mexico</placekey>
+        <placekey>Texas</placekey>
+        <placekey>Louisiana</placekey>
+        <placekey>Alabama</placekey>
+        <placekey>Mississippi</placekey>
+        <placekey>Florida</placekey>
+        <placekey>U.S. Gulf Coast</placekey>
+      </place>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>The U.S. Geological Survey requests to be acknowledged as originators of the data in future products or derivative research.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>Hilary Stockdon</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>600 4th Street South</address>
+          <city>Saint Petersburg</city>
+          <state>FL</state>
+          <postal>33701</postal>
+          <country>UNITED STATES</country>
+        </cntaddr>
+        <cntvoice>727-502-8074</cntvoice>
+        <cntfax>727-502-8181</cntfax>
+        <cntemail>hstockdon@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <datacred>The predicted elevations of combined high tide and storm surge for category 1-5 hurricanes were extracted from the National Oceanic and Atmospheric Administration (NOAA) SLOSH (Sea, Lake, and Overland Surges from Hurricanes) model, which has been employed by NOAA in inundation risk studies and operational storm surge forecasting. Wave runup and setup conditions were generated using SWAN software developed by Delft University of Technology (TU Delft).</datacred>
+    <native>Microsoft Windows 7 Version 6.1 (Build 7600) ; MATLAB R2015b ; ESRI ArcGIS 10.2.2</native>
+  </idinfo>
+  <dataqual>
+    <logic>No additional checks for consistency were performed on this data.</logic>
+    <complete>These data include dune morphology, and hurricane hydrodynamic data used to generate probabilities of hurricane-induced erosion. Gridded digital elevation models (DEMs) and lidar point clouds are not included. Measurements are collected approximately every 10-meters and summarized to 1-km segments.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>Horizontal accuracy was not estimated.</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>Vertical accuracy for hydrodynamic measurements (surge, setup, and runup) is dependent on input data. SLOSH model accuracy is estimated to +/- 20 percent of the calculated value. Modeled wave heights were compared to observed wave heights at several buoys located at different water depths throughout the Gulf of Mexico and simulated wave heights were representative of maximum possible wave heights for each hurricane category. No other accuracy checks were performed.
+
+Vertical accuracy for dune morphology (dune crest and toe elevation) data is dependent on the positional accuracy of the lidar data. Estimated accuracy of lidar surveys is +/- 15 centimeters. However, vertical accuracies may vary based on the type of terrain (for example, inaccuracies may increase as slope increases or with the presence of extremely dense vegetation) and the accuracy of the GPS and aircraft-attitude measurements.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>National Hurricane Center, National Oceanic and Atmospheric Administration</origin>
+            <pubdate>20100910</pubdate>
+            <title>Storm Surge Maximum of the Maximum</title>
+            <onlink>http://www.nhc.noaa.gov/ssurge/ssurge_momOverview.shtml</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Online digital data</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>20100910</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>The date when web page was last modified.</srccurr>
+        </srctime>
+        <srccitea>MOM</srccitea>
+        <srccontr>Data provides a worst case snapshot for a particular hurricane category under "perfect" storm conditions and was used to estimate water level under hurricane categories.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Delft University of Technology</origin>
+            <pubdate>20110622</pubdate>
+            <title>Simulating WAves Nearshore (SWAN) model</title>
+            <onlink>http://www.swan.tudelft.nl/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Computer program</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>2011</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>The date when software was obtained.</srccurr>
+        </srctime>
+        <srccitea>SWAN</srccitea>
+        <srccontr>Model that was used to estimate wave setup and runup conditions for different hurricane categories.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Army Corps of Engineers (USACE) Joint Airborne Lidar Bathymetry Technical Center for Expertise (JALBTCX)</origin>
+            <pubdate>20150803</pubdate>
+            <title>2009 US Army Corps of Engineers (USACE) Joint Airborne Lidar Bathymetry Technical Center for Expertise (JALBTCX) Topographic Lidar: Post Hurricane Gustav and Post Hurricane Ike</title>
+            <onlink>ftp://coast.noaa.gov/pub/DigitalCoast/lidar1_z/geoid12a/data/1061</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Online digital data</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>20090203</begdate>
+              <enddate>20090423</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>The date when lidar surveys were collected.</srccurr>
+        </srctime>
+        <srccitea>09CNT06</srccitea>
+        <srccontr>A lidar survey that was used to estimate dune morphology variables.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Kristy K. Guy, Kara S. Doran, Hilary F. Stockdon, and Nathaniel G. Plant</origin>
+            <pubdate>20140602</pubdate>
+            <title>Topographic Lidar Survey of the Alabama, Mississippi, and Southeast Louisiana Barrier Islands, from September 5 to October 11, 2012</title>
+            <serinfo>
+              <sername>USGS Data Series</sername>
+              <issue>839</issue>
+            </serinfo>
+            <onlink>http://pubs.usgs.gov/ds/0839/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Online digital data</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>20120905</begdate>
+              <enddate>20121011</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>The date when lidar surveys were collected.</srccurr>
+        </srctime>
+        <srccitea>DS 839</srccitea>
+        <srccontr>A lidar survey that was used to estimate dune morphology variables.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Army Corps of Engineers (USACE) Joint Airborne Lidar Bathymetry Technical Center for Expertise (JALBTCX)</origin>
+            <pubdate>201109</pubdate>
+            <title>2010 US Army Corps of Engineers (USACE) Joint Airborne Lidar Bathymetry Technical Center of Expertise (JALBTCX) Topobathy Lidar: Alabama Coast and Florida Gulf Coast</title>
+            <onlink>ftp://coast.noaa.gov/pub/DigitalCoast/lidar1_z/geoid12a/data/1064</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Online digital data</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>20100101</begdate>
+              <enddate>20100331</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>The date when lidar surveys were collected.</srccurr>
+        </srctime>
+        <srccitea>10CNT06</srccitea>
+        <srccontr>A lidar survey that was used to estimate dune morphology variables.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>US Army Corps of Engineers (USACE) Joint Airborne Lidar Bathymetry Technical Center for Expertise (JALBTCX)</origin>
+            <pubdate>201109</pubdate>
+            <title>2010 US Army Corps of Engineers (USACE) Joint Airborne Lidar Bathymetry Technical Center of Expertise (JALBTCX) Lidar: Gulf Coast of Florida</title>
+            <onlink>ftp://coast.noaa.gov/pub/DigitalCoast/lidar1_z/geoid12a/data/1073/</onlink>
+          </citeinfo>
+        </srccite>
+        <typesrc>Online digital data</typesrc>
+        <srctime>
+          <timeinfo>
+            <rngdates>
+              <begdate>20100620</begdate>
+              <enddate>20100722</enddate>
+            </rngdates>
+          </timeinfo>
+          <srccurr>The date when lidar surveys were collected.</srccurr>
+        </srctime>
+        <srccitea>10CNT08</srccitea>
+        <srccontr>Lidar survey that was used to estimate dune morphology variables.</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>For dune morphology data: Elevation data from lidar surveys were interpolated in MATLAB to a gridded domain that was rotated parallel to the shoreline and had a resolution of 10 m in the longshore direction and 2.5 m in the cross-shore direction. The interpolation method applies spatial filtering with a Hanning window that is twice as wide as the grid resolution. Dune morphology data are extracted from the elevation grid in MATLAB. Dune morphology data are then summarized to 1 km sections. Sections with greater than 75 percent of data missing are flagged with the invalid number of -999. The 1-kilometer smoothed dune crest, toe and root mean square (RMS) error for each were written to line shapefiles using MATLAB's shapewrite.m script.</procdesc>
+        <srcused>09CNT06</srcused>
+        <srcused>DS 839</srcused>
+        <srcused>10CNT06</srcused>
+        <srcused>10CNT08</srcused>
+        <procdate>2016</procdate>
+        <srcprod>Dune morphology (DHIGH, DLOW, DHIrms, DLOrms)</srcprod>
+        <proccont>
+          <cntinfo>
+            <cntorgp>
+              <cntorg>U.S. Geological Survey</cntorg>
+              <cntper>Kara S. Doran</cntper>
+            </cntorgp>
+            <cntaddr>
+              <addrtype>mailing and physical</addrtype>
+              <address>600 4th Street South</address>
+              <city>Saint Petersburg</city>
+              <state>FL</state>
+              <postal>33701</postal>
+              <country>UNITED STATES</country>
+            </cntaddr>
+            <cntvoice>727-502-8117</cntvoice>
+            <cntfax>727-502-8181</cntfax>
+            <cntemail>kdoran@usgs.gov</cntemail>
+          </cntinfo>
+        </proccont>
+      </procstep>
+      <procstep>
+        <procdesc>For hydrodynamic data: Water level is computed in MATLAB by adding storm surge from NOAAs SLOSH model to wave setup and runup. The wave height and period for calculating wave runup and setup come from the SWAN model. Hydrodynamic parameters were calculated in MATLAB and exported into ArcGIS format.
+For details on modeling parameterization, see:
+Stockdon, H.F., Doran, K.J., Thompson, D.M., Sopkin, K.L., Plant, N.G., and Sallenger, A.H., 2012, National assessment of hurricane-induced coastal erosion hazards: Gulf of Mexico: U.S. Geological Survey Open-File Report 2012-1084, 51 p. http://pubs.usgs.gov/of/2012/1084/</procdesc>
+        <srcused>MOM</srcused>
+        <srcused>SWAN</srcused>
+        <procdate>2016</procdate>
+        <srcprod>Hydrodynamics (SURGE, SETUP, RUNUP)</srcprod>
+        <proccont>
+          <cntinfo>
+            <cntorgp>
+              <cntorg>U.S. Geological Survey</cntorg>
+              <cntper>Kara S. Doran</cntper>
+            </cntorgp>
+            <cntaddr>
+              <addrtype>mailing and physical</addrtype>
+              <address>600 4th Street South</address>
+              <city>Saint Petersburg</city>
+              <state>FL</state>
+              <postal>33701</postal>
+              <country>UNITED STATES</country>
+            </cntaddr>
+            <cntvoice>727-502-8117</cntvoice>
+            <cntfax>727-502-8181</cntfax>
+            <cntemail>kdoran@usgs.gov</cntemail>
+          </cntinfo>
+        </proccont>
+      </procstep>
+      <procstep>
+        <procdesc>Probabilities of coastal erosion hazards are based on estimating the likelihood that the beach system will experience erosion and deposition patterns consistent with collision, overwash, or inundation regimes. The regimes are calculated by using values of dune morphology and mean and extreme water levels for each 1 km section, such that probability of collision occurs when extreme water levels reach the dune toe; overwash when extreme water levels reach the dune crest; and inundation when mean water levels reach the dune crest. Probabilities were calculated in MATLAB and exported in ArcGIS format.
+For details on modeling parameterization, see:
+Stockdon, H.F., Doran, K.J., Thompson, D.M., Sopkin, K.L., Plant, N.G., and Sallenger, A.H., 2012, National assessment of hurricane-induced coastal erosion hazards: Gulf of Mexico: U.S. Geological Survey Open-File Report 2012-1084, 51 p. http://pubs.usgs.gov/of/2012/1084/</procdesc>
+        <srcused>Dune morphology</srcused>
+        <srcused>Hydrodynamics</srcused>
+        <procdate>2016</procdate>
+        <srcprod>Probabilities (PCOL, POVW, PIND)</srcprod>
+        <proccont>
+          <cntinfo>
+            <cntorgp>
+              <cntorg>U.S. Geological Survey</cntorg>
+              <cntper>Kara S. Doran</cntper>
+            </cntorgp>
+            <cntaddr>
+              <addrtype>mailing and physical</addrtype>
+              <address>600 4th Street South</address>
+              <city>Saint Petersburg</city>
+              <state>FL</state>
+              <postal>33701</postal>
+              <country>UNITED STATES</country>
+            </cntaddr>
+            <cntvoice>727-502-8117</cntvoice>
+            <cntfax>727-502-8181</cntfax>
+            <cntemail>kdoran@usgs.gov</cntemail>
+          </cntinfo>
+        </proccont>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>String</sdtstype>
+        <ptvctcnt>2217</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>8.9831528411952133e-009</latres>
+        <longres>8.9831528411952133e-009</longres>
+        <geogunit>Decimal Degrees</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>D WGS 1984</horizdn>
+        <ellips>WGS 1984</ellips>
+        <semiaxis>6378137.0</semiaxis>
+        <denflat>298.257223563</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>GOM_erosion_hazards</enttypl>
+        <enttypd>Probabilities of hurricane-induced coastal erosion, dune morphology, and hurricane hydrodynamic data. Null data are represented by -999.</enttypd>
+        <enttypds>USGS</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>FID</attrlabl>
+        <attrdef>Internal feature number.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Sequential unique whole numbers that are automatically generated.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+        <attrdomv>
+          <udom>Coordinates defining the features.</udom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DHIGH</attrlabl>
+        <attrdef>Elevation of dune crest in meters NAVD88.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.56</rdommin>
+            <rdommax>10.64</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DLOW</attrlabl>
+        <attrdef>Elevation of the dune toe in meters NAVD88.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.55</rdommin>
+            <rdommax>4.55</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DHIrms</attrlabl>
+        <attrdef>Root mean squared error of dune crest elevation measurements (square meters).</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.015</rdommin>
+            <rdommax>3.84</rdommax>
+            <attrunit>square meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DLOrms</attrlabl>
+        <attrdef>Root mean square error of dune toe elevation measurements (square meters).</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.011</rdommin>
+            <rdommax>1.47</rdommax>
+            <attrunit>square meters</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SURGE1</attrlabl>
+        <attrdef>Storm surge water level for a category 1 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.95</rdommin>
+            <rdommax>2.48</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SURGE2</attrlabl>
+        <attrdef>Storm surge water level for a category 2 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.67</rdommin>
+            <rdommax>4.19</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SURGE3</attrlabl>
+        <attrdef>Storm surge water level for a category 3 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.30</rdommin>
+            <rdommax>5.72</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SURGE4</attrlabl>
+        <attrdef>Storm surge water level surge for a category 4 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.97</rdommin>
+            <rdommax>7.23</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SURGE5</attrlabl>
+        <attrdef>Storm surge water level for a category 5 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>3.59</rdommin>
+            <rdommax>8.51</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RUNUP1</attrlabl>
+        <attrdef>Wave runup water level for a category 1 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.08</rdommin>
+            <rdommax>9.51</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RUNUP2</attrlabl>
+        <attrdef>Wave runup water level for a category 2 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.14</rdommin>
+            <rdommax>9.84</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RUNUP3</attrlabl>
+        <attrdef>Wave runup water level for a category 3 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.25</rdommin>
+            <rdommax>10.31</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RUNUP4</attrlabl>
+        <attrdef>Wave runup water level for a category 4 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.38</rdommin>
+            <rdommax>10.93</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RUNUP5</attrlabl>
+        <attrdef>Wave runup water level for a category 5 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.44</rdommin>
+            <rdommax>11.19</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SETUP1</attrlabl>
+        <attrdef>Wave setup water level for a category 1 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.03</rdommin>
+            <rdommax>3.95</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SETUP2</attrlabl>
+        <attrdef>Wave setup water level for a category 2 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.03</rdommin>
+            <rdommax>4.09</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SETUP3</attrlabl>
+        <attrdef>Wave setup water level for a category 3 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.03</rdommin>
+            <rdommax>4.28</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SETUP4</attrlabl>
+        <attrdef>Wave setup water level for a category 4 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.03</rdommin>
+            <rdommax>4.54</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>SETUP5</attrlabl>
+        <attrdef>Wave setup water level for a category 5 storm.</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.03</rdommin>
+            <rdommax>4.64</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PCOL1</attrlabl>
+        <attrdef>Probability of collision from category 1 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>81.78</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PCOL2</attrlabl>
+        <attrdef>Probability of collision from category 2 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>94.18</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PCOL3</attrlabl>
+        <attrdef>Probability of collision from category 3 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>98.12</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PCOL4</attrlabl>
+        <attrdef>Probability of collision from category 4 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>99.47</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PCOL5</attrlabl>
+        <attrdef>Probability of collision from category 5 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>99.78</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>POVW1</attrlabl>
+        <attrdef>Probability of overwash from category 1 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.01</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>POVW2</attrlabl>
+        <attrdef>Probability of overwash from category 2 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.15</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PVW3</attrlabl>
+        <attrdef>Probability of overwash from category 3 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.06</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>POVW4</attrlabl>
+        <attrdef>Probability of overwash from category 4 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>14.73</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>POVW5</attrlabl>
+        <attrdef>Probability of overwash from category 5 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>39.15</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PIND1</attrlabl>
+        <attrdef>Probability of inundation from category 1 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PIND2</attrlabl>
+        <attrdef>Probability of inundation from category 2 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PIND3</attrlabl>
+        <attrdef>Probability of inundation from category 3 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PIND4</attrlabl>
+        <attrdef>Probability of inundation from category 4 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.03</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PIND5</attrlabl>
+        <attrdef>Probability of inundation from category 5 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <rdom>
+            <rdommin>0.55</rdommin>
+            <rdommax>100.0</rdommax>
+            <attrunit>percent</attrunit>
+          </rdom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MEAN1</attrlabl>
+        <attrdef>Mean water level (Setup + Surge) for a category 1 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>1.38</rdommin>
+            <rdommax>5.18</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MEAN2</attrlabl>
+        <attrdef>Mean water level (Setup + Surge) for a category 2 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.22</rdommin>
+            <rdommax>6.66</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MEAN3</attrlabl>
+        <attrdef>Mean water level (Setup + Surge) for a category 3 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>2.88</rdommin>
+            <rdommax>7.90</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MEAN4</attrlabl>
+        <attrdef>Mean water level (Setup + Surge) for a category 4 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>3.48</rdommin>
+            <rdommax>9.30</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>MEAN5</attrlabl>
+        <attrdef>Mean water level (Setup + Surge) for a category 5 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>4.18</rdommin>
+            <rdommax>10.74</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>EXTREME1</attrlabl>
+        <attrdef>Extreme water level (Runup + Surge) for a category 1 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>3.51</rdommin>
+            <rdommax>10.74</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>EXTREME2</attrlabl>
+        <attrdef>Extreme water level (Runup + Surge) for a category 2 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>4.38</rdommin>
+            <rdommax>12.42</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>EXTREME3</attrlabl>
+        <attrdef>Extreme water level (Runup + Surge) for a category 3 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.13</rdommin>
+            <rdommax>13.93</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>EXTREME4</attrlabl>
+        <attrdef>Extreme water level (Runup + Surge) for a category 4 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>5.86</rdommin>
+            <rdommax>15.41</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>EXTREME5</attrlabl>
+        <attrdef>Extreme water level (Runup + Surge) for a category 5 storm</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>-999</edomv>
+            <edomvd>Null value</edomvd>
+            <edomvds>USGS</edomvds>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <rdom>
+            <rdommin>6.62</rdommin>
+            <rdommax>16.63</rdommax>
+            <attrunit>meters NAVD88</attrunit>
+          </rdom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>Kara S. Doran</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>600 4th Street Sourth</address>
+          <city>Saint Petersburg</city>
+          <state>FL</state>
+          <postal>33701</postal>
+        </cntaddr>
+        <cntvoice>727-502-8117</cntvoice>
+        <cntfax>727-502-8181</cntfax>
+        <cntemail>kdoran@usgs.gov</cntemail>
+        <cntinst>All of this report is available on-line.</cntinst>
+      </cntinfo>
+    </distrib>
+    <distliab>Although these data have been processed successfully on a computer system at the USGS, no warranty expressed or implied is made regarding the display or utility of the data on any other system, or for general or scientific purposes, nor shall the act of distribution constitute any such warranty. The USGS shall not be held liable for improper or incorrect use of the data described and/or contained herein. Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>shapefiles</formname>
+          <filedec>zip</filedec>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>http://coastal.er.usgs.gov/ data-release/doi- F7QC01KZ/data/GOM_erosion_hazards.zip</networkr>
+                <networkr>http://pubs.usgs.gov/of/2012/1084/</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+      <fees>None, if obtained online.</fees>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20160429</metd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey</cntorg>
+          <cntper>Kara S. Doran</cntper>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>600 4th Street South</address>
+          <city>Saint Petersburg</city>
+          <state>FL</state>
+          <postal>33701</postal>
+          <country>UNITED STATES</country>
+        </cntaddr>
+        <cntvoice>727-502-8117</cntvoice>
+        <cntfax>727-502-8181</cntfax>
+        <cntemail>kdoran@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standard for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <mettc>local time</mettc>
+  </metainfo>
+</metadata>

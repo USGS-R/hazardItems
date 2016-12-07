@@ -24,7 +24,7 @@ historical.service = function(serviceEndpoint,attribute){
 	
 	subTypeDataSrc <- names(sourceSynonyms)
 
-	doc <- xmlInternalTreeParse(serviceEndpoint)
+	doc <- grabXML(serviceEndpoint)
 	
 	datasetTitle	<-	xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
 	abstract	<-	xmlValue(getNodeSet(doc,'//descript/abstract')[[1]])

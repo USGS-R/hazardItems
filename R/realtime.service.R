@@ -8,7 +8,7 @@
 #'@importFrom jsonlite toJSON
 #'@import XML
 #'@examples
-#'serviceEndpoint  <-	'http://olga.er.usgs.gov/data/NACCH/GOM_erosion_hazards_metadata.xml'
+#'serviceEndpoint  <-	system.file('extdata', "GOM_erosion_hazards_metadata.xml", package = 'hazardItems')
 #'attribute	<-	'PCOL'
 #'summary	<-	realtime.service(serviceEndpoint,attribute)
 #'print(summary)
@@ -18,7 +18,7 @@ realtime.service = function(serviceEndpoint,attribute=NULL){
 
 	subTypeDataSrc <- names(sourceSynonyms)
 
-	doc <- xmlInternalTreeParse(serviceEndpoint)
+	doc <- grabXML(serviceEndpoint)
 	title <- xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
   titleParts <- extractInfoFromTitle(title)
   

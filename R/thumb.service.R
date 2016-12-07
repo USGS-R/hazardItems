@@ -6,7 +6,7 @@
 #'@import maps mapdata scales png
 #'@importFrom httr GET write_disk
 #'@examples
-#'serviceEndpoint <- 'http://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
+#'serviceEndpoint <- 'https://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
 #'thumb.service(serviceEndpoint)
 #'@export
 thumb.service <- function(json.url){
