@@ -18,7 +18,7 @@ storm.service = function(serviceEndpoint,attribute){
 
 	subTypeDataSrc <- names(sourceSynonyms)
 
-	doc <- xmlInternalTreeParse(serviceEndpoint)
+	doc <- grabXML(serviceEndpoint)
 
 	title <- xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
 	abstract	<-	xmlValue(getNodeSet(doc,'//descript/abstract')[[1]])

@@ -18,7 +18,7 @@ realtime.service = function(serviceEndpoint,attribute=NULL){
 
 	subTypeDataSrc <- names(sourceSynonyms)
 
-	doc <- xmlInternalTreeParse(serviceEndpoint)
+	doc <- grabXML(serviceEndpoint)
 	title <- xmlValue(getNodeSet(doc,'//citation/citeinfo/title')[[1]])
   titleParts <- extractInfoFromTitle(title)
   
