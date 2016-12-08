@@ -21,7 +21,7 @@ addLayer = function(filename, ...) {
   
   checkAuth(...)
   
-  layerUrl <- pkg.env$item_layer
+  layerUrl <- pkg.env$item_layer_post
   
   response <- POST(url=layerUrl, body=rawData, 
                    content_type('application/octet-stream'),
