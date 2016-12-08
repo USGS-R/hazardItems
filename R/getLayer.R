@@ -10,7 +10,7 @@
 #'}
 #'@export 
 getLayer <- function(layerId){
-  url = paste0(pkg.env$item_layer_get, layerId)
+  url = paste0(pkg.env$item_layer, layerId)
   response <- GET(url = url, accept_json())
   
   if (response$status_code != 200){
