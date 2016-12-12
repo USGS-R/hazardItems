@@ -22,14 +22,12 @@ grabXML = function(serviceEndpoint){
   #if xml
   if (!grepl("http", serviceEndpoint)) {
     
-    doc <- xmlParse(serviceEndpoint)
+    doc <- xmlInternalTreeParse(serviceEndpoint)
     
   }#if http 
   else {
     
-    endpoint <- httr::GET(serviceEndpoint)
-    endpoint <- content(endpoint, as="text")
-    doc <- xmlParse(endpoint)
+    doc <- xmlInternalTreeParse(rawToChar(GET(serviceEndpoint)$content))
     
   } 
   
