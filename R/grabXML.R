@@ -27,7 +27,9 @@ grabXML = function(serviceEndpoint){
   }#if http 
   else {
     
-    doc <- xmlInternalTreeParse(rawToChar(GET(serviceEndpoint)$content))
+    doc <- GET(serviceEndpoint)$content
+    doc <- rawToChar(doc)
+    doc <- xmlInternalTreeParse(doc)
     
   } 
   
