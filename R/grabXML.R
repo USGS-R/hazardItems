@@ -20,7 +20,8 @@
 grabXML = function(serviceEndpoint){
   
   #if xml
-  if (!grepl("http", serviceEndpoint)) {
+  checkhttp <- substr(serviceEndpoint, 0, 4)
+  if (!grepl("http", checkhttp)) {
     
     doc <- xmlInternalTreeParse(serviceEndpoint)
     
