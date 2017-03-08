@@ -74,6 +74,7 @@ storm.service = function(serviceEndpoint,attribute){
 		'version'=as.character(packageVersion(getPackageName())),
 		'tiny'=list('text'=tiny.text),
 		'medium'=list('title'=medium.title,'text'=medium.summary),
+		'legend'=list('title'=medium.title),
 		'full'=list('title'=full.title,'text'=full.text,'publications'=full.publications),
 		'keywords'=keywords), auto_unbox = TRUE )
 	summaryJSON	<-	sub('NULL. ','',summaryJSON)
