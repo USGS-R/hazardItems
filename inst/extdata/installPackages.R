@@ -91,5 +91,9 @@ pkgs <-
     value = TRUE, fixed = TRUE, invert = TRUE
   )
 
-# all packages are held back to older, MRAN versions
-installPackages(c(pkgs, "devtools"), lib, "https://mran.microsoft.com/snapshot/2017-04-06")
+# all packages are held back to older, MRAN versions, unless it's dev, then the Dev Jenkins job should pass in -useCran TRUE
+if (useCran) {
+  installPackages(c(pkgs, "devtools"), lib, "https://cran.rstudio.com/")
+} else {
+  installPackages(c(pkgs, "devtools"), lib, "https://mran.microsoft.com/snapshot/2017-04-06")  
+}
