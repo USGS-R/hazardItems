@@ -16,12 +16,12 @@ Copyright: This software is in the public domain because it contains materials
 Depends:
     R (>= 3.1.0)
 Imports:
-    mapdata,
     XML,
     png,
     scales,
     jsonlite,
     maps,
+    mapdata,
     httr,
     base64enc,
     yaml
