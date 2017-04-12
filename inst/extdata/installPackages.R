@@ -38,6 +38,12 @@ hazardItemsImports <- function (lib.loc = NULL, encoding = "") {
   }
 
   imports <- strsplit(unlist(desc$Imports), "[\n,]+")
+  #get depends too
+  depends <- strsplit(unlist(desc$Depends), "[\n,]+")
+  #remove the R version specification
+  depends <- list(depends[[1]][3])
+  #merge them all back together
+  imports <- Map(c, imports, depends)
   return(imports[[1]][-1]) # hack to remove "" from results of strsplit() above
 }
 
