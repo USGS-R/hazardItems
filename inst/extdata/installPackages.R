@@ -103,7 +103,7 @@ pkgs <-
 
 # all packages are held back to older, MRAN versions, unless it's dev, then the Dev Jenkins job should use latest and greatest
 if (length(args)==0) {
-  installPackages(c(pkgs, "devtools"), lib, "https://mran.microsoft.com/snapshot/2017-04-06")  
+  installPackages(c(pkgs, "devtools"), lib, "http://mran.microsoft.com/snapshot/2017-04-06")  
   } else if (length(args)==1) {
-    installPackages(c(pkgs, "devtools"), lib, "https://cran.rstudio.com/")
+    installPackages(c(pkgs, "devtools"), lib, "http://cran.rstudio.com/")
 }
