@@ -15,7 +15,7 @@ checkItemExists <- function(itemID) {
   
   response <- GET(url = paste0(pkg.env$item_json, itemID))
   
-  return(http_status(response)$category == "Success")
+  return(http_status(response)$category == "success" | http_status(response)$category == "Success")
   
   
 }

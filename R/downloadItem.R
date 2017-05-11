@@ -13,5 +13,5 @@
 downloadItem = function(itemId, ...) {
   downloadUrl <- paste0(pkg.env$item_download, itemId)
   response <- GET(url=downloadUrl)
-  return(http_status(response)$category == "Success")
+  return(http_status(response)$category == "success" | http_status(response)$category == "Success")
 }

@@ -31,6 +31,6 @@ refreshItemThumbnail <- function(itemID, ...) {
                    content_type('text/plain'),
                    add_headers('Authorization' = getAuth(), 'Connection'='keep-alive'))
   
-  return(http_status(response)$category == "Success")
+  return(http_status(response)$category == "success" | http_status(response)$category == "Success")
   
 }
