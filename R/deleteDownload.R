@@ -18,5 +18,5 @@ deleteDownload = function(itemId, ...) {
   response <- DELETE(url=downloadUrl,
                    add_headers('Authorization' = getAuth(),
                                'Connection'='keep-alive'))
-  return(http_status(response)$category == "success" | http_status(response)$category == "Success")
+  return(tolower(http_status(response)$category) == "success")
 }

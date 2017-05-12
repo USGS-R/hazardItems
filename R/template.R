@@ -43,5 +43,5 @@ template = function(templateId, items, ...) {
   response <- POST(url=url, body=json,
                    content_type('application/json'),
                    add_headers('Authorization' = getAuth(), 'Connection'='keep-alive'))
-  return(http_status(response)$category == "success" | http_status(response)$category == "Success")
+  return(tolower(http_status(response)$category) == "success")
 }
