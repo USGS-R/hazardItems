@@ -17,5 +17,5 @@ deleteTileCache = function(...) {
   response <- DELETE(url=tileCacheUrl,
                      add_headers('Authorization' = getAuth(),
                                  'Connection'='keep-alive'), verbose())
-  return(http_status(response)$category == "Success")
+  return(tolower(http_status(response)$category) == "success")
 }

@@ -26,8 +26,7 @@ addLayer = function(filename, ...) {
   response <- POST(url=layerUrl, body=rawData, 
                    content_type('application/octet-stream'),
                    add_headers('Authorization' = getAuth(), 'Connection'='keep-alive'))
-  
-  if (http_status(response)$category == "Success") {
+  if (tolower(http_status(response)$category) == "success") {
     location <- headers(response)$Location
     bits <- strsplit(location,"/")
     id <- tail(bits[[1]],n=1)
