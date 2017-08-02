@@ -27,8 +27,8 @@ Getting started in R is easy! Check out how to set up your local environment wit
 This package is considered a 'support' package. For more information, see:
 [https://owi.usgs.gov/R/packages.html#support](https://owi.usgs.gov/R/packages.html#support)
 
-#Introduction
 
+## Introduction
 
 This package **hazardItems** provides services in support of coastal change hazards items for the Coastal Change Hazards Portal at <a href="http://marine.usgs.gov/coastalchangehazardsportal" target="_blank">marine.usgs.gov/coastalchangehazardsportal</a>.  
     
@@ -54,7 +54,8 @@ The hazardItems.yaml file copies itself to your working directory location and i
 
 The user can also store their active directory credentials in this file, if desired, so they do not need to re-enter them each time they run the `createStorm()` function.
 
-#Installation
+
+## Installation
 To install **hazardItems** 
 
 Install package with dependencies:
@@ -65,7 +66,7 @@ install.packages("hazardItems",
   dependencies = TRUE, type = 'both')
 ```
 
-#Updating 
+## Updating 
 To update **hazardItems**
 
 
@@ -73,9 +74,9 @@ To update **hazardItems**
 update.packages(repos = c("http://owi.usgs.gov/R", "http://cran.rstudio.com/"))
 ```
 
-#Item Metadata Packages
+## Item Metadata Packages
 
-##Historical Metadata
+### Historical Metadata
 `historical.service` parses the metadata record and creates a summary specific to the HISTORICAL theme, with subtype being defined by the attribute name. For example, to create a historical item from a local shapefile metadata file called NewJerseyS_shorelines.shp.xml and create a subtype named 'date':
 
 
@@ -90,7 +91,7 @@ cat(summary)
 sink()
 ```
 
-##Storm Service Metadata
+### Storm Service Metadata
 `storm.service` parses the metadata record and creates a summary specific to the STORM theme, with a subtype being defined by the attribute name. For example, to create a storm item from a remote url with an attribute named 'PCOL3':
 
 
@@ -101,7 +102,7 @@ summary	<-	storm.service(serviceEndpoint,attribute)
 print(summary)
 ```
 
-##Vulnerability Service Metadata
+### Vulnerability Service Metadata
 `vulnerability.service` parses the metadata record and creates a summary specific to the VULNERABILITY theme, with subtype being defined by the attribute name. The serviceEndpoint can be any valid xml file, either locally hosted or at a remote URL. For example, to create a vulnerability item from a local shapefile metadata file called `CVI_Pacific.shp.xml` and create an attribute named `SEA_LEVEL`:
 
 
@@ -114,7 +115,7 @@ print(summary)
 ```
 
 
-##Real Time Storm Item Creation
+### Real Time Storm Item Creation
 A real-time storms event item is established in a special way. When it needs to be updated, the parent aggregation is dropped and re-created each time a model update is run and NACCH scientists want to update the data by using the `createStorm()` function. The parent item represents the storm. For example, "Hurricane Sandy" could be the title of a parent aggregation item for a real-time storm. The NOAA NHC Hurricane cone, track and points are all added automatically when the `createStorm()` function is run. 
 
 <br />
@@ -132,7 +133,7 @@ Where the model output shapefile is zipped into a zip file and pointed through i
 
 When this function completes, the user must record the ID returned in the console (e.g. CAQw7M1) and use that argument in the function `templateId = "CAQw7M1")` for future updates to the same active storm.
 
-##Updating a Real Time Storm Item
+### Updating a Real Time Storm Item
 If a user wants to update the model run output on an existing real time storm item, they must have the templateId handy, and follow the example workflow to update the real time storm:
 
 
@@ -144,7 +145,7 @@ createStorm(templateId = "CAQw7M1", "D:\\mkhdata\\model_output\\Sandy_CIDA060520
 
 When this function is run to replace the existing out of date item, the previously posted parent and children are orphaned. Record the new templateId returned when the function is successful in order to replace with future updates.
 
-#Adding Layers to the Portal 
+## Adding Layers to the Portal 
 
 The `addLayer` function accepts a zipped shapefile and returns an itemID. Users can use this function to post new shapefiles to the Portal. The zipped shapefile must be put into your environment's `extdata` directory and the package `hazardItems` must be rebuilt to be available to R. If the user is not currently authenticated, the `checkAuth` function will be called and the user will be asked for a valid username and password
 
@@ -155,8 +156,8 @@ addLayer("D:\\mkhdata\\new_data\\Sandy_CIDA.zip"))
 ```
 
 
-#Rendering
-##Thumbnail Generation 
+# Rendering
+## Thumbnail Generation 
 
 The `thumb.service` accepts a json URL and creates a handsome thumbnail preview of the layer. For the CCH Portal, the thumbnails are used on the <a href="https://marine.usgs.gov/coastalchangehazardsportal/publish/item/">mediation page</a> as an item preview, in your Bucket and in the search results panel.
 
@@ -168,11 +169,11 @@ thumb.service(serviceEndpoint)
 ```
 
 
-#Refresh/delete of various caches
+# Refresh/delete of various caches
 
 There are a number of functions that are available to clear out cached contents when items change. 
 
-##Delete Entire Application Tile Cache
+## Delete Entire Application Tile Cache
 
 The `deleteTileCache` function takes the cache URL set by `pkg.env$tile_cache` and drops the entire tile cache for the application. The user must be authenticated to perform this task. The second argument is unnecessary, user need only set the base URL for the proper endpoint (dev, qa or prod) and run `deleteTileCache()`. 
 
@@ -186,7 +187,7 @@ tileCacheUrl <- pkg.env$tile_cache
 deleteTileCache() # if the user is not currently authenticated, the checkAuth function will be called and the user will be asked for a valid username and password
 ```
 
-##Delete Download Cache 
+## Delete Download Cache 
 
 The `deleteDownload' function accepts the itemID for an item and drops the cached download for the item. The user must be authenticated to perform this task. 
 
@@ -199,7 +200,7 @@ setBaseURL('dev') #setBaseURL("prod") in the event of production use.
 deleteDownload("CCNKrhr") #itemID you wish to delete the download cache for. if the user is not currently authenticated, the checkAuth function will be called and the user will be asked for a valid username and password
 ```
 
-##Reseed the Download Cache for an Item
+## Reseed the Download Cache for an Item
 
 You can reseed the download for an item by calling:
 
@@ -211,7 +212,7 @@ downloadItem("CCNKrhr") #itemID you wish to refresh the download for.
 The item download is also refreshed upon request, by visiting the back of the card.
 
 
-##Thumbnail Refresh
+## Thumbnail Refresh
 
 The `refreshItemThumbnail` accepts an item ID and will verify that the item exists, before putting a newly created thumbnail in the database.
 
@@ -222,7 +223,7 @@ setBaseURL('dev') #setBaseURL("prod") in the event of production use.
 refreshItemThumbnail("CCGftiy") #or whichever itemID you wish to regenerate and put
 ```
 
-##Refreshing/deleting items and aggregations - Example Workflow
+## Refreshing/deleting items and aggregations - Example Workflow
 
 The workflow for changing an item or aggregation and needing to refresh the various caches/downloads/bits includes:
 
@@ -241,7 +242,7 @@ The item downloads are not recreated automatically, but can be recreated by visi
 Bounding box updates are all currently built into the system and will update based on changes the user makes either via the mediation page or otherwise.
 
 
-#Health/Status Checks and Item info
+# Health/Status Checks and Item info
 
 There are a number of services that can be checked that will provide insight on the Portal's items. These services can be visited on all endpoints/tiers.
 
