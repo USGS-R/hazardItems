@@ -11,9 +11,6 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-
-
-
 hazardItems
 ==============
 [![Build Status](https://travis-ci.org/USGS-R/hazardItems.svg)](https://travis-ci.org/USGS-R/hazardItems)  
@@ -23,7 +20,12 @@ services for coastal change hazards items
 
 Getting started in R is easy! Check out how to set up your local environment with <a href="http://owi.usgs.gov/R/resources.html">this helpful set of resources from the USGS Office of Water Information R Community</a>. At a minimum, you'll need to have <a href="http://cran.rstudio.com/">R installed on your machine</a>.
 
+## Package Status
 
+[![status](https://img.shields.io/badge/USGS-Support-yellow.svg)](https://owi.usgs.gov/R/packages.html#support)
+
+This package is considered a 'support' package. For more information, see:
+[https://owi.usgs.gov/R/packages.html#support](https://owi.usgs.gov/R/packages.html#support)
 
 #Introduction
 
