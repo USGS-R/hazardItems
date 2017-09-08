@@ -2,6 +2,7 @@
 #'@description Create items associated with model run of a storm
 #'@param templateId id of the template to replace
 #'@param filename a shapefile to post
+#'@param aliasName (optional) the name of the alias to associate with this storm
 #'@param ... extra params to pass to checkAuth
 #'@details This will create all children associated with a storm
 #' and aggregate them under the template.
