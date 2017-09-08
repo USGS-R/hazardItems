@@ -35,6 +35,7 @@ setBaseURL = function(endpoint="prod"){
     cat('Setting endpoint to ',pkg.env$url_base,'\n')
   }
 
+  pkg.env$alias_json = paste0(pkg.env$url_base, "data/alias/")
   pkg.env$item_json = paste0(pkg.env$url_base, "data/item/")
   pkg.env$item_sld = paste0(pkg.env$url_base, "data/sld/")
   pkg.env$item_layer = paste0(pkg.env$url_base, 'data/layer/')

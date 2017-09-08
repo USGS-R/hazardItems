@@ -8,17 +8,36 @@
 #'@return character vector representing ID of new template
 #'@examples
 #'\dontrun{
-#'createStorm("CAQw7M1", system.file("extdata", "Sandy_CIDA.zip", 
+#'createStorm("CAQw7M1", system.file("extdata", "Sandy_CIDA.zip", "hurricane-sandy",
 #'    package="hazardItems"))
 #'}
 #'@export
-createStorm = function(templateId=NULL, filename, ...) {
+createStorm = function(templateId=NULL, filename, aliasName=NULL, ...) {
+  #Clean and validate alias, if provided
+  if(!is.null(aliasName)){
+    aliasName <- cleanAndValidateAlias(aliasName)
+    
+    if(is.null(aliasName)){
+      stop("Invalid alias name. Valid characters: Lowercase Letters, Numbers, and `-`.")
+    }
+  }
+  
   layerId = addLayer(filename, ...)
   newTemplate <- makeTemplateItem(layerId)
   newId <- saveItem(newTemplate)
   items = makeItemLayout(layerId)
   success = template(newId, items, ...)
   if (success) {
+    #Save alias, if applicable
+    if(!is.null(aliasName)){
+      aliasObject <- list(
+        "id" = aliasName,
+        "item_id" = newId
+      )
+      saveAlias(aliasObject, !aliasExists(aliasName))
+    }
+   
+    #Update uber
     uber <- getItem("uber")
     children <- uber$children
     if (!is.null(templateId)) {
