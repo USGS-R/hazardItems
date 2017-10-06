@@ -86,11 +86,11 @@ realtime.service = function(serviceEndpoint,attribute=NULL){
       full.title <- paste("Modeled", tolower(titleMap$medium[[subType]]), "during",
                           paste0(titleParts$name, ":"), titleParts$advFull)
       medium.text <- paste("The storm-induced", ifelse(subType == "mean",
-                           "mean water levels,", 
+                           "mean water levels (m, NAVD88),", 
                            "extreme (98% exceedance) water levels (m, NAVD88),"),
                            "at the shoreline for", paste0(titleParts$name, ": ", titleParts$advFull, "."))
       full.text <- paste("This dataset contains modeled storm-induced", ifelse(subType == "mean",
-                             "mean water levels (m, NAVD88), which includes both waves and surge,", 
+                             "mean water levels, which includes both waves and surge,", 
                              "extreme (98% exceedance) water levels, which includes wave runup and storm surge,"),
                          "at the shoreline during", paste0(titleParts$name, "."),
                          "Values were computed by summing modeled storm",
