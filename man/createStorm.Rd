@@ -4,12 +4,14 @@
 \alias{createStorm}
 \title{Create modeled storm}
 \usage{
-createStorm(templateId = NULL, filename, ...)
+createStorm(templateId = NULL, filename, aliasName = NULL, ...)
 }
 \arguments{
 \item{templateId}{id of the template to replace}
 
 \item{filename}{a shapefile to post}
+
+\item{aliasName}{(optional) the name of the alias to associate with this storm}
 
 \item{...}{extra params to pass to checkAuth}
 }
@@ -25,8 +27,7 @@ and aggregate them under the template.
 }
 \examples{
 \dontrun{
-createStorm("CAQw7M1", system.file("extdata", "Sandy_CIDA.zip", 
+createStorm("CAQw7M1", system.file("extdata", "Sandy_CIDA.zip", "hurricane-sandy",
    package="hazardItems"))
 }
 }
-

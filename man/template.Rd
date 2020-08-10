@@ -51,4 +51,3 @@ or replace existing items under a template
  template("CAQw7M1", items, authenticateUser(username))
 }
 }
-

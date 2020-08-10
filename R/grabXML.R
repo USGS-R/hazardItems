@@ -11,12 +11,13 @@
 #' @export
 #'
 #' @examples
+#'\dontrun{
 #'serviceEndpoint  <- paste0('https://cida.usgs.gov/coastalhazards/csw/?',
 #''service=CSW&request=GetRecordById&version=2.0.2&typeNames=fgdc:metadata',
 #''&id=urn:uuid:12d6c1ee-a9e6-11e3-99f6-0050569524e0&',
 #''outputSchema=http://www.opengis.net/cat/csw/csdgm&elementSetName=full')
 #'doc <- grabXML(serviceEndpoint)
-
+#}
 grabXML = function(serviceEndpoint){
   
   #if xml

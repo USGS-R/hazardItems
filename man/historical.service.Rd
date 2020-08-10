@@ -29,4 +29,3 @@ sink('output.json')
 cat(summary)
 sink()
 }
-

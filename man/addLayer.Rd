@@ -27,4 +27,3 @@ addLayer(system.file("extdata", "Sandy_CIDA.zip",
    package="hazardItems"))
 }
 }
-

@@ -25,4 +25,3 @@ attribute	<-	'PCOL3'
 summary	<-	storm.service(serviceEndpoint,attribute)
 print(summary)
 }
-

@@ -25,4 +25,3 @@ attribute	<-	'PCOL'
 summary	<-	realtime.service(serviceEndpoint,attribute)
 print(summary)
 }
-

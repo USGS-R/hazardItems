@@ -160,7 +160,7 @@ getSurgeDescription = function(doc) {
   text <- paste("The storm surge elevations along the open coast were obtained from the",
                 "National Oceanic and Atmospheric Administration's (NOAA)")
   srcUsed <- sapply(getNodeSet(doc, '//dataqual/lineage/procstep/srcused'), xmlValue)
-  if (has(srcUsed, "psurge", ignore.case=TRUE)) {
+  if (has(srcUsed, "psurge", ignore.case=TRUE) || has(srcUsed, "p-surge", ignore.case=TRUE)) {
     text <- paste(text, "probabilistic surge forecast (psurge), which is based on conditions specific to the",
                        "landfalling storm. Errors in hurricane forecasts are included in order to identify probable surge levels.",
                        "The 10% exceedance surge level was used to represent the worst-case scenario.")

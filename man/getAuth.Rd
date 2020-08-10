@@ -9,5 +9,7 @@ getAuth()
 \value{
 NULL if no auth token is set, otherwise auth header as string
 }
+\description{
+get auth header
+}
 \keyword{internal}
-
