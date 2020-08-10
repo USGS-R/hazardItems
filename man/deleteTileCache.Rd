@@ -21,4 +21,3 @@ destroys existing tile cache
  deleteTileCache(username='bbadger')
 }
 }
-

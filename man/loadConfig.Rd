@@ -16,4 +16,3 @@ loadConfig()
 \author{
 Jordan Walker
 }
-

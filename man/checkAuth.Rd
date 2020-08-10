@@ -15,8 +15,10 @@ be called if token is stale?}
 \value{
 boolean for auth token state
 }
+\description{
+check auth token and prompt for refresh if needed
+}
 \seealso{
 \code{\link{authenticateUser}}
 }
 \keyword{internal}
-

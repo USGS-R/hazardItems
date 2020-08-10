@@ -23,4 +23,3 @@ setBaseURL('dev')
 refreshItemThumbnail('CCGftiy')
 }
 }
-

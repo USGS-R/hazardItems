@@ -19,4 +19,3 @@ takes json url and creates summary image for item
 serviceEndpoint <- 'https://marine.usgs.gov/coastalchangehazardsportal/data/item/EuTmYy6a'
 thumb.service(serviceEndpoint)
 }
-

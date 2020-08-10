@@ -25,4 +25,3 @@ if \code{authenticateUser} is called with a \code{username} argument,
 only (e.g., \code{authenticateUser(password = '12345')})
 The username and password can also be specified in the config file
 }
-

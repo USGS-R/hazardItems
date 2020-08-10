@@ -29,4 +29,3 @@ updateStorm("CAQw7M1", system.file("extdata", "Sandy_CIDA.zip",
    package="hazardItems"))
 }
 }
-
